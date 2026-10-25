@@ -105,10 +105,14 @@ The public registry package is accessible anonymously and `public_dist_enabled` 
 
 The historical verification-record commit `e15d14c` changed documentation/evidence only. Revision 0.0.2 changes the flash import and canvas/side constraints, and therefore rebuilds and repeats affected fixture checks; no previous output is represented as current validation. It does not advance an electrical/mechanical stage gate.
 
-### Sourcing step 0.0.2 — current pre-push evidence
+### Sourcing step 0.0.2 — current GitHub evidence
 
 Completed the sourcing-review implementation step, starting from `e15d14c`. The current failed-build inspection Circuit JSON SHA-256 is `fa4b103bddbaf8ba09c41bc1e5e230790597fe0580332f47bf6e6c325d9c850c`. All three fixture Circuit JSON hashes are in `evidence/sourcing-20261025/build-artifact-checksums.json`. Flash copper comparison against the baseline confirms all eight pads match within 1e-9 mm. The BOM consistency command exits 0 while explicitly reporting 13 unresolved hardware pin errors and `fabrication_ready: false`.
 
 The lockfile's existing tscircuit/TypeScript ranges were synchronized to the already configured exact versions through `bun install --lockfile-only`; dependency versions did not change. A subsequent frozen install, formatting and TypeScript check all exit 0. No routed-board tests or fabrication exports were attempted because earlier gates remain blocked.
 
 Anonymous registry read on 2026-10-25 reconfirms public/unlisted=false and no release/version. Current CLI `push --help` reconfirms `--include-dist`; it supplies no publication exclusion flag. I-002 still blocks a conforming upload, so no excluded datasheets or qualification evidence were uploaded. GitHub push and anonymous hash verification for this step are recorded after the source commit below.
+
+Sourcing implementation commit [`d7f16d3`](https://github.com/AnasSarkiz/rp2040-bldc-servo-controller/commit/d7f16d34411995b04f663e9e61aa56bf0f7f4f9d) is pushed to the existing public repository's `main` branch. Anonymous GitHub REST metadata reconfirms public visibility. Anonymous downloads verified byte-for-byte SHA-256 matches for **all three generated Circuit JSON files, BOM.csv, SOURCING-CANDIDATES.csv and the new HRO manufacturer PDF**. The main JSON hash matches the failed-build inspection artifact above. Detailed URLs/hashes are in `evidence/publication-verification.json` and `evidence/sourcing-20261025/publication-verification.json`.
+
+GitHub update succeeded. Registry board release remains **blocked and unpublished**: the public package still has `latest_version: null`, no release, and no comparable Circuit JSON. This step is not fully published to both destinations and is not a completed controller. The following verification-record commit changes documentation/evidence only; source, imports, BOM, pinned dependencies and generated geometry remain identical to the linked sourcing implementation commit, so the recorded checks remain applicable.
