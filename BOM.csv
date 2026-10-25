@@ -1,0 +1,8 @@
+Reference Designator,Value,Manufacturer Part Number,LCSC Number,Footprint,Quantity,Sourcing Status
+U1,RP2040,RP2040,C2040,LQFN-56(7x7),1,"Import inspection only; supplier search stock 71563 on 2026-10-25; not approved for assembly"
+U2,Three-phase motor driver,DRV8316RRGFR,C5218861,VQFN-40(5x7),1,"Import inspection only; supplier search stock 2059 on 2026-10-25; not approved for assembly"
+U3,USB PD sink,STUSB4500QTR,C2678061,QFN-24-EP(4x4),1,"Import inspection only; supplier search stock 5024 on 2026-10-25; not approved for assembly"
+U4,16 Mbit QSPI flash,W25Q16JVSSIQ,C82317,SOIC-8-208mil,1,"Imported; LCSC identity verified 2026-10-25; JLCPCB search returns no stock record; assembly sourcing unresolved"
+U5,RS-485 transceiver,THVD1450DR,C2671361,SOIC-8,1,"Import inspection only; supplier search stock 5217 on 2026-10-25; not approved for assembly"
+U6,Optional external shaft encoder,AS5047P-ATSM,C962063,TSSOP-14,1,"Import inspection only; supplier search stock 4984 on 2026-10-25; final design intended for external encoder board"
+J1,USB-C receptacle,USB4215-03-A,C37616412,SMD with four plated shell slots,1,"Import inspection only; supplier search stock 1144 on 2026-10-25; not approved for assembly"

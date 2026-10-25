@@ -1,0 +1,27 @@
+{
+  "query": "W25Q16JVSSIQ",
+  "results": [
+    {
+      "source": "jlcpcb",
+      "lcsc": 17607784,
+      "mfr": "M55-7006842R",
+      "package": "SMD",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "",
+      "stock": 172,
+      "price": 4.8895
+    },
+    {
+      "source": "jlcpcb",
+      "lcsc": 7435162,
+      "mfr": "GAQW414EH",
+      "package": "SMD-8P",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "-40℃~+85℃ 1.2V 120mA 20us 20Ω 400V 500us 50mA 550mW 5kV AC,DC Two sets of normally closed: 2B (DPST-NC) SMD-8P Solid State Relays (MOS Output) ROHS",
+      "stock": 118,
+      "price": 2.8259
+    }
+  ]
+}

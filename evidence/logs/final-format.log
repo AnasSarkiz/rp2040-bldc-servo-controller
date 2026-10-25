@@ -1,0 +1,4 @@
+COMMAND: bun run format:check
+EXIT: 0
+Checked 1 file in 29ms. No fixes applied.
+$ biome format index.circuit.tsx

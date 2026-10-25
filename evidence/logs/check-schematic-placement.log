@@ -1,0 +1,10 @@
+COMMAND: bunx --no-install tscircuit-cli check schematic-placement index.circuit.tsx
+EXIT: 0
+<SchematicBoxPositions>
+<SchematicBoxPlacement componentName="U2" positionAnchor="center" schX="0" schY="7" width="1.4" height="4.4" />
+</SchematicBoxPositions>
+<SchematicPlacementIssues>
+<SchematicBoxInnerLabelCollision message="Labels DRVOFF (left) and nFAULT (right) are too close. Increase the schWidth to leave at least 0.1 schematic units between these labels." componentName="U2" currentSchWidth="1.4" currentSchHeight="4.4" overlappingSides="left,right" minimumLabelGap="0.1" suggestedSchWidth="1.49">
+  <PinLabelPair label1="DRVOFF" label2="nFAULT" port1="schematic_port_77" port2="schematic_port_78" side1="left" side2="right" kind="clearance" measuredGap="0.011" />
+</SchematicBoxInnerLabelCollision>
+</SchematicPlacementIssues>

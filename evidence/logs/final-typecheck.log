@@ -1,0 +1,3 @@
+COMMAND: bun run typecheck
+EXIT: 0
+$ tsc --noEmit

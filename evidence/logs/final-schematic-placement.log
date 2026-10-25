@@ -1,0 +1,3 @@
+COMMAND: bunx --no-install tscircuit-cli check schematic-placement index.circuit.tsx
+EXIT: 0
+

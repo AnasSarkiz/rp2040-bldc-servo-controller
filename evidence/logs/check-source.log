@@ -1,0 +1,4 @@
+COMMAND: bunx --no-install tscircuit-cli check source index.circuit.tsx
+EXIT: 0
+Errors: 0
+Warnings: 0

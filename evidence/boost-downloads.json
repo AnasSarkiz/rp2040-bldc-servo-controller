@@ -1,0 +1,16 @@
+[
+  {
+    "file": "datasheets/lm5122.pdf",
+    "url": "https://www.ti.com/lit/ds/symlink/lm5122.pdf",
+    "exit": 0,
+    "error": "",
+    "sha256": "21da2e9c191f61126b2603db156e9d3c5ea285a574f42b19aa67935208be924d"
+  },
+  {
+    "file": "datasheets/lm5122evm.pdf",
+    "url": "https://www.ti.com/lit/ug/snvu197/snvu197.pdf",
+    "exit": 0,
+    "error": "",
+    "sha256": "99d057b78009ad6902d626d772bab30c83de06a5aa5e208791f54dce1513711e"
+  }
+]

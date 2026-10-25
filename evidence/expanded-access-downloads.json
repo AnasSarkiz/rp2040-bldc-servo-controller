@@ -1,0 +1,26 @@
+[
+  {
+    "file": "mechanical/motor.pdf",
+    "url": "https://files.omc-stepperonline.com/42BSA46-24-01.pdf",
+    "exit": 56,
+    "error": "curl: (56) The requested URL returned error: 403\n"
+  },
+  {
+    "file": "mechanical/motor.step",
+    "url": "https://files.omc-stepperonline.com/42BSA46-24-01.stp",
+    "exit": 56,
+    "error": "curl: (56) The requested URL returned error: 403\n"
+  },
+  {
+    "file": "datasheets/stusb4500.pdf",
+    "url": "https://www.st.com.cn/resource/en/datasheet/stusb4500.pdf",
+    "exit": 92,
+    "error": "curl: (92) HTTP/2 stream 1 was not closed cleanly: INTERNAL_ERROR (err 2)\n"
+  },
+  {
+    "file": "datasheets/stusb4500-software-guide.pdf",
+    "url": "https://www.st.com/resource/en/user_manual/um2650-the-stusb4500-software-programing-guide-stmicroelectronics.pdf",
+    "exit": 92,
+    "error": "curl: (92) HTTP/2 stream 1 was not closed cleanly: INTERNAL_ERROR (err 2)\n"
+  }
+]

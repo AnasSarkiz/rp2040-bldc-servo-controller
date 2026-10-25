@@ -1,0 +1,1162 @@
+www.ti.com                                                                                                                                                           Table of Contents
+
+User’s Guide
+DRV8316xEVM Evaluation Module
+
+
+                                                                                   ABSTRACT
+This document is provided with the DRV8316xEVM customer evaluation module (EVM) as a supplement to the
+DRV8316 data sheet (DRV8316 4.5-V to 35-V Three-Phase Smart Gate Driver). This user's guide details the
+hardware implementation of the EVM and how to setup and power the board.
+
+                                                      Note
+        The EVM is populated and configured for the DRV8316R (SPI variant) device by default. To configure
+        the EVM for the DRV8316T (Hardware variant), please see Section 4.1.1.
+
+
+
+
+                                                                           Table of Contents
+1 Cautions and Warnings..........................................................................................................................................................3
+2 Introduction.............................................................................................................................................................................4
+3 Quick Start Guide....................................................................................................................................................................5
+4 Hardware and Software Overview.........................................................................................................................................6
+   4.1 LEDs, Switches, and Jumpers........................................................................................................................................... 6
+   4.2 Hardware Connections Overview – DRV8316xEVM + LAUNCHXL-F280049C.............................................................. 12
+   4.3 Connection Details........................................................................................................................................................... 13
+   4.4 Interfacing DRV8316xEVM and LAUNCHXL-F280049C LaunchPad™ .......................................................................... 16
+5 Hardware Setup.................................................................................................................................................................... 18
+6 Firmware and GUI Application.............................................................................................................................................19
+   6.1 C2000™ InstaSPIN™ Universal GUI.................................................................................................................................19
+   6.2 Motor Identification...........................................................................................................................................................20
+   6.3 Sensorless-FOC Commutation ....................................................................................................................................... 22
+   6.4 Torque and Speed Control............................................................................................................................................... 22
+   6.5 SPI Communication (DRV8316R only)............................................................................................................................ 23
+7 DRV8316xEVM Schematics..................................................................................................................................................24
+8 Revision History................................................................................................................................................................... 27
+
+                                                                              List of Figures
+Figure 2-1. DRV8316xEVM PCB Layout..................................................................................................................................... 4
+Figure 4-1. DRV8316xEVM LEDs................................................................................................................................................7
+Figure 4-2. User-Selectable Jumpers and DNP Components on Top Side of DRV8316xEVM................................................... 9
+Figure 4-3. User-Selectable Jumpers and DNP Components on Bottom Side DRV8316xEVM............................................... 10
+Figure 4-4. Resistor Divider Settings (R37-R46) and Resistors to Disable SPI (R9-R12)......................................................... 11
+Figure 4-5. Major DRV8316xEVM Hardware Blocks................................................................................................................. 13
+Figure 4-6. Connections From Motor to DRV8316xEVM...........................................................................................................14
+Figure 4-7. DRV8316xEVM on Headers J1/J3 and J2/J4 of LaunchPad™ and Micro-USB Plugged Into LaunchPad™ .......... 15
+Figure 5-1. Bottom Silk Screen Shows Names of Pins When Using an External MCU.............................................................18
+Figure 6-1. C2000™ InstaSPIN™ Universal GUI for DRV8316xEVM.........................................................................................19
+Figure 6-2. C2000™ InstaSPIN™ Universal GUI Downloading Program................................................................................... 20
+Figure 6-3. Motor Identification Using the DRV8316xEVM InstaSPIN™ GUI............................................................................ 21
+Figure 6-4. Sensorless Sinusoidal Commutation Using the DRV8316xEVM InstaSPIN™ GUI................................................. 22
+Figure 6-5. SPI Communication Using the DRV8316xEVM InstaSPIN™ GUI........................................................................... 23
+Figure 7-1. Main Supply, Reverse Polarity Protection, and Pi Filter Schematic........................................................................ 24
+Figure 7-2. Voltage Sense and Protection Schematic............................................................................................................... 24
+Figure 7-3. Connectors and Interface Schematic...................................................................................................................... 25
+Figure 7-4. DRV8316 3-phase BLDC Motor Driver Schematic..................................................................................................25
+Figure 7-5. VREF / ILIM Schematic........................................................................................................................................... 26
+Figure 7-6. 3.3V Integrated Buck Regulator Schematic............................................................................................................ 26
+
+
+SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021                                                                                            DRV8316xEVM Evaluation Module                    1
+Submit Document Feedback
+                                           Copyright © 2021 Texas Instruments Incorporated
+Trademarks                                                                                                                                                           www.ti.com
+
+Figure 7-7. TMS430F280049C LaunchPad Connections Schematic........................................................................................ 26
+Figure 7-8. Status LEDs Schematic...........................................................................................................................................27
+
+                                                                           List of Tables
+Table 2-1. DRV8316 variants.......................................................................................................................................................4
+Table 4-1. Description of DRV8316xEVM LEDs (default Upon powerup in bold)........................................................................ 6
+Table 4-2. Description of User Selectable Settings on DRV8316xEVM (default in bold).............................................................8
+Table 4-3. Status of Resistors for DRV8316R and DRV8316T Variants (defaults in bold)........................................................ 10
+Table 4-4. User-Adjustable Resistor Divider Settings for DRV8316T Variant (defaults in bold).................................................11
+Table 4-5. Connections for Header J3 on DRV8316xEVM (DNP in bold)..................................................................................16
+Table 4-6. Connections for Header J4 on DRV8316xEVM........................................................................................................ 16
+
+Trademarks
+LaunchPad™, C2000™, InstaSPIN™, are trademarks of Texas Instruments.
+All trademarks are the property of their respective owners.
+
+
+
+
+2       DRV8316xEVM Evaluation Module                                                                   SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021
+                                                                                                                                Submit Document Feedback
+                                                             Copyright © 2021 Texas Instruments Incorporated
+www.ti.com                                                                                                   Cautions and Warnings
+
+
+1 Cautions and Warnings
+Observe the following cautions and warnings as printed on the EVM board.
+                                                            HOT SURFACE:
+
+
+
+
+                        Caution Hot Surface! Contact may cause burns. Do not touch. Please take the proper
+                                                   precautions when operating.
+
+
+
+
+SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021                                                 DRV8316xEVM Evaluation Module     3
+Submit Document Feedback
+                                           Copyright © 2021 Texas Instruments Incorporated
+Introduction                                                                                                             www.ti.com
+
+
+2 Introduction
+The DRV8316 is an 4.5-V to 40-V, 8-A peak integrated three-phase gate driver IC for motor drive applications.
+It provides three accurately trimmed and temperature compensated half-bridges capable of directly driving a
+three-phase brushless-DC motor. Both the SPI variant (DRV8316R) and hardware interface variant (DRV8316T)
+integrates an adjustable buck regulator, flexible parameter settings such slew rate control, and protection
+features, and both are compatible with the DRV8316xEVM. See Table 2-1.
+                                             Table 2-1. DRV8316 variants
+    Device Name                                                Variant
+
+    DRV8316R                                                   Buck regulator and SPI
+
+    DRV8316T                                                   Buck regulator and Hardware
+
+
+Along with the hardware of the DRV8316xEVM, the TMS320F280049C microcontroller on the LAUNCHXL-
+F280049C LaunchPadTM has reference software that provides the algorithm to the DRV8316 to control the
+BLDC motor.
+This document serves as a startup guide to supplement the DRV8316xEVM + LAUNCHXL-F280049C BLDC
+motor control demonstration kit. It also is intended for engineers to design, implement, and validate reference
+hardware and software for the LaunchPad™ MCU and DRV8316R. For step-by-step details on connecting the
+LAUNCHXL-F280049C + DRV8316xEVM, installing software, and running the project to spin a motor, refer to
+Section 5 Hardware Setup.
+
+
+
+
+                                        Figure 2-1. DRV8316xEVM PCB Layout
+
+4       DRV8316xEVM Evaluation Module                                                SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021
+                                                                                                             Submit Document Feedback
+                                          Copyright © 2021 Texas Instruments Incorporated
+www.ti.com                                                                                                     Quick Start Guide
+
+
+3 Quick Start Guide
+The DRV8316xEVM requires a power-supply source, which has a recommended operating range from 4.5 V to
+35 V. To setup and power the EVM, use the following sequence:
+1. Connect the power supply ground to PGND of the two-pin power connector J5 and the voltage pin to
+   the VBAT pin. Ensure R13 on the bottom layer is not populated and that jumpers J1-J3 of the LAUNCHXL-
+   F280049C are populated (USB powers LaunchPad).
+2. Connect the motor phases to OUTA, OUTB, and OUTC. If using the Hall sensors, connect them to five-pin
+   connector J7 as Figure 4-6 shows. Select 3.3 V or HALL_EXT_PWR on jumper J8 to select Hall power
+   source.
+3. Mate the DRV8316xEVM onto the top half of the LAUNCHXL-F280049C (Launchpad Headers J1/J3 and
+   J2/J4) as Figure 4-7 shows. The motor and power connectors should face the same direction as the
+   Micro-USB connector on the LaunchPad.
+4. Power on the DRV8316xEVM.
+5. Connect a Micro-USB cable from the computer into the Micro USB connector on the top of the LAUNCHXL-
+   F280049C.
+
+
+
+
+SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021                                               DRV8316xEVM Evaluation Module    5
+Submit Document Feedback
+                                           Copyright © 2021 Texas Instruments Incorporated
+Hardware and Software Overview                                                                                                www.ti.com
+
+
+4 Hardware and Software Overview
+
+4.1 LEDs, Switches, and Jumpers
+There are LED indicators on both the LAUNCHXL-F280049C and DRV8316xEVM when power is provided.
+The LAUNCHXL-F280049 LaunchPad LEDs power up when the Micro-USB cable is plugged in and their
+functionalities are not modified upon powering the board.
+The DRV8316xEVM has four status LEDs implemented on the board. By default, the VM and 3.3-VBK LEDs
+will light up when the board is powered and the MCU LED (tied to GPIO59) can be used for debugging and
+validation. Table 4-3 shows LED descriptions including those that are on during power up in bold and Figure 4-1
+shows the locations of the LEDs.
+                 Table 4-1. Description of DRV8316xEVM LEDs (default Upon powerup in bold)
+                 Designator           Name               Color                  Description
+                 D1                   3.3VBK             Green                  Internal buck regulator is outputting
+                                                                                3.3 V
+                 D2                   nFAULT             Red                    Lights up when fault condition has
+                                                                                occurred on DRV8316
+                 D3                   VM                 Green                  Power is supplied to the board
+                 D4                   MCU_LED            Orange                 MCU debugging
+
+
+
+
+6     DRV8316xEVM Evaluation Module                                                       SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021
+                                                                                                                  Submit Document Feedback
+                                               Copyright © 2021 Texas Instruments Incorporated
+www.ti.com                                                                                       Hardware and Software Overview
+
+
+
+
+                                                                                                  VM LED
+
+
+
+
+                                              nFAULTLED         3.3VBK LED
+                                                                                             MCU LED
+
+
+
+
+                                                Figure 4-1. DRV8316xEVM LEDs
+
+
+
+
+SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021                                                DRV8316xEVM Evaluation Module   7
+Submit Document Feedback
+                                           Copyright © 2021 Texas Instruments Incorporated
+Hardware and Software Overview                                                                                                www.ti.com
+
+The DRV8316xEVM includes a variety of user-selectable jumpers and unpopulated components on the bottom
+and top layers of the PCB to choose user settings and evaluate the DRV8316 device. A summary of those
+selectable settings are listed in Table 4-2 (defaults in bold) and can be seen on the board in Figure 4-2 and
+Figure 4-3.
+             Table 4-2. Description of User Selectable Settings on DRV8316xEVM (default in bold)
+     Id.       Setting Name      Description                            Layer        Position               Function
+     A       3.3-V buck inductor User populates L1, L2, or R1 to          Top        L1 = 47 μH Inductor    Inductor Mode
+                                 choose switching component for
+                                                                        Bottom       L2 = 22 μH             Inductor Mode
+                                 buck regulator
+                                                                          Top        R1 = 22 Ω              Resistor Mode
+     B       VREF/ILIM           Select between using onboard             Top        J1 = Left              VREF
+                                 VREF or ILIM reference circuitry
+                                                                                     J1 = Right             ILIM
+     C       ILIM_SEL            Selects ILIM voltage reference for       Top        J2 = Left              ILIM comes from MCU DAC
+                                 cycle-by-cycle current limit                                               (R53 must be populated)
+                                                                                     J2 = Right             ILIM comes from R4/R7
+                                                                                                            voltage divider
+     D       HALL_PWR_SEL        Selects Hall power voltage               Top        J8 = Left              Hall power comes from
+                                                                                                            3.3VBK
+                                                                                     J8 = Right             Hall power is provided
+                                                                                                            externally
+     E       VREF select         Selects VREF source                      Top        R54 pop., R51 DNP      VREF = 3 V from EVM
+                                                                                     R54 DNP, R51 pop.      VREF comes from MCU
+     F       Rev. pol. Bypass    Bypasses reverse polarity              Bottom       R20 is populated       Bypass RPP and pi filter
+                                 protection and pi filter
+                                                                                     R20 is DNP             RPP and pi filter is used
+     G       3.3 V from          Connects buck voltage to               Bottom       R13 is populated       Connects 3.3VBK and
+             LaunchPad           LaunchPad 3.3 V                                                            LaunchPad 3.3 V
+                                                                                     R13 is DNP             No connection between
+                                                                                                            3.3VBK and LaunchPad
+                                                                                                            3.3 V
+     H       Center Tap          Used to measure center tap             Bottom       R33, R34, and R35      Center tap voltage of motor
+                                 voltage of motor (R52 must be                       are populated          can be measured through
+                                 populated)                                                                 C_TAP test point
+
+
+
+
+8     DRV8316xEVM Evaluation Module                                                       SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021
+                                                                                                                  Submit Document Feedback
+                                               Copyright © 2021 Texas Instruments Incorporated
+www.ti.com                                                                                                   Hardware and Software Overview
+
+
+
+
+                                                                            (A) 3.3V Buck Inductor
+                                                                         (L1/R1 on top, L2 on bottom)
+
+
+
+
+          DRV8316T (H/W var.)
+          Resistor dividers and
+          enable                                                                                              (D) J8 = HALL_PWR select
+
+
+
+
+                                                                                                                 (E) VREF select
+
+
+
+
+                                  (F) RC filters for   (C) J2 = ILIM select   (B) J1 = VREF/ILIM select
+                                    CSA outputs
+
+
+
+
+          Figure 4-2. User-Selectable Jumpers and DNP Components on Top Side of DRV8316xEVM
+
+
+
+
+SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021                                                            DRV8316xEVM Evaluation Module   9
+Submit Document Feedback
+                                           Copyright © 2021 Texas Instruments Incorporated
+Hardware and Software Overview                                                                                          www.ti.com
+
+
+
+
+         Figure 4-3. User-Selectable Jumpers and DNP Components on Bottom Side DRV8316xEVM
+
+4.1.1 DRV8316T Compatibility
+The DRV8316xEVM is compatible with the DRV8316T (H/W variant) as the featured motor driver IC to spin
+a three-phase Brushless-DC motor. The DRV8316T replaces the SPI settings with five specific pin settings
+(MODE, SLEW, OCP/SR, GAIN, and VSEL_BK) that can be adjusted through resistor dividers.
+When using the DRV8316T, the SPI enable resistors in the “Depop. if DRV8316T” silk screen box are to be
+depopulated (R9-R12) and the resistor dividers in the “Hardware Variant Resistors” silk screen box are to be
+populated (R37-R46) with the desired settings. Figure 4-4 shows this setup.
+Table 4-3 shows the status of populated and DNP resistors for the two compatible DRV8316x variants. Table 4-4
+shows the user-adjustable resistor divider settings when using the DRV8316T. R37-R41 resistors tie to AVDD
+and R42-R46 tie to AGND. The defaults of the two tables are in bold.
+                 Table 4-3. Status of Resistors for DRV8316R and DRV8316T Variants (defaults
+                                                     in bold)
+                 Device               Variant                 R9-R12 Status             R37-R46 Status
+                       DRV8316R                   SPI                Populated                    DNP
+                       DRV8316T                 Hardware                DNP                  User adjustable
+
+
+
+
+10    DRV8316xEVM Evaluation Module                                                 SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021
+                                                                                                            Submit Document Feedback
+                                         Copyright © 2021 Texas Instruments Incorporated
+www.ti.com                                                                                          Hardware and Software Overview
+
+
+
+
+              Figure 4-4. Resistor Divider Settings (R37-R46) and Resistors to Disable SPI (R9-R12)
+
+           Table 4-4. User-Adjustable Resistor Divider Settings for DRV8316T Variant (defaults in bold)
+ Setting          Name                 Description                        Resistors          Hardware             Setting
+                                                                          (AVDD/ AGND)
+ VSEL_BK          VBK                  Buck regulator average voltage     R40/R45            Tied to AGND         3.3 V
+                                       (LBK = 47 or 22 μH, CBK = 22 μF)
+                                                                                             Hi-Z                 5.0 V
+                                                                                             47 kΩ to AVDD        4.0 V
+                                                                                             Tied to AVDD         5.7 V
+ MODE             PWM Control Mode Selects the PWM control mode           R37/R42            Tied to AGND         6 × PWM
+                                   type
+                                                                                             Hi-Z                 6 × PWM with
+                                                                                                                  Current Limit
+                                                                                             47 kΩ to AVDD        3 × PWM
+                                                                                             Tied to AVDD         6× PWM with
+                                                                                                                  Current Limit
+ SLEW             Slew rate            Phase pin slew rate switching low R38/R43             Tied to AGND         25 V/µs
+                                       to high (10-90%) and high to low
+                                                                                             Hi-Z                 50 V/µs
+                                       (90-10%)
+                                                                                             47 kΩ to AVDD        125 V/µs
+                                                                                             Tied to AVDD         200 V/µs
+
+
+
+
+SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021                                                  DRV8316xEVM Evaluation Module     11
+Submit Document Feedback
+                                           Copyright © 2021 Texas Instruments Incorporated
+Hardware and Software Overview                                                                                                www.ti.com
+
+ Table 4-4. User-Adjustable Resistor Divider Settings for DRV8316T Variant (defaults in bold) (continued)
+ Setting           Name                 Description                      Resistors               Hardware               Setting
+                                                                         (AVDD/ AGND)
+ OCP/SR            Overcurrent          Selects the Mode for Overcurrent R41/R46                 Tied to AGND           OCP = 10 A
+                   Protection / Smart   and Smart Rectification Settings                                                ASR and AAR
+                   Rectification        (ASR = Automatic Synchronous                                                    Disabled
+                                        Rectification; AAR = Automatic
+                                                                                                 22 kΩ to AGND          OCP = 15 A
+                                        Asynchronous Rectification)
+                                                                                                                        ASR and AAR
+                                                                                                                        Disabled
+                                                                                                 100 kΩ to AGND         OCP = 10 A
+                                                                                                                        ASR Enabled
+                                                                                                 Hi-Z                   OCP = 10 A
+                                                                                                                        ASR and AAR
+                                                                                                                        Enabled
+                                                                                                 100 kΩ to AVDD         OCP = 15 A
+                                                                                                                        ASR Enabled
+                                                                                                 22 kΩ to AVDD          OCP = 15 A
+                                                                                                                        ASR and AAR
+                                                                                                                        Enabled
+                                                                                                 Tied to AVDD           OCP = 15 A
+                                                                                                                        ASR and AAR
+                                                                                                                        Enabled
+ GAIN              GCSA                 Current sense gain               R39/R44                 Tied to AGND           0.15 V/A
+                                                                                                 Hi-Z                   0.3 V/A
+                                                                                                 47 kΩ to AVDD          0.6 V/A
+                                                                                                 Tied to AVDD           1.2 V/A
+
+
+4.2 Hardware Connections Overview – DRV8316xEVM + LAUNCHXL-F280049C
+Figure 4-5 shows the major blocks of DRV8316xEVM plugin module that mounts to the J1/J3 and J2/J4 headers
+of the LAUNCHXL-F280049C LaunchPad development kit. The DRV8316xEVM is designed for an input supply
+from 4.5-V to 35-V and up to 8-A drive current. The DRV8316 includes three integrated half-bridges that can
+drive 8-A peak current and can be used in systems implementing sensored, sensorless, or field-oriented control.
+The 3.3-V supply to the Hall sensors is derived by the buck converter integrated in the DRV8316.
+
+
+
+
+12      DRV8316xEVM Evaluation Module                                                     SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021
+                                                                                                                  Submit Document Feedback
+                                               Copyright © 2021 Texas Instruments Incorporated
+www.ti.com                                                                                                    Hardware and Software Overview
+
+
+
+
+                                                                                   Reverse
+                                                       Motor Connectors            polarity
+                                                       and Test Points    Power   protection   Pi filter
+
+
+
+
+                                                                                                                PGND
+
+
+                    PGND
+
+
+
+                DRV8316R/T
+
+
+
+
+                                                                                                                    Hall
+                                                                                                                 Connectors
+
+
+
+
+                                    Current Shunt                   AGND
+                                   Amplifier Outputs
+
+
+
+
+                                    Figure 4-5. Major DRV8316xEVM Hardware Blocks
+
+4.3 Connection Details
+Figure 4-6 shows the connections made to the DRV8316xEVM to spin a three-phase sensored Brushless-DC
+motor.
+An 4.5-V to 35-V power supply or battery is connected to the VBAT and PGND terminals. There is a reverse
+polarity protection implemented on the VBAT and PGND terminals. To bypass the reverse polarity protection and
+pi filter implementation, R20 can be populated on the bottom of the board.
+The three phases of the BLDC motor connect directly to the OUTA, OUTB, and OUTC terminals of the screw
+terminal provided on the DRV8316xEVM.
+To connect Hall sensor outputs to the Hall connector on the DRV8316xEVM, push down on the respective
+terminals to open the sockets and insert the Hall sensor connections.
+
+
+
+
+SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021                                                             DRV8316xEVM Evaluation Module   13
+Submit Document Feedback
+                                           Copyright © 2021 Texas Instruments Incorporated
+Hardware and Software Overview                                                                                           www.ti.com
+
+
+
+
+                                         OUTC OUTB OUTA VBAT       PGND
+
+
+
+
+                                                                                                        HALL_PWR
+
+                                                                                                        HALLA
+
+                                                                                                        HALLB
+
+                                                                                                        HALLC
+
+                                                                                                        AGND
+
+
+
+
+                                 Figure 4-6. Connections From Motor to DRV8316xEVM
+
+Figure 4-7 shows where the Micro-USB cable is plugged into the LAUNCHXL-F280049C to provide
+communication between the LaunchPad firmware and GUI as well as the correct installment of the
+DRV8316xEVM to the J1/J3 and J2/J4 headers of the LaunchPad.
+
+
+
+
+14    DRV8316xEVM Evaluation Module                                                  SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021
+                                                                                                             Submit Document Feedback
+                                          Copyright © 2021 Texas Instruments Incorporated
+www.ti.com                                                                                      Hardware and Software Overview
+
+
+
+
+                                 Micro- USB
+
+
+
+
+    Figure 4-7. DRV8316xEVM on Headers J1/J3 and J2/J4 of LaunchPad™ and Micro-USB Plugged Into
+                                           LaunchPad™
+
+
+
+
+SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021                                               DRV8316xEVM Evaluation Module   15
+Submit Document Feedback
+                                           Copyright © 2021 Texas Instruments Incorporated
+Hardware and Software Overview                                                                                                 www.ti.com
+
+4.4 Interfacing DRV8316xEVM and LAUNCHXL-F280049C LaunchPad™
+The DRV8316xEVM has 40 pins with different functions. These pins are interfaced with the LAUNCHXL-
+F280049C LaunchPad development kit and are mapped appropriately to receive the functionalities of the
+DRV8316R device. These 40 pins are grouped into 4 ports in respect to the LAUNCHXL-F280049C (J1 to
+J4). Table 4-5 and Table 4-6 list the interfacing of these ports of the DRV8316xEVM headers J3 and J4.
+                      Table 4-5. Connections for Header J3 on DRV8316xEVM (DNP in bold)
+                    J3 Pin       DRV8316xEVM              LAUNCHXL-F280049C         Description
+                   Number        Function                 Function
+                       1         3.3VBK (DNP)             3.3 V                     3.3-V LaunchPad supply
+                       2         Not used                 5V                        5-V LaunchPad supply
+                       3         Not used                 PGA1/3/5_GND              Not used
+                       4         AGND                     GND                       GND connection
+                       5         Not used                 GPIO13/SCIBRX             Not used
+                       6         VSENA                    ADCINA5                   Phase A Voltage Sense
+                       7         Not used                 GPIO40/SCIBTX             Not used
+                       8         VSENB                    ADCINB0                   Phase B voltage sense
+                       9         nSLEEP (DNP)             NC                        For internal use only
+                      10         VSENC                    ADCINC2                   Phase C voltage sense
+                      11         Not used                 ADCINB3/VDAC              Not used
+                      12         VSENVM                   ADCINB1                   VM Bus voltage sense
+                      13         SCLK                     SPIACLK                   SPI clock (DRV8316R only)
+                      14         ISENA                    ADCINB2                   Phase A current sense
+                      15         nFAULT (DNP)             ADCINC4                   For internal use only
+                      16         ISENB                    ADCINC0                   Phase B current sense
+                      17         nSLEEP                   GPIO37                    Active-low output sleep pin
+                      18         ISENC                    ADCINA9                   Phase C current sense
+                      19         nFAULT                   GPIO35                    Active-low input fault pin
+                      20         C_TAP/ILIM_DAC           ADCINA1/DACB_OUT          ADC for center tap sensing / DAC
+                                 (populate only R52 or                              for ILIM voltage reference
+                                 R53, not both)
+
+                                 Table 4-6. Connections for Header J4 on DRV8316xEVM
+                    J4 Pin       DRV8316xEVM              LAUNCHXL-F280049C         Description
+                   Number        Function                 Function
+                       1         INHA                     GPIO10/PWM6A              PWM used to switch Phase A high-
+                                                                                    side FET
+                       2         AGND                     GND                       GND connection
+                       3         INLA                     GPIO11/PWM6B              PWM used to switch Phase A low-
+                                                                                    side FET
+                       4         nSCS                     SPIASTE                   SPI active-low chip select
+                                                                                    (DRV8316R only)
+                       5         INHB                     GPIO8/PWM5A               PWM used to switch Phase B high-
+                                                                                    side FET
+                       6         Not used                 NC                        Not used
+                       7         INLB                     GPIO9/PWM5B               PWM used to switch Phase B low-
+                                                                                    side FET
+                       8         Not used                 NC                        Not used
+                       9         INHC                     GPIO4/PWM3A               PWM used to switch Phase C high-
+                                                                                    side FET
+                      10         Not used                 XRSn                      Not used
+                      11         INLC                     GPIO5/PWM3B               PWM used to switch Phase C low-
+                                                                                    side FET
+
+
+
+16    DRV8316xEVM Evaluation Module                                                        SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021
+                                                                                                                   Submit Document Feedback
+                                                Copyright © 2021 Texas Instruments Incorporated
+www.ti.com                                                                                                  Hardware and Software Overview
+
+                         Table 4-6. Connections for Header J4 on DRV8316xEVM (continued)
+                     J4 Pin     DRV8316xEVM               LAUNCHXL-F280049C         Description
+                    Number      Function                  Function
+                       12       SDI                       SPIASIMO                  SPI data input (DRV8316R only)
+                       13       HALLA                     GPIO58                    HALL sensor A from motor
+                       14       SDO                       SPIASOMI                  SPI data output (DRV8316R only)
+                       15       HALLB                     GPIO30                    HALL sensor B from motor
+                       16       DRVOFF                    GPIO39                    Active-high output to disable gate
+                                                                                    drivers
+                       17       HALLC                     GPIO18*/XCLKOUT           HALL sensor C from motor
+                       18       Not used                  GPIO23/LED4               LED reserved on LaunchPad
+                       19       VREF (DNP)                GPIO25                    For internal use only
+                       20       MCU_LED                   GPIO59                    Visual feedback for LaunchPad
+                                                                                    connection
+
+
+
+
+SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021                                                        DRV8316xEVM Evaluation Module     17
+Submit Document Feedback
+                                           Copyright © 2021 Texas Instruments Incorporated
+Hardware Setup                                                                                                       www.ti.com
+
+
+5 Hardware Setup
+The hardware required to run the motor control is the LAUNCHXL-F280049C LaunchPad development kit, the
+DRV8316xEVM, a Micro-USB cable, and a power supply with a DC output from 8-V to 32-V. Follow these steps
+to start up the DRV8316xEVM:
+1. Mate the DRV8316xEVM board to the top half of the LAUNCHXL-F280049C LaunchPad development kit
+   (mates to J1/J3 and J2/J4 of the LaunchPad, as in Figure 4-7). Ensure resistor R13 is DNP on the bottom of
+   board to separate buck voltage from the USB power supply voltage.
+2. Connect the three phases from the brushless DC motor to the three-pin connector J4 on DRV8316xEVM.
+   Phases OUTA, OUTB, and OUTC are labeled in white silkscreen on the PCB top layer. If using a sensored
+   algorithm on the LaunchPad development kit, connect the Hall sensor to the five-pin connector J7.
+3. Connect the DC power supply to header J5, ensuring the correct polarity of VBAT and PGND is applied.
+4. Connect a Micro-USB cable to the LaunchPad development kit and computer.
+5. Turn on the power supply and power up the PCB.
+6. If using the DRV8316xEVM with an external microcontroller, make the logic-level connections needed on
+   the male headers on the top of the board or female connectors on the bottom side of the board. The signal
+   names are labeled on the bottom side of the board for convenience as Figure 5-1 shows.
+
+
+
+
+             Figure 5-1. Bottom Silk Screen Shows Names of Pins When Using an External MCU
+
+
+
+
+18    DRV8316xEVM Evaluation Module                                              SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021
+                                                                                                         Submit Document Feedback
+                                      Copyright © 2021 Texas Instruments Incorporated
+www.ti.com                                                                                          Firmware and GUI Application
+
+
+6 Firmware and GUI Application
+The DRV8316xEVM can implement sensored, sensorless, or Field-oriented control for commutating a three-
+phase Brushless-DC motor. The supported firmware is a sensorless ield-oriented control algorithm adapted from
+Texas Instruments’ MotorControl SDK Library of motor solutions. The algorithm includes motor identification and
+parameters, sensorless sinusoidal commutation, torque and speed control, and field weakening to maximize
+the performance of the motor. The firmware uses GUI Composer to run the algorithm and includes a tab to
+read/write to the DRV8316 SPI registers.
+The following steps describe how to identify useful motor parameters, spin the motor using a sensorless
+sinusoidal profile, use the PI controller gain settings for torque and speed control, and communicate with the
+DRV8316 SPI registers. For more information on advanced features of the C2000 InstaSPIN Universal GUI such
+as MTPA or Field-weakening , consult the MotorControl SDK InstaSPIN Lab Guide (in the MotorControl Software
+Development Kit tool page) and InstaSPIN-FOC and InstaSPIN-MOTION User’s Guide.
+
+
+6.1 C2000™ InstaSPIN™ Universal GUI
+1. Follow the instructions in Section 5 Hardware Setup and ensure the LAUNCHXL-F280049C is connected to
+   the PC and the power supply is turned on to the DRV8316xEVM PCB.
+2. Access the GUI Composer Gallery https://dev.ti.com/gallery/ and search for
+   "DRV8316xEVM_InstaSPIN_Universal_GUI". Click on the GUI.
+3. Accept the readme as shown in Figure 6-1 and check the bottom left hand corner of the screen for
+   “Hardware Connected”. Once connected, the GUI will flash the algorithm to the MCU as shown in Figure 6-2.
+
+
+
+
+                           Figure 6-1. C2000™ InstaSPIN™ Universal GUI for DRV8316xEVM
+
+
+
+
+SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021                                               DRV8316xEVM Evaluation Module   19
+Submit Document Feedback
+                                           Copyright © 2021 Texas Instruments Incorporated
+Firmware and GUI Application                                                                                          www.ti.com
+
+
+
+
+                       Figure 6-2. C2000™ InstaSPIN™ Universal GUI Downloading Program
+
+6.2 Motor Identification
+1. Check the “Enable System” box to enable the InstaSPIN algorithm and run preset calibrations. When the
+   preset calibrations are finished, the "OffsetCalc" checkbox will automatically uncheck itself.
+2. If using the DRV8316R, click on the DRV8316 SPI tab. Click "Read" to read the defaults of the DRV8316R
+   device. Ensure the CSA_GAIN setting (Control Register 5) reads CSA_Gain_0p15. This setting ensures that
+   the CSA current output when identifying the motor does not saturate, or else it will incorrectly identify the
+   motor parameters and limit the maximum performance.
+3. Alternatively, if using the DRV8316T, set the GAIN setting to 0.15 V/A by placing a 0-ohm resistor at R44
+   (in the Hardware Variant Resistors box). This setting ensures that the CSA current output when identifying
+   the motor does not saturate, or else it will incorrectly identify the motor parameters and limit the maximum
+   performance.
+4. Check the “Run” box to begin the motor identification algorithm. The motor will begin to spin and stop as
+   it goes through many states to calculate and identify useful motor parameters for sensorless Field-oriented
+   control. This should take no more than a couple of minutes.
+5. Once the motor identification process is complete, the “Motor Identified” indicator will light up, the “Run” box
+   will be automatically unchecked, and the values Rs, Rs Online, Ls-d, Ls-q, Flux, and Rr will update for that
+   motor as shown in Figure 6-3. These values will be automatically used for sensorless Field-oriented control.
+
+
+
+
+20    DRV8316xEVM Evaluation Module                                               SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021
+                                                                                                          Submit Document Feedback
+                                       Copyright © 2021 Texas Instruments Incorporated
+www.ti.com                                                                                          Firmware and GUI Application
+
+
+
+
+                     Figure 6-3. Motor Identification Using the DRV8316xEVM InstaSPIN™ GUI
+
+
+
+
+SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021                                               DRV8316xEVM Evaluation Module   21
+Submit Document Feedback
+                                           Copyright © 2021 Texas Instruments Incorporated
+Firmware and GUI Application                                                                                          www.ti.com
+
+6.3 Sensorless-FOC Commutation
+1. To spin the motor freely with a sinusoidal current profile, check the “Run” box again. The motor will spin
+   with sinusoidal current at the speedRef (Hz) value in the GUI, which is automatically set to 20.0 Hz. Use the
+   speedRef (Hz) input to change the current speed of the motor as shown in Figure 6-4. The GUI automatically
+   calculates the current reference speed using the variable speed (Hz) and compares it to the trajectory speed
+   variable speedTraj (Hz) to calculate the Speed Error (Hz) and as a percentage.
+
+
+
+
+          Figure 6-4. Sensorless Sinusoidal Commutation Using the DRV8316xEVM InstaSPIN™ GUI
+
+6.4 Torque and Speed Control
+To implement more advanced modulation techniques such as torque control, speed control, and algorithms such
+as MTPA, Field-weakening, and PowerWarp (EPL) using the DRV8311HEVM InstaSPIN Universal GUI, please
+consult the MotorControl SDK InstaSPIN Lab Guide found in MotorControl SDK.
+This document contains detailed lab overviews of how to implement each advanced modulation technique when
+using sensorless FOC to spin the BLDC motor in Code Composer Studio. In order to use the project with the
+GUI, the user must build and compile the project in CCS, and import the .out binary file for that project into the
+GUI properties through GUI Composer. More information can be found in the README when the GUI is first
+opened.
+
+
+
+
+22    DRV8316xEVM Evaluation Module                                               SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021
+                                                                                                          Submit Document Feedback
+                                       Copyright © 2021 Texas Instruments Incorporated
+www.ti.com                                                                                          Firmware and GUI Application
+
+6.5 SPI Communication (DRV8316R only)
+1. Click on the “DRV8316 SPI” tab to access the DRV8316 Registers as Figure 6-5 shows.
+2. Choose the desired settings in Control Registers 1–10 by selecting the appropriate setting or bit from the
+   drop-down menus. Consult the DRV8316x data sheet (Register Map section) for detailed definitions of
+   settings.
+3. Click on “Write” to write to all control registers in the device with the configured settings.
+4. To read all status and control registers in the device, click on “Read”. The statuses and settings will
+   auto-populate in their registers.
+5. Alternatively, to write data to a specific address, input the address and data in decimal into the address and
+   data inputs above the “Manual Write” box. Click on the “Manual Write” box to write the data to that address.
+   To read data from a specific address, input the address in decimal into the address above the “Manual Read”
+   box. Click on the “Manual Write” box to read the data from that address.
+
+
+
+
+                     Figure 6-5. SPI Communication Using the DRV8316xEVM InstaSPIN™ GUI
+
+
+
+
+SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021                                               DRV8316xEVM Evaluation Module   23
+Submit Document Feedback
+                                           Copyright © 2021 Texas Instruments Incorporated
+DRV8316xEVM Schematics                                                                                                  www.ti.com
+
+
+7 DRV8316xEVM Schematics
+
+
+
+
+                 Figure 7-1. Main Supply, Reverse Polarity Protection, and Pi Filter Schematic
+
+
+
+
+                                Figure 7-2. Voltage Sense and Protection Schematic
+
+
+
+
+24   DRV8316xEVM Evaluation Module                                                  SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021
+                                                                                                            Submit Document Feedback
+                                         Copyright © 2021 Texas Instruments Incorporated
+www.ti.com                                                                                            DRV8316xEVM Schematics
+
+
+
+
+                                     Figure 7-3. Connectors and Interface Schematic
+
+
+
+
+                              Figure 7-4. DRV8316 3-phase BLDC Motor Driver Schematic
+
+
+
+
+SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021                                               DRV8316xEVM Evaluation Module   25
+Submit Document Feedback
+                                           Copyright © 2021 Texas Instruments Incorporated
+DRV8316xEVM Schematics                                                                                                  www.ti.com
+
+
+
+
+                                        Figure 7-5. VREF / ILIM Schematic
+
+
+
+
+                               Figure 7-6. 3.3V Integrated Buck Regulator Schematic
+
+
+
+
+                        Figure 7-7. TMS430F280049C LaunchPad Connections Schematic
+
+
+
+
+26   DRV8316xEVM Evaluation Module                                                  SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021
+                                                                                                            Submit Document Feedback
+                                         Copyright © 2021 Texas Instruments Incorporated
+www.ti.com                                                                                                                          Revision History
+
+
+
+
+                                                 Figure 7-8. Status LEDs Schematic
+
+8 Revision History
+NOTE: Page numbers for previous revisions may differ from page numbers in the current version.
+
+Changes from Revision A (February 2021) to Revision B (August 2021)                                                                   Page
+• Updated images from the engineering revision of the EVM to the released version of the EVM....................... 1
+• Generalized the name to the DRV8316xEVM to showcase SPI and H/W compatibility..................................... 1
+• Included information on SPI and H/W variant names......................................................................................... 1
+
+
+Changes from Revision * (December 2020) to Revision A (February 2021)                                                                         Page
+• Added Cautions and Warnings section...............................................................................................................3
+• Changed instructions in the C2000™ InstaSPIN™ Universal GUI section...................................................... 19
+
+
+
+
+SLVUBZ9B – DECEMBER 2020 – REVISED AUGUST 2021                                                               DRV8316xEVM Evaluation Module         27
+Submit Document Feedback
+                                           Copyright © 2021 Texas Instruments Incorporated
+                                        STANDARD TERMS FOR EVALUATION MODULES
+1.   Delivery: TI delivers TI evaluation boards, kits, or modules, including any accompanying demonstration software, components, and/or
+     documentation which may be provided together or separately (collectively, an “EVM” or “EVMs”) to the User (“User”) in accordance
+     with the terms set forth herein. User's acceptance of the EVM is expressly subject to the following terms.
+     1.1 EVMs are intended solely for product or software developers for use in a research and development setting to facilitate feasibility
+         evaluation, experimentation, or scientific analysis of TI semiconductors products. EVMs have no direct function and are not
+         finished products. EVMs shall not be directly or indirectly assembled as a part or subassembly in any finished product. For
+         clarification, any software or software tools provided with the EVM (“Software”) shall not be subject to the terms and conditions
+         set forth herein but rather shall be subject to the applicable terms that accompany such Software
+     1.2 EVMs are not intended for consumer or household use. EVMs may not be sold, sublicensed, leased, rented, loaned, assigned,
+         or otherwise distributed for commercial purposes by Users, in whole or in part, or used in any finished product or production
+         system.
+
+2    Limited Warranty and Related Remedies/Disclaimers:
+     2.1 These terms do not apply to Software. The warranty, if any, for Software is covered in the applicable Software License
+         Agreement.
+     2.2 TI warrants that the TI EVM will conform to TI's published specifications for ninety (90) days after the date TI delivers such EVM
+         to User. Notwithstanding the foregoing, TI shall not be liable for a nonconforming EVM if (a) the nonconformity was caused by
+         neglect, misuse or mistreatment by an entity other than TI, including improper installation or testing, or for any EVMs that have
+         been altered or modified in any way by an entity other than TI, (b) the nonconformity resulted from User's design, specifications
+         or instructions for such EVMs or improper system design, or (c) User has not paid on time. Testing and other quality control
+         techniques are used to the extent TI deems necessary. TI does not test all parameters of each EVM.
+         User's claims against TI under this Section 2 are void if User fails to notify TI of any apparent defects in the EVMs within ten (10)
+         business days after delivery, or of any hidden defects with ten (10) business days after the defect has been detected.
+     2.3 TI's sole liability shall be at its option to repair or replace EVMs that fail to conform to the warranty set forth above, or credit
+         User's account for such EVM. TI's liability under this warranty shall be limited to EVMs that are returned during the warranty
+         period to the address designated by TI and that are determined by TI not to conform to such warranty. If TI elects to repair or
+         replace such EVM, TI shall have a reasonable time to repair such EVM or provide replacements. Repaired EVMs shall be
+         warranted for the remainder of the original warranty period. Replaced EVMs shall be warranted for a new full ninety (90) day
+         warranty period.
+
+
+
+                                                               WARNING
+                      Evaluation Kits are intended solely for use by technically qualified,
+                      professional electronics experts who are familiar with the dangers
+                     and application risks associated with handling electrical mechanical
+                                   components, systems, and subsystems.
+                        User shall operate the Evaluation Kit within TI’s recommended
+                      guidelines and any applicable legal or environmental requirements
+                      as well as reasonable and customary safeguards. Failure to set up
+                          and/or operate the Evaluation Kit within TI’s recommended
+                         guidelines may result in personal injury or death or property
+                         damage. Proper set up entails following TI’s instructions for
+                       electrical ratings of interface circuits such as input, output and
+                                                 electrical loads.
+
+          NOTE:
+          EXPOSURE TO ELECTROSTATIC DISCHARGE (ESD) MAY CAUSE DEGREDATION OR FAILURE OF THE EVALUATION
+          KIT; TI RECOMMENDS STORAGE OF THE EVALUATION KIT IN A PROTECTIVE ESD BAG.
+                                                                                                                                        www.ti.com
+
+    3   Regulatory Notices:
+        3.1 United States
+              3.1.1   Notice applicable to EVMs not FCC-Approved:
+             FCC NOTICE: This kit is designed to allow product developers to evaluate electronic components, circuitry, or software
+             associated with the kit to determine whether to incorporate such items in a finished product and software developers to write
+             software applications for use with the end product. This kit is not a finished product and when assembled may not be resold or
+             otherwise marketed unless all required FCC equipment authorizations are first obtained. Operation is subject to the condition
+             that this product not cause harmful interference to licensed radio stations and that this product accept harmful interference.
+             Unless the assembled kit is designed to operate under part 15, part 18 or part 95 of this chapter, the operator of the kit must
+             operate under the authority of an FCC license holder or must secure an experimental authorization under part 5 of this chapter.
+              3.1.2   For EVMs annotated as FCC – FEDERAL COMMUNICATIONS COMMISSION Part 15 Compliant:
+
+             CAUTION
+             This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) This device may not
+             cause harmful interference, and (2) this device must accept any interference received, including interference that may cause
+             undesired operation.
+             Changes or modifications not expressly approved by the party responsible for compliance could void the user's authority to
+             operate the equipment.
+
+             FCC Interference Statement for Class A EVM devices
+             NOTE: This equipment has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of
+             the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is
+             operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not
+             installed and used in accordance with the instruction manual, may cause harmful interference to radio communications.
+             Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to
+             correct the interference at his own expense.
+
+
+             FCC Interference Statement for Class B EVM devices
+             NOTE: This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to part 15 of
+             the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential
+             installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance
+             with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference
+             will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which
+             can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more
+             of the following measures:
+                        •   Reorient or relocate the receiving antenna.
+                        •   Increase the separation between the equipment and receiver.
+                        •   Connect the equipment into an outlet on a circuit different from that to which the receiver is connected.
+                        •   Consult the dealer or an experienced radio/TV technician for help.
+
+        3.2 Canada
+              3.2.1   For EVMs issued with an Industry Canada Certificate of Conformance to RSS-210 or RSS-247
+             Concerning EVMs Including Radio Transmitters:
+             This device complies with Industry Canada license-exempt RSSs. Operation is subject to the following two conditions:
+             (1) this device may not cause interference, and (2) this device must accept any interference, including interference that may
+             cause undesired operation of the device.
+
+             Concernant les EVMs avec appareils radio:
+             Le présent appareil est conforme aux CNR d'Industrie Canada applicables aux appareils radio exempts de licence. L'exploitation
+             est autorisée aux deux conditions suivantes: (1) l'appareil ne doit pas produire de brouillage, et (2) l'utilisateur de l'appareil doit
+             accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d'en compromettre le fonctionnement.
+
+             Concerning EVMs Including Detachable Antennas:
+             Under Industry Canada regulations, this radio transmitter may only operate using an antenna of a type and maximum (or lesser)
+             gain approved for the transmitter by Industry Canada. To reduce potential radio interference to other users, the antenna type
+             and its gain should be so chosen that the equivalent isotropically radiated power (e.i.r.p.) is not more than that necessary for
+             successful communication. This radio transmitter has been approved by Industry Canada to operate with the antenna types
+             listed in the user guide with the maximum permissible gain and required antenna impedance for each antenna type indicated.
+             Antenna types not included in this list, having a gain greater than the maximum gain indicated for that type, are strictly prohibited
+             for use with this device.
+
+
+
+
+2
+www.ti.com
+
+         Concernant les EVMs avec antennes détachables
+         Conformément à la réglementation d'Industrie Canada, le présent émetteur radio peut fonctionner avec une antenne d'un type et
+         d'un gain maximal (ou inférieur) approuvé pour l'émetteur par Industrie Canada. Dans le but de réduire les risques de brouillage
+         radioélectrique à l'intention des autres utilisateurs, il faut choisir le type d'antenne et son gain de sorte que la puissance isotrope
+         rayonnée équivalente (p.i.r.e.) ne dépasse pas l'intensité nécessaire à l'établissement d'une communication satisfaisante. Le
+         présent émetteur radio a été approuvé par Industrie Canada pour fonctionner avec les types d'antenne énumérés dans le
+         manuel d’usage et ayant un gain admissible maximal et l'impédance requise pour chaque type d'antenne. Les types d'antenne
+         non inclus dans cette liste, ou dont le gain est supérieur au gain maximal indiqué, sont strictement interdits pour l'exploitation de
+         l'émetteur
+     3.3 Japan
+             3.3.1   Notice for EVMs delivered in Japan: Please see http://www.tij.co.jp/lsds/ti_ja/general/eStore/notice_01.page 日本国内に
+                     輸入される評価用キット、ボードについては、次のところをご覧ください。
+                     https://www.ti.com/ja-jp/legal/notice-for-evaluation-kits-delivered-in-japan.html
+             3.3.2   Notice for Users of EVMs Considered “Radio Frequency Products” in Japan: EVMs entering Japan may not be certified
+                     by TI as conforming to Technical Regulations of Radio Law of Japan.
+         If User uses EVMs in Japan, not certified to Technical Regulations of Radio Law of Japan, User is required to follow the
+         instructions set forth by Radio Law of Japan, which includes, but is not limited to, the instructions below with respect to EVMs
+         (which for the avoidance of doubt are stated strictly for convenience and should be verified by User):
+         1.     Use EVMs in a shielded room or any other test facility as defined in the notification #173 issued by Ministry of Internal
+                Affairs and Communications on March 28, 2006, based on Sub-section 1.1 of Article 6 of the Ministry’s Rule for
+                Enforcement of Radio Law of Japan,
+         2.     Use EVMs only after User obtains the license of Test Radio Station as provided in Radio Law of Japan with respect to
+                EVMs, or
+         3.     Use of EVMs only after User obtains the Technical Regulations Conformity Certification as provided in Radio Law of Japan
+                with respect to EVMs. Also, do not transfer EVMs, unless User gives the same notice above to the transferee. Please note
+                that if User does not follow the instructions above, User will be subject to penalties of Radio Law of Japan.
+
+
+
+
+         【無線電波を送信する製品の開発キットをお使いになる際の注意事項】 開発キットの中には技術基準適合証明を受けて
+         いないものがあります。 技術適合証明を受けていないもののご使用に際しては、電波法遵守のため、以下のいずれかの
+         措置を取っていただく必要がありますのでご注意ください。
+         1.     電波法施行規則第6条第1項第1号に基づく平成18年3月28日総務省告示第173号で定められた電波暗室等の試験設備でご使用
+                いただく。
+         2.     実験局の免許を取得後ご使用いただく。
+         3.     技術基準適合証明を取得後ご使用いただく。
+
+         なお、本製品は、上記の「ご使用にあたっての注意」を譲渡先、移転先に通知しない限り、譲渡、移転できないものとします。
+                     上記を遵守頂けない場合は、電波法の罰則が適用される可能性があることをご留意ください。 日本テキサス・イ
+         ンスツルメンツ株式会社
+         東京都新宿区西新宿６丁目２４番１号
+         西新宿三井ビル
+
+             3.3.3   Notice for EVMs for Power Line Communication: Please see http://www.tij.co.jp/lsds/ti_ja/general/eStore/notice_02.page
+                     電力線搬送波通信についての開発キットをお使いになる際の注意事項については、次のところをご覧くださ
+                     い。https://www.ti.com/ja-jp/legal/notice-for-evaluation-kits-for-power-line-communication.html
+
+     3.4 European Union
+             3.4.1   For EVMs subject to EU Directive 2014/30/EU (Electromagnetic Compatibility Directive):
+                     This is a class A product intended for use in environments other than domestic environments that are connected to a
+                     low-voltage power-supply network that supplies buildings used for domestic purposes. In a domestic environment this
+                     product may cause radio interference in which case the user may be required to take adequate measures.
+
+
+
+
+                                                                                                                                               3
+                                                                                                                                        www.ti.com
+
+    4    EVM Use Restrictions and Warnings:
+         4.1 EVMS ARE NOT FOR USE IN FUNCTIONAL SAFETY AND/OR SAFETY CRITICAL EVALUATIONS, INCLUDING BUT NOT
+             LIMITED TO EVALUATIONS OF LIFE SUPPORT APPLICATIONS.
+         4.2 User must read and apply the user guide and other available documentation provided by TI regarding the EVM prior to handling
+             or using the EVM, including without limitation any warning or restriction notices. The notices contain important safety information
+             related to, for example, temperatures and voltages.
+         4.3 Safety-Related Warnings and Restrictions:
+               4.3.1    User shall operate the EVM within TI’s recommended specifications and environmental considerations stated in the user
+                        guide, other available documentation provided by TI, and any other applicable requirements and employ reasonable and
+                        customary safeguards. Exceeding the specified performance ratings and specifications (including but not limited to input
+                        and output voltage, current, power, and environmental ranges) for the EVM may cause personal injury or death, or
+                        property damage. If there are questions concerning performance ratings and specifications, User should contact a TI
+                        field representative prior to connecting interface electronics including input power and intended loads. Any loads applied
+                        outside of the specified output range may also result in unintended and/or inaccurate operation and/or possible
+                        permanent damage to the EVM and/or interface electronics. Please consult the EVM user guide prior to connecting any
+                        load to the EVM output. If there is uncertainty as to the load specification, please contact a TI field representative.
+                        During normal operation, even with the inputs and outputs kept within the specified allowable ranges, some circuit
+                        components may have elevated case temperatures. These components include but are not limited to linear regulators,
+                        switching transistors, pass transistors, current sense resistors, and heat sinks, which can be identified using the
+                        information in the associated documentation. When working with the EVM, please be aware that the EVM may become
+                        very warm.
+               4.3.2    EVMs are intended solely for use by technically qualified, professional electronics experts who are familiar with the
+                        dangers and application risks associated with handling electrical mechanical components, systems, and subsystems.
+                        User assumes all responsibility and liability for proper and safe handling and use of the EVM by User or its employees,
+                        affiliates, contractors or designees. User assumes all responsibility and liability to ensure that any interfaces (electronic
+                        and/or mechanical) between the EVM and any human body are designed with suitable isolation and means to safely
+                        limit accessible leakage currents to minimize the risk of electrical shock hazard. User assumes all responsibility and
+                        liability for any improper or unsafe handling or use of the EVM by User or its employees, affiliates, contractors or
+                        designees.
+         4.4 User assumes all responsibility and liability to determine whether the EVM is subject to any applicable international, federal,
+             state, or local laws and regulations related to User’s handling and use of the EVM and, if applicable, User assumes all
+             responsibility and liability for compliance in all respects with such laws and regulations. User assumes all responsibility and
+             liability for proper disposal and recycling of the EVM consistent with all applicable international, federal, state, and local
+             requirements.
+
+    5.   Accuracy of Information: To the extent TI provides information on the availability and function of EVMs, TI attempts to be as accurate
+         as possible. However, TI does not warrant the accuracy of EVM descriptions, EVM availability or other information on its websites as
+         accurate, complete, reliable, current, or error-free.
+
+
+
+
+    6.   Disclaimers:
+         6.1 EXCEPT AS SET FORTH ABOVE, EVMS AND ANY MATERIALS PROVIDED WITH THE EVM (INCLUDING, BUT NOT
+             LIMITED TO, REFERENCE DESIGNS AND THE DESIGN OF THE EVM ITSELF) ARE PROVIDED "AS IS" AND "WITH ALL
+             FAULTS." TI DISCLAIMS ALL OTHER WARRANTIES, EXPRESS OR IMPLIED, REGARDING SUCH ITEMS, INCLUDING BUT
+             NOT LIMITED TO ANY EPIDEMIC FAILURE WARRANTY OR IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS
+             FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT OF ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADE
+             SECRETS OR OTHER INTELLECTUAL PROPERTY RIGHTS.
+         6.2 EXCEPT FOR THE LIMITED RIGHT TO USE THE EVM SET FORTH HEREIN, NOTHING IN THESE TERMS SHALL BE
+             CONSTRUED AS GRANTING OR CONFERRING ANY RIGHTS BY LICENSE, PATENT, OR ANY OTHER INDUSTRIAL OR
+             INTELLECTUAL PROPERTY RIGHT OF TI, ITS SUPPLIERS/LICENSORS OR ANY OTHER THIRD PARTY, TO USE THE
+             EVM IN ANY FINISHED END-USER OR READY-TO-USE FINAL PRODUCT, OR FOR ANY INVENTION, DISCOVERY OR
+             IMPROVEMENT, REGARDLESS OF WHEN MADE, CONCEIVED OR ACQUIRED.
+
+
+    7.   USER'S INDEMNITY OBLIGATIONS AND REPRESENTATIONS. USER WILL DEFEND, INDEMNIFY AND HOLD TI, ITS
+         LICENSORS AND THEIR REPRESENTATIVES HARMLESS FROM AND AGAINST ANY AND ALL CLAIMS, DAMAGES, LOSSES,
+         EXPENSES, COSTS AND LIABILITIES (COLLECTIVELY, "CLAIMS") ARISING OUT OF OR IN CONNECTION WITH ANY
+         HANDLING OR USE OF THE EVM THAT IS NOT IN ACCORDANCE WITH THESE TERMS. THIS OBLIGATION SHALL APPLY
+         WHETHER CLAIMS ARISE UNDER STATUTE, REGULATION, OR THE LAW OF TORT, CONTRACT OR ANY OTHER LEGAL
+         THEORY, AND EVEN IF THE EVM FAILS TO PERFORM AS DESCRIBED OR EXPECTED.
+
+
+
+
+4
+www.ti.com
+
+ 8.   Limitations on Damages and Liability:
+      8.1 General Limitations. IN NO EVENT SHALL TI BE LIABLE FOR ANY SPECIAL, COLLATERAL, INDIRECT, PUNITIVE,
+          INCIDENTAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES IN CONNECTION WITH OR ARISING OUT OF THESE
+          TERMS OR THE USE OF THE EVMS , REGARDLESS OF WHETHER TI HAS BEEN ADVISED OF THE POSSIBILITY OF
+          SUCH DAMAGES. EXCLUDED DAMAGES INCLUDE, BUT ARE NOT LIMITED TO, COST OF REMOVAL OR
+          REINSTALLATION, ANCILLARY COSTS TO THE PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES, RETESTING,
+          OUTSIDE COMPUTER TIME, LABOR COSTS, LOSS OF GOODWILL, LOSS OF PROFITS, LOSS OF SAVINGS, LOSS OF
+          USE, LOSS OF DATA, OR BUSINESS INTERRUPTION. NO CLAIM, SUIT OR ACTION SHALL BE BROUGHT AGAINST TI
+          MORE THAN TWELVE (12) MONTHS AFTER THE EVENT THAT GAVE RISE TO THE CAUSE OF ACTION HAS
+          OCCURRED.
+      8.2 Specific Limitations. IN NO EVENT SHALL TI'S AGGREGATE LIABILITY FROM ANY USE OF AN EVM PROVIDED
+          HEREUNDER, INCLUDING FROM ANY WARRANTY, INDEMITY OR OTHER OBLIGATION ARISING OUT OF OR IN
+          CONNECTION WITH THESE TERMS, , EXCEED THE TOTAL AMOUNT PAID TO TI BY USER FOR THE PARTICULAR
+          EVM(S) AT ISSUE DURING THE PRIOR TWELVE (12) MONTHS WITH RESPECT TO WHICH LOSSES OR DAMAGES ARE
+          CLAIMED. THE EXISTENCE OF MORE THAN ONE CLAIM SHALL NOT ENLARGE OR EXTEND THIS LIMIT.
+
+ 9.   Return Policy. Except as otherwise provided, TI does not offer any refunds, returns, or exchanges. Furthermore, no return of EVM(s)
+      will be accepted if the package has been opened and no return of the EVM(s) will be accepted if they are damaged or otherwise not in
+      a resalable condition. If User feels it has been incorrectly charged for the EVM(s) it ordered or that delivery violates the applicable
+      order, User should contact TI. All refunds will be made in full within thirty (30) working days from the return of the components(s),
+      excluding any postage or packaging costs.
+
+10. Governing Law: These terms and conditions shall be governed by and interpreted in accordance with the laws of the State of Texas,
+    without reference to conflict-of-laws principles. User agrees that non-exclusive jurisdiction for any dispute arising out of or relating to
+    these terms and conditions lies within courts located in the State of Texas and consents to venue in Dallas County, Texas.
+    Notwithstanding the foregoing, any judgment may be enforced in any United States or foreign court, and TI may seek injunctive relief
+    in any United States or foreign court.
+
+
+                             Mailing Address: Texas Instruments, Post Office Box 655303, Dallas, Texas 75265
+                                            Copyright © 2023, Texas Instruments Incorporated
+
+
+
+
+                                                                                                                                              5
+                                         IMPORTANT NOTICE AND DISCLAIMER
+TI PROVIDES TECHNICAL AND RELIABILITY DATA (INCLUDING DATASHEETS), DESIGN RESOURCES (INCLUDING REFERENCE
+DESIGNS), APPLICATION OR OTHER DESIGN ADVICE, WEB TOOLS, SAFETY INFORMATION, AND OTHER RESOURCES “AS IS”
+AND WITH ALL FAULTS, AND DISCLAIMS ALL WARRANTIES, EXPRESS AND IMPLIED, INCLUDING WITHOUT LIMITATION ANY
+IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT OF THIRD
+PARTY INTELLECTUAL PROPERTY RIGHTS.
+These resources are intended for skilled developers designing with TI products. You are solely responsible for (1) selecting the appropriate
+TI products for your application, (2) designing, validating and testing your application, and (3) ensuring your application meets applicable
+standards, and any other safety, security, regulatory or other requirements.
+These resources are subject to change without notice. TI grants you permission to use these resources only for development of an
+application that uses the TI products described in the resource. Other reproduction and display of these resources is prohibited. No license
+is granted to any other TI intellectual property right or to any third party intellectual property right. TI disclaims responsibility for, and you fully
+indemnify TI and its representatives against any claims, damages, costs, losses, and liabilities arising out of your use of these resources.
+TI’s products are provided subject to TI’s Terms of Sale, TI’s General Quality Guidelines, or other applicable terms available either on
+ti.com or provided in conjunction with such TI products. TI’s provision of these resources does not expand or otherwise alter TI’s applicable
+warranties or warranty disclaimers for TI products. Unless TI explicitly designates a product as custom or customer-specified, TI products
+are standard, catalog, general purpose devices.
+TI objects to and rejects any additional or different terms you may propose.
+IMPORTANT NOTICE
+
+                                                Copyright © 2026, Texas Instruments Incorporated
+                                                                Last updated 10/2025
+

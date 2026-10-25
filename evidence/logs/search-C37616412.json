@@ -1,0 +1,16 @@
+{
+  "query": "C37616412",
+  "results": [
+    {
+      "source": "jlcpcb",
+      "lcsc": 37616412,
+      "mfr": "USB4215-03-A",
+      "package": "SMD",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "-25℃~+85℃ 1 48V 5A Black Female Type-C USB 2.0 SMD USB Connectors ROHS",
+      "stock": 1144,
+      "price": 0.893
+    }
+  ]
+}

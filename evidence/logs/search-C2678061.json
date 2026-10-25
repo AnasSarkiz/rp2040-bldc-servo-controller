@@ -1,0 +1,16 @@
+{
+  "query": "C2678061",
+  "results": [
+    {
+      "source": "jlcpcb",
+      "lcsc": 2678061,
+      "mfr": "STUSB4500QTR",
+      "package": "QFN-24-EP(4x4)",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "-40℃~+105℃ 160uA 3V、5.5V Controller PD 3.0、PD 2.0 QFN-24-EP(4x4) USB Converters ROHS",
+      "stock": 5024,
+      "price": 2.1931
+    }
+  ]
+}

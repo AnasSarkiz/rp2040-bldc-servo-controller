@@ -1,0 +1,82 @@
+{
+  "query": "W25Q16",
+  "results": [
+    {
+      "source": "jlcpcb",
+      "lcsc": 49174557,
+      "mfr": "TSW08111-070B311BA",
+      "package": "插件-4P,8x8mm",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "",
+      "stock": 990,
+      "price": 0.0863
+    },
+    {
+      "source": "jlcpcb",
+      "lcsc": 883282,
+      "mfr": "X2000WV-08-N0SN",
+      "package": "插件,P=2mm",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "-25℃~+85℃ 1 100V 1x8P 2mm 3A 5.3mm 7.7mm 8 8P Brass PA66 Through Hole Tin UL94V-0 插件,P=2mm Wire To Board Connector ROHS",
+      "stock": 665,
+      "price": 0.1087
+    },
+    {
+      "source": "jlcpcb",
+      "lcsc": 17607784,
+      "mfr": "M55-7006842R",
+      "package": "SMD",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "",
+      "stock": 172,
+      "price": 4.8895
+    },
+    {
+      "source": "jlcpcb",
+      "lcsc": 7435162,
+      "mfr": "GAQW414EH",
+      "package": "SMD-8P",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "-40℃~+85℃ 1.2V 120mA 20us 20Ω 400V 500us 50mA 550mW 5kV AC,DC Two sets of normally closed: 2B (DPST-NC) SMD-8P Solid State Relays (MOS Output) ROHS",
+      "stock": 118,
+      "price": 2.8259
+    },
+    {
+      "source": "jlcpcb",
+      "lcsc": 5216466,
+      "mfr": "ISO7742FQDBQRQ1",
+      "package": "SSOP-16",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "-40℃~+125℃ 10.7ns 100Mbps 100kV/us 2 2 2.25V~5.5V 2.25V~5.5V 3000 4 Low Level SSOP-16 Digital Isolators ROHS",
+      "stock": 107,
+      "price": 3.1594
+    },
+    {
+      "source": "jlcpcb",
+      "lcsc": 891430,
+      "mfr": "MC74HC165AMNTWG",
+      "package": "DHVQFN-16-EP(2.5x3.5)",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "-55℃~+125℃ 26ns@6V,50pF 2V~6V 35MHz 74HC 8 Parallel-to-Serial DHVQFN-16-EP(2.5x3.5) Shift Registers ROHS",
+      "stock": 10,
+      "price": 1.5228
+    },
+    {
+      "source": "jlcpcb",
+      "lcsc": 883281,
+      "mfr": "X2000WV-09-N0SN",
+      "package": "插件,P=2mm",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "-25℃~+85℃ 1 100V 1x9P 2mm 3A 5.3mm 7.7mm 9 9P Brass PA66 Through Hole Tin UL94V-0 插件,P=2mm Wire To Board Connector ROHS",
+      "stock": 3,
+      "price": 0.1362
+    }
+  ]
+}

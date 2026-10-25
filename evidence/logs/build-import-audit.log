@@ -1,0 +1,73 @@
+COMMAND: bunx --no-install tscircuit-cli build index.circuit.tsx --pcb-png --pcb-svgs --schematic-svgs --schematic-png --3d
+EXIT: 1
+Building 1 file(s)...
+Building index.circuit.tsx...
+Generating circuit JSON...
+Circuit JSON written to dist/index/circuit.json
+The "J" prefix is being used with a <chip />, try using it with a <connector /> or <jumper />
+Port IOVDD6 on U1 is missing a trace
+Port IOVDD5 on U1 is missing a trace
+Port TESTEN on U1 is missing a trace
+Port IOVDD4 on U1 is missing a trace
+Port DVDD2 on U1 is missing a trace
+Port IOVDD3 on U1 is missing a trace
+Port IOVDD2 on U1 is missing a trace
+Port ADC_AVDD on U1 is missing a trace
+Port VREG_IN on U1 is missing a trace
+Port USB_VDD on U1 is missing a trace
+Port IOVDD1 on U1 is missing a trace
+Port DVDD1 on U1 is missing a trace
+Port GND on U1 is missing a trace
+Port AGND1 on U2 is missing a trace
+Port PGND1 on U2 is missing a trace
+Port PGND2 on U2 is missing a trace
+Port PGND3 on U2 is missing a trace
+Port AGND2 on U2 is missing a trace
+U2 has no pin with requires_power=true
+Port GND on U3 is missing a trace
+Port VSYS on U3 is missing a trace
+Port VDD on U3 is missing a trace
+Port EP on U3 is missing a trace
+Port GND on U4 is missing a trace
+Port VCC on U4 is missing a trace
+Port GND on U5 is missing a trace
+Port VCC on U5 is missing a trace
+Port VDD on U6 is missing a trace
+Port GND on U6 is missing a trace
+J1 has no pin with requires_power=true
+J1 has no pin with requires_ground=true
+All pins on J1 are underspecified (no pinAttributes set)
+U4 may not have availability from jlcpcb (C82317).
+Generating preview images...
+[index] Generating PCB SVG...
+[index] Written pcb.svg
+[index] Generating PCB PNG...
+[index] Written pcb.png
+[index] Generating schematic SVG...
+[index] Written schematic.svg
+[index] Generating schematic PNG...
+[index] Written schematic.png
+[index] Generating 3D PNG...
+[index] Written 3d.png
+
+Build complete
+  Circuits  0 passed 1 failed
+  Options   pcb-png, schematic-png, pcb-svgs, schematic-svgs, 3d
+  Config    routing-disabled (from tscircuit.config.json)
+  Output    dist
+
+⚠ Build completed with errors
+Port IOVDD6 on U1 must be connected but is floating
+Port IOVDD5 on U1 must be connected but is floating
+Port TESTEN on U1 must be connected but is floating
+Port IOVDD4 on U1 must be connected but is floating
+Port DVDD2 on U1 must be connected but is floating
+Port IOVDD3 on U1 must be connected but is floating
+Port IOVDD2 on U1 must be connected but is floating
+Port ADC_AVDD on U1 must be connected but is floating
+Port VREG_IN on U1 must be connected but is floating
+Port USB_VDD on U1 must be connected but is floating
+Port IOVDD1 on U1 must be connected but is floating
+Port DVDD1 on U1 must be connected but is floating
+Port GND on U1 must be connected but is floating
+Build exiting with code 1: circuit build errors occurred

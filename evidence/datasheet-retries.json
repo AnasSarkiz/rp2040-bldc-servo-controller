@@ -1,0 +1,23 @@
+[
+  {
+    "file": "stusb4500.pdf",
+    "url": "https://www.st.com/resource/en/datasheet/stusb4500.pdf",
+    "exit": 28,
+    "pdf_valid": false,
+    "error": "curl: (28) Operation timed out after 35003 milliseconds with 0 bytes received\n"
+  },
+  {
+    "file": "42BSA46-24-01.pdf",
+    "url": "https://files.omc-stepperonline.com/42BSA46-24-01.pdf?download=1",
+    "exit": 22,
+    "pdf_valid": false,
+    "error": "curl: (22) The requested URL returned error: 403\n"
+  },
+  {
+    "file": "as5047p.pdf",
+    "url": "https://www.mouser.com/datasheet/2/588/asset_pdf_25493104-3419339.pdf",
+    "exit": 28,
+    "pdf_valid": false,
+    "error": "curl: (28) Operation timed out after 35006 milliseconds with 0 bytes received\n"
+  }
+]

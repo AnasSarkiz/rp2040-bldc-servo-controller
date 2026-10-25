@@ -1,0 +1,26 @@
+{
+  "name": "@tsci/AnasSarkiz.rp2040-bldc-servo-controller",
+  "version": "0.0.1",
+  "description": "Blocked engineering intake for an untested RP2040 BLDC servo controller with USB-C PD and 24 V boost",
+  "main": "index.circuit.tsx",
+  "keywords": [
+    "tscircuit",
+    "circuit",
+    "pcb",
+    "electronics"
+  ],
+  "scripts": {
+    "dev": "tscircuit-cli dev index.circuit.tsx",
+    "build": "tscircuit-cli build index.circuit.tsx",
+    "typecheck": "tsc --noEmit",
+    "format": "biome format --write index.circuit.tsx",
+    "format:check": "biome format index.circuit.tsx"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.3.0",
+    "@tscircuit/cli": "0.1.2408",
+    "tscircuit": "0.0.3016",
+    "typescript": "5.9.3"
+  },
+  "author": "AnasSarkiz"
+}

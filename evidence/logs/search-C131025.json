@@ -1,0 +1,16 @@
+{
+  "query": "C131025",
+  "results": [
+    {
+      "source": "jlcpcb",
+      "lcsc": 131025,
+      "mfr": "W25Q16JVSSIQ",
+      "package": "SOIC-8-208mil",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "-40℃~+85℃ 100,000 cycles 10uA 133MHz 16Mbit 2.7V~3.6V 20 Years 3ms SPI SOIC-8-208mil NOR FLASH ROHS",
+      "stock": 5428,
+      "price": 1.1568
+    }
+  ]
+}

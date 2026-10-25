@@ -1,0 +1,16 @@
+{
+  "query": "C962063",
+  "results": [
+    {
+      "source": "jlcpcb",
+      "lcsc": 962063,
+      "mfr": "AS5047P-ATSM",
+      "package": "TSSOP-14",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "-40℃~+125℃ 0°~360° 1.2mm 15mA 4.4mm 4.5V~5.5V 5mm Magnetic rotary position sensor No SPI TSSOP-14 Position Sensors ROHS",
+      "stock": 4984,
+      "price": 3.5954
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-25",
+  "archived": [
+    {
+      "file": "datasheets/drv8316.pdf",
+      "bytes": 4261059,
+      "sha256": "39f1977bf713d0697b12967d818c2150bfb697a80fd34baf4a13e322cb50c6b0",
+      "review_status": "archived; complete design review not passed"
+    },
+    {
+      "file": "datasheets/drv8316revm.pdf",
+      "bytes": 2871951,
+      "sha256": "e96b6659c6e0110d4515bd0a0a15db56ad13f7055a3dd287ecf2d383c33ef366",
+      "review_status": "archived; complete design review not passed"
+    },
+    {
+      "file": "datasheets/hardware-design-with-rp2040.pdf",
+      "bytes": 8853773,
+      "sha256": "51c4f430153fcdbf3209d9b3b41662c8527ff0150bc25777e3fcd6f5221a1c19",
+      "review_status": "archived; complete design review not passed"
+    },
+    {
+      "file": "datasheets/lm5122.pdf",
+      "bytes": 2430755,
+      "sha256": "21da2e9c191f61126b2603db156e9d3c5ea285a574f42b19aa67935208be924d",
+      "review_status": "archived; complete design review not passed"
+    },
+    {
+      "file": "datasheets/lm5122evm.pdf",
+      "bytes": 644027,
+      "sha256": "99d057b78009ad6902d626d772bab30c83de06a5aa5e208791f54dce1513711e",
+      "review_status": "archived; complete design review not passed"
+    },
+    {
+      "file": "datasheets/rp2040-datasheet.pdf",
+      "bytes": 5301205,
+      "sha256": "be56fbb75ba0ae9e26558a73c93ac3e75c2ad4e6878d3b6703de2a76d886ea8c",
+      "review_status": "archived; complete design review not passed"
+    },
+    {
+      "file": "datasheets/thvd1450.pdf",
+      "bytes": 2012884,
+      "sha256": "58ecc4cc07dd1d3206c2e67ffa734ad21a6d3a9e3c8c307068e6385bd79ee897",
+      "review_status": "archived; complete design review not passed"
+    },
+    {
+      "file": "datasheets/usb4215.pdf",
+      "bytes": 154795,
+      "sha256": "1659ba00769b9b774a033fac72cb2f3bfc481a3272c53f34e87520f33635a9e1",
+      "review_status": "archived; complete design review not passed"
+    },
+    {
+      "file": "datasheets/w25q16jv.pdf",
+      "bytes": 2938591,
+      "sha256": "6d23cdf57fd63fc2c2de517707e293beaf70f3f47b424bf58510666294c04d82",
+      "review_status": "archived; complete design review not passed"
+    }
+  ],
+  "rejected_files": [
+    {
+      "file": "datasheets/as5047p.pdf",
+      "bytes": 0,
+      "status": "invalid/empty HTTP response; removed, not a datasheet"
+    }
+  ]
+}

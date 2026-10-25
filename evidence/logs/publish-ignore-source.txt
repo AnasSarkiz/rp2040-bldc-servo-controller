@@ -1,0 +1,44 @@
+@tscircuit/cli 0.1.2408 dist/cli/main.js:377521
+};
+
+// lib/dev/get-package-file-paths.ts
+import * as path70 from "node:path";
+var getPackageFilePaths = (projectDir, ignored = []) => {
+  const ignorePatterns = [
+    ...DEFAULT_IGNORED_PATTERNS,
+    ...ignored.map(normalizeIgnorePattern)
+  ];
+  const fileNames = globbySync("**", {
+    cwd: projectDir,
+    ignore: ignorePatterns
+  });
+  fileNames.sort();
+  return fileNames.map((fileName) => path70.join(projectDir, fileName)).filter((filePath) => path70.resolve(filePath) !== process.execPath);
+};
+
+// lib/shared/is-binary-file.ts
+import * as path71 from "node:path";
+var BINARY_FILE_EXTENSIONS = new Set([
+
+@tscircuit/cli 0.1.2408 dist/cli/main.js:377822
+  } catch (error) {
+    onError(`Error creating release: ${error}`);
+    return onExit(1);
+  }
+  const filePaths = getPackageFilePaths(projectDir, includeDist ? [] : ["**/dist/**"]);
+  const uploadResults = { succeeded: [], failed: [] };
+  const packageNameWithVersion = `${scopedPackageName}@${releaseVersion}`;
+  const files = getUploadFiles(filePaths, projectDir);
+  let filesToUpload = files;
+  if (compress) {
+    log(kleur_default.gray("Uploading package archive..."));
+    try {
+      const archivePayload = createArchivePayload(files, packageNameWithVersion);
+      await ky.post("package_files/upload_archive", {
+        json: archivePayload
+      });
+      for (const file of files) {
+        uploadResults.succeeded.push(file.file_path);
+      }
+      filesToUpload = [];
+
