@@ -24,6 +24,7 @@ jobs:
       - run: npm run build
       - run: npm run verify
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: i-007-pcb
           path: repros/i-007-usbc-footprint/dist/index/

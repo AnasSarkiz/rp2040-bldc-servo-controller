@@ -20,12 +20,34 @@ assert.equal(notes[0].has_stroke, false)
 assert.equal(notes[0].stroke_width, 0)
 // Source digest necessarily changes after re-import. All other non-fabrication
 // records, including copper, holes, schematic ports and warnings, must match.
-const stable = (records) => records.filter((e) => !["pcb_fabrication_note_path", "source_project_metadata"].includes(e.type))
-assert.deepEqual(stable(json), stable(baseline))
+const stable = (records) => records
+  .filter((e) => !["pcb_fabrication_note_path", "source_project_metadata"].includes(e.type))
+  .map((e) => {
+    if (e.type !== "source_property_ignored_warning" || e.property_name !== "pinAttributes") return e
+    // Keep warning identity and presence strict; its transport-specific error
+    // differs between this proxy and GitHub runners. Build logs retain it.
+    assert.match(e.message, /^Datasheet information for chip "U1" could not be fetched: .+ Pin attributes may not be populated\.$/s)
+    return { ...e, message: "Datasheet information unavailable (transport detail retained in build log)" }
+  })
+try {
+  assert.deepEqual(stable(json), stable(baseline))
+} catch (error) {
+  if (process.env.GITHUB_ACTIONS) {
+    for (let i = 0; i < Math.max(stable(json).length, stable(baseline).length); i++) {
+      const actual = stable(json)[i]
+      const expected = stable(baseline)[i]
+      if (JSON.stringify(actual) !== JSON.stringify(expected)) {
+        const detail = JSON.stringify({ actual, expected }).replaceAll("%", "%25").replaceAll("\n", "%0A").replaceAll("\r", "%0D")
+        console.error(`::error title=Non-fabrication comparison::${detail}`)
+      }
+    }
+  }
+  throw error
+}
 const imported = await readFile("imports/USB4215_03_A/USB4215_03_A.tsx", "utf8")
 const original = await readFile("evidence/baseline/imported.tsx", "utf8")
 const withoutFab = (s) => s.replace(/^<fabricationnotepath.*$/m, "")
 assert.deepEqual(withoutFab(imported), withoutFab(original))
 assert.notEqual(imported, original)
 assert.notEqual(await readFile("dist/index/pcb.svg", "utf8"), await readFile("evidence/baseline/pcb.svg", "utf8"))
-console.log(`Verified fixed 19-point U marking, zero long diagonals, and ${stable(json).length} identical non-fabrication records. Only generated fabrication TSX and source digest change.`)
+console.log(`Verified fixed 19-point U marking, zero long diagonals, and ${stable(json).length} matching non-fabrication records (transport-specific warning text normalized). Only generated fabrication TSX and source digest change locally.`)

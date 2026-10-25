@@ -38,7 +38,9 @@ bundle and exercises them without copying their implementation. Both helper
 copies are tested. The same eight assertions on a pristine bundle produce six
 failures and two passes; the patched bundle passes all eight. Logs are archived
 under `../evidence/`. `verify` compares all 106 stable non-fabrication records
-against the baseline, ignores only the expected source digest, and checks that
+against the baseline, ignores only the expected source digest and normalizes only the transport-specific text in the existing
+datasheet-fetch warning (the warning remains required and the full message is
+retained in build logs), and checks that
 the generated component differs only on its fabrication line.
 
 For offline rebuilding, use the committed generated imports; `npm run build`
