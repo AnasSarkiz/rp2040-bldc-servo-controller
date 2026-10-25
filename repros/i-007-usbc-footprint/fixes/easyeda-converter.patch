@@ -4,7 +4,7 @@ index 5c0d656..dfdba6e 100644
 +++ b/lib/utils/expand-easyeda-path-data.ts
 @@ -17,33 +17,42 @@ export const expandEasyEdaPathData = (pathData: string) => {
          ?.map(Number) ?? []
- 
+
      if ((command === "M" || command === "L") && values.length >= 2) {
 -      currentPoint = { x: values[0]!, y: values[1]! }
 -      rawRoute.push(currentPoint)
@@ -69,7 +69,7 @@ index 5c0d656..dfdba6e 100644
 +      }
      }
    }
- 
+
 diff --git a/tests/assets/C37616412.raweasy.json b/tests/assets/C37616412.raweasy.json
 new file mode 100644
 index 0000000..22190e1

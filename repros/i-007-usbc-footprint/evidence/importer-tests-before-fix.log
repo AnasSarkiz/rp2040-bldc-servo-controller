@@ -21,7 +21,7 @@ test at tests/importer.test.mjs:20:3
 ✖ expandEasyEdaPathData: all implicit M/L destinations survive (2.902585ms)
   AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
   + actual - expected
-  
+
     [
       {
         x: 0,
@@ -44,7 +44,7 @@ test at tests/importer.test.mjs:20:3
   -     y: 0
   -   }
     ]
-  
+
       at TestContext.<anonymous> (file:///workspace/work/rp2040-bldc-servo-controller/repros/i-007-usbc-footprint/tests/importer.test.mjs:21:12)
       at Test.runInAsyncScope (node:async_hooks:227:14)
       at Test.run (node:internal/test_runner/test:1382:25)
@@ -63,7 +63,7 @@ test at tests/importer.test.mjs:25:3
   AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
   + actual - expected
   ... Skipped lines
-  
+
     [
       {
         x: 0,
@@ -83,7 +83,7 @@ test at tests/importer.test.mjs:25:3
         y: 0
       }
     ]
-  
+
       at TestContext.<anonymous> (file:///workspace/work/rp2040-bldc-servo-controller/repros/i-007-usbc-footprint/tests/importer.test.mjs:26:12)
       at Test.runInAsyncScope (node:async_hooks:227:14)
       at Test.run (node:internal/test_runner/test:1382:25)
@@ -102,9 +102,9 @@ test at tests/importer.test.mjs:25:3
 test at tests/importer.test.mjs:28:3
 ✖ expandEasyEdaPathData: real USB4215 marking is closed with no long diagonal (0.381725ms)
   AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
-  
+
   12 !== 19
-  
+
       at TestContext.<anonymous> (file:///workspace/work/rp2040-bldc-servo-controller/repros/i-007-usbc-footprint/tests/importer.test.mjs:30:12)
       at Test.runInAsyncScope (node:async_hooks:227:14)
       at Test.run (node:internal/test_runner/test:1382:25)
@@ -124,7 +124,7 @@ test at tests/importer.test.mjs:20:3
 ✖ expandEasyEdaPathData2: all implicit M/L destinations survive (0.356748ms)
   AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
   + actual - expected
-  
+
     [
       {
         x: 0,
@@ -147,7 +147,7 @@ test at tests/importer.test.mjs:20:3
   -     y: 0
   -   }
     ]
-  
+
       at TestContext.<anonymous> (file:///workspace/work/rp2040-bldc-servo-controller/repros/i-007-usbc-footprint/tests/importer.test.mjs:21:12)
       at Test.runInAsyncScope (node:async_hooks:227:14)
       at Test.run (node:internal/test_runner/test:1382:25)
@@ -168,7 +168,7 @@ test at tests/importer.test.mjs:25:3
   AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
   + actual - expected
   ... Skipped lines
-  
+
     [
       {
         x: 0,
@@ -188,7 +188,7 @@ test at tests/importer.test.mjs:25:3
         y: 0
       }
     ]
-  
+
       at TestContext.<anonymous> (file:///workspace/work/rp2040-bldc-servo-controller/repros/i-007-usbc-footprint/tests/importer.test.mjs:26:12)
       at Test.runInAsyncScope (node:async_hooks:227:14)
       at Test.run (node:internal/test_runner/test:1382:25)
@@ -207,9 +207,9 @@ test at tests/importer.test.mjs:25:3
 test at tests/importer.test.mjs:28:3
 ✖ expandEasyEdaPathData2: real USB4215 marking is closed with no long diagonal (0.243677ms)
   AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
-  
+
   12 !== 19
-  
+
       at TestContext.<anonymous> (file:///workspace/work/rp2040-bldc-servo-controller/repros/i-007-usbc-footprint/tests/importer.test.mjs:30:12)
       at Test.runInAsyncScope (node:async_hooks:227:14)
       at Test.run (node:internal/test_runner/test:1382:25)
