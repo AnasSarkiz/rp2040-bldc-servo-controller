@@ -1,0 +1,32 @@
+{
+  "verified_at_utc": "2026-10-25T18:17:02.426448+00:00",
+  "revision": "intake-prototype-0.0.1",
+  "github": {
+    "repository": "AnasSarkiz/rp2040-bldc-servo-controller",
+    "source_commit": "6c8db5d07f03ca8d3ad408babe7f5ef01e341f19",
+    "commit_url": "https://github.com/AnasSarkiz/rp2040-bldc-servo-controller/commit/6c8db5d07f03ca8d3ad408babe7f5ef01e341f19",
+    "anonymous_raw_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/6c8db5d07f03ca8d3ad408babe7f5ef01e341f19/dist/index/circuit.json",
+    "anonymous_raw_download_succeeded": true,
+    "local_circuit_json_sha256": "1825e66a9be7a31f62109791c3794aa5ce658ed419b67ca93f55a8e5adfc1fae",
+    "remote_circuit_json_sha256": "1825e66a9be7a31f62109791c3794aa5ce658ed419b67ca93f55a8e5adfc1fae",
+    "circuit_json_matches": true,
+    "validation_status": "failed import inspection, not a validated controller"
+  },
+  "registry": {
+    "url": "https://tscircuit.com/AnasSarkiz/rp2040-bldc-servo-controller",
+    "is_public": true,
+    "is_private": false,
+    "is_unlisted": false,
+    "latest_version": null,
+    "latest_package_release_id": null,
+    "public_dist_enabled": true,
+    "release_published": false,
+    "circuit_json_match_verified": false,
+    "blockers": [
+      "push ignores configured ignoredFiles",
+      "electrical design incomplete and build fails",
+      "GitHub integration repository_not_accessible"
+    ]
+  },
+  "fully_published": false
+}

@@ -75,3 +75,11 @@ No routed shorts check, routed snapshots, copper-layer/current/clearance measure
 - Registry linking to GitHub failed with `repository_not_accessible`: the tscircuit GitHub installation cannot access the new repository. A separate public-dist update was attempted without the link. Do not confuse this integration scope failure with GitHub CLI authentication; AnasSarkiz CLI authentication and repository creation succeeded.
 - Registry upload is blocked by I-002: the current supported CLI push ignores configured publication exclusions. `push --help` confirms `--include-dist`; this is the required flag when publication becomes possible. No excluded datasheets are uploaded to work around the defect.
 - No registry build/Circuit JSON matching verification can pass without a release. Therefore this step is **not fully published**. GitHub source push and anonymous Circuit JSON hash verification are recorded in `evidence/publication-verification.json` when completed.
+
+### Verified source push
+
+The source/import inspection commit [`6c8db5d`](https://github.com/AnasSarkiz/rp2040-bldc-servo-controller/commit/6c8db5d07f03ca8d3ad408babe7f5ef01e341f19) was pushed to `main`. Anonymous raw-file download of `dist/index/circuit.json` succeeded and its SHA-256 exactly matches the local failed-build inspection artifact: `1825e66a9be7a31f62109791c3794aa5ce658ed419b67ca93f55a8e5adfc1fae`.
+
+The public registry package is accessible anonymously and `public_dist_enabled` is true, but it still has no version, release or build. No registry Circuit JSON match can be verified. GitHub source update succeeded; registry board publication did not. This remains a blocking partial publication.
+
+The subsequent verification-record commit changes documentation/evidence only. Circuit source, imports, dependency lockfile and generated Circuit JSON remain identical to the linked inspected source revision, so earlier diagnostic results still apply. It does not advance any electrical/mechanical validation gate.
