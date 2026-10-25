@@ -49,5 +49,12 @@ if (bad) {
   await page.setContent(`<style>body{margin:0;background:black}.pcb{position:absolute;inset:0}.annotation{position:absolute;inset:0;font-family:sans-serif}</style><div class="pcb">${svg}</div><svg class="annotation" width="800" height="600"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#ff6644"/></marker></defs><text x="350" y="65" fill="#ff8866" font-size="22">Unexpected diagonal / filled wedge</text><path d="M 510 82 L 454 350" stroke="#ff6644" fill="none" stroke-width="3" marker-end="url(#arrow)"/><circle cx="425" cy="380" r="32" stroke="#ff6644" fill="none" stroke-width="3"/></svg>`)
   await page.screenshot({ path: "evidence/pcb-highlighted.png" })
 }
+if (!bad) {
+  const baselinePng = (await readFile("evidence/baseline/pcb.png")).toString("base64")
+  const fixedPng = (await readFile("dist/index/pcb.png")).toString("base64")
+  await page.setViewportSize({ width: 1600, height: 660 })
+  await page.setContent(`<style>body{margin:0;background:#111;color:white;font:24px sans-serif}main{display:flex}section{width:800px}h1{margin:0;height:60px;display:grid;place-items:center;font-size:24px}img{display:block;width:800px;height:600px}</style><main><section><h1>Before: latest published CLI, unmodified import</h1><img src="data:image/png;base64,${baselinePng}"></section><section><h1>After: importer fix, freshly regenerated import</h1><img src="data:image/png;base64,${fixedPng}"></section></main>`)
+  await page.screenshot({ path: "evidence/before-after.png" })
+}
 await browser.close()
 console.log(`Captured ${notes.length} fabrication path(s); ${summary.segments.filter((s) => s.diagonal).length} long diagonal(s).`)

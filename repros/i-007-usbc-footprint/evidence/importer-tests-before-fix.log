@@ -1,0 +1,226 @@
+✖ expandEasyEdaPathData: all implicit M/L destinations survive (2.902585ms)
+✖ expandEasyEdaPathData: repeated A arguments equal explicit commands (0.641196ms)
+✖ expandEasyEdaPathData: real USB4215 marking is closed with no long diagonal (0.381725ms)
+✔ expandEasyEdaPathData: explicit single-group paths retain their vertices (0.651201ms)
+✖ expandEasyEdaPathData2: all implicit M/L destinations survive (0.356748ms)
+✖ expandEasyEdaPathData2: repeated A arguments equal explicit commands (0.419913ms)
+✖ expandEasyEdaPathData2: real USB4215 marking is closed with no long diagonal (0.243677ms)
+✔ expandEasyEdaPathData2: explicit single-group paths retain their vertices (0.145389ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 2
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 240.343213
+
+✖ failing tests:
+
+test at tests/importer.test.mjs:20:3
+✖ expandEasyEdaPathData: all implicit M/L destinations survive (2.902585ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+        x: 0,
+        y: 0
+      },
+      {
+        x: 10,
+  -     y: 0
+  -   },
+  -   {
+  -     x: 10,
+        y: 10
+      },
+  -   {
+  -     x: 0,
+  -     y: 10
+  -   },
+  -   {
+  -     x: 0,
+  -     y: 0
+  -   }
+    ]
+  
+      at TestContext.<anonymous> (file:///workspace/work/rp2040-bldc-servo-controller/repros/i-007-usbc-footprint/tests/importer.test.mjs:21:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { x: 0, y: 0 }, { x: 10, y: 10 } ],
+    expected: [ { x: 0, y: 0 }, { x: 10, y: 0 }, { x: 10, y: 10 }, { x: 0, y: 10 }, { x: 0, y: 0 } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/importer.test.mjs:25:3
+✖ expandEasyEdaPathData: repeated A arguments equal explicit commands (0.641196ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      {
+        x: 0,
+        y: 0
+      },
+  ...
+      {
+  -     x: 1.2928932188134523,
+  -     y: 0.29289321881345254
+  -   },
+  -   {
+  -     x: 1.9999999999999998,
+  -     y: 0
+  -   },
+  -   {
+        x: 3,
+        y: 0
+      }
+    ]
+  
+      at TestContext.<anonymous> (file:///workspace/work/rp2040-bldc-servo-controller/repros/i-007-usbc-footprint/tests/importer.test.mjs:26:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { x: 0, y: 0 }, { x: 0.7071067811865476, y: 0.2928932188134524 }, { x: 1, y: 1 }, { x: 3, y: 0 } ],
+    expected: [ { x: 0, y: 0 }, { x: 0.7071067811865476, y: 0.2928932188134524 }, { x: 1, y: 1 }, { x: 1.2928932188134523, y: 0.29289321881345254 }, { x: 1.9999999999999998, y: 0 }, { x: 3, y: 0 } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/importer.test.mjs:28:3
+✖ expandEasyEdaPathData: real USB4215 marking is closed with no long diagonal (0.381725ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  12 !== 19
+  
+      at TestContext.<anonymous> (file:///workspace/work/rp2040-bldc-servo-controller/repros/i-007-usbc-footprint/tests/importer.test.mjs:30:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 12,
+    expected: 19,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/importer.test.mjs:20:3
+✖ expandEasyEdaPathData2: all implicit M/L destinations survive (0.356748ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+        x: 0,
+        y: 0
+      },
+      {
+        x: 10,
+  -     y: 0
+  -   },
+  -   {
+  -     x: 10,
+        y: 10
+      },
+  -   {
+  -     x: 0,
+  -     y: 10
+  -   },
+  -   {
+  -     x: 0,
+  -     y: 0
+  -   }
+    ]
+  
+      at TestContext.<anonymous> (file:///workspace/work/rp2040-bldc-servo-controller/repros/i-007-usbc-footprint/tests/importer.test.mjs:21:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { x: 0, y: 0 }, { x: 10, y: 10 } ],
+    expected: [ { x: 0, y: 0 }, { x: 10, y: 0 }, { x: 10, y: 10 }, { x: 0, y: 10 }, { x: 0, y: 0 } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/importer.test.mjs:25:3
+✖ expandEasyEdaPathData2: repeated A arguments equal explicit commands (0.419913ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      {
+        x: 0,
+        y: 0
+      },
+  ...
+      {
+  -     x: 1.2928932188134523,
+  -     y: 0.29289321881345254
+  -   },
+  -   {
+  -     x: 1.9999999999999998,
+  -     y: 0
+  -   },
+  -   {
+        x: 3,
+        y: 0
+      }
+    ]
+  
+      at TestContext.<anonymous> (file:///workspace/work/rp2040-bldc-servo-controller/repros/i-007-usbc-footprint/tests/importer.test.mjs:26:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { x: 0, y: 0 }, { x: 0.7071067811865476, y: 0.2928932188134524 }, { x: 1, y: 1 }, { x: 3, y: 0 } ],
+    expected: [ { x: 0, y: 0 }, { x: 0.7071067811865476, y: 0.2928932188134524 }, { x: 1, y: 1 }, { x: 1.2928932188134523, y: 0.29289321881345254 }, { x: 1.9999999999999998, y: 0 }, { x: 3, y: 0 } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/importer.test.mjs:28:3
+✖ expandEasyEdaPathData2: real USB4215 marking is closed with no long diagonal (0.243677ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  12 !== 19
+  
+      at TestContext.<anonymous> (file:///workspace/work/rp2040-bldc-servo-controller/repros/i-007-usbc-footprint/tests/importer.test.mjs:30:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 12,
+    expected: 19,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

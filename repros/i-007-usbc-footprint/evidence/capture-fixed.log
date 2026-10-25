@@ -1,0 +1,5 @@
+
+> capture
+> node scripts/capture-evidence.mjs
+
+Captured 1 fabrication path(s); 0 long diagonal(s).

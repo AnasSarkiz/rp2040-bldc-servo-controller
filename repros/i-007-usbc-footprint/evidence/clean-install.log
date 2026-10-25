@@ -1,0 +1,55 @@
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: jscad-electronics@0.0.210
+npm warn Found: @tscircuit/alphabet@0.0.25
+npm warn node_modules/circuit-json-to-gltf/node_modules/@tscircuit/alphabet
+npm warn   @tscircuit/alphabet@"^0.0.25" from circuit-json-to-gltf@0.0.151
+npm warn   node_modules/circuit-json-to-gltf
+npm warn     circuit-json-to-gltf@"^0.0.151" from tscircuit@0.0.3016
+npm warn     node_modules/tscircuit
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer @tscircuit/alphabet@"^0.0.24" from jscad-electronics@0.0.210
+npm warn node_modules/circuit-json-to-gltf/node_modules/jscad-electronics
+npm warn   jscad-electronics@"^0.0.210" from circuit-json-to-gltf@0.0.151
+npm warn   node_modules/circuit-json-to-gltf
+npm warn
+npm warn Conflicting peer dependency: @tscircuit/alphabet@0.0.24
+npm warn node_modules/@tscircuit/alphabet
+npm warn   peer @tscircuit/alphabet@"^0.0.24" from jscad-electronics@0.0.210
+npm warn   node_modules/circuit-json-to-gltf/node_modules/jscad-electronics
+npm warn     jscad-electronics@"^0.0.210" from circuit-json-to-gltf@0.0.151
+npm warn     node_modules/circuit-json-to-gltf
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: jscad-electronics@0.0.210
+npm warn Found: circuit-json@0.0.534
+npm warn node_modules/circuit-json
+npm warn   peer circuit-json@"*" from @tscircuit/checks@0.0.264
+npm warn   node_modules/@tscircuit/checks
+npm warn     peer @tscircuit/checks@"*" from @tscircuit/core@0.0.2203
+npm warn     node_modules/@tscircuit/core
+npm warn     3 more (@tscircuit/core, @tscircuit/core, tscircuit)
+npm warn   18 more (@tscircuit/circuit-json-util, @tscircuit/cli, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer circuit-json@"^0.0.426" from jscad-electronics@0.0.210
+npm warn node_modules/circuit-json-to-gltf/node_modules/jscad-electronics
+npm warn   jscad-electronics@"^0.0.210" from circuit-json-to-gltf@0.0.151
+npm warn   node_modules/circuit-json-to-gltf
+npm warn
+npm warn Conflicting peer dependency: circuit-json@0.0.426
+npm warn node_modules/circuit-json
+npm warn   peer circuit-json@"^0.0.426" from jscad-electronics@0.0.210
+npm warn   node_modules/circuit-json-to-gltf/node_modules/jscad-electronics
+npm warn     jscad-electronics@"^0.0.210" from circuit-json-to-gltf@0.0.151
+npm warn     node_modules/circuit-json-to-gltf
+npm warn skipping integrity check for git dependency ssh://git@github.com/tscircuit/pcb-trace-linter.git
+npm warn deprecated prebuild-install@7.1.3: No longer maintained. Please contact the author of the relevant native addon; alternatives are available.
+
+> postinstall
+> patch-package --error-on-fail
+
+patch-package 8.0.1
+Applying patches...
+@tscircuit/cli@0.1.2408 ✔
+
+added 411 packages in 8s

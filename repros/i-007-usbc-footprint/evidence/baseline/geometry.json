@@ -1,0 +1,178 @@
+{
+  "component": "C37616412 / USB4215-03-A",
+  "counts": {
+    "cad_component": 1,
+    "pcb_board": 1,
+    "pcb_component": 1,
+    "pcb_courtyard_outline": 1,
+    "pcb_fabrication_note_path": 1,
+    "pcb_plated_hole": 4,
+    "pcb_port": 16,
+    "pcb_silkscreen_path": 5,
+    "pcb_silkscreen_text": 1,
+    "pcb_smtpad": 12,
+    "pcb_solder_paste": 20,
+    "schematic_component": 1,
+    "schematic_group": 1,
+    "schematic_missing_sheet_warning": 1,
+    "schematic_port": 16,
+    "schematic_text": 2,
+    "source_board": 1,
+    "source_component": 1,
+    "source_component_pins_underspecified_warning": 1,
+    "source_group": 1,
+    "source_no_ground_pin_defined_warning": 1,
+    "source_no_power_pin_defined_warning": 1,
+    "source_port": 16,
+    "source_project_metadata": 1,
+    "source_property_ignored_warning": 1
+  },
+  "segments": [
+    {
+      "index": 0,
+      "from": {
+        "x": 4.526991200000111,
+        "y": -4.475041800000099
+      },
+      "to": {
+        "x": 4.489793761210763,
+        "y": -4.564844361210817
+      },
+      "length_mm": 0.09720159182077232,
+      "diagonal": false
+    },
+    {
+      "index": 1,
+      "from": {
+        "x": 4.489793761210763,
+        "y": -4.564844361210817
+      },
+      "to": {
+        "x": 4.399991200000045,
+        "y": -4.602041800000052
+      },
+      "length_mm": 0.09720159182072881,
+      "diagonal": false
+    },
+    {
+      "index": 2,
+      "from": {
+        "x": 4.399991200000045,
+        "y": -4.602041800000052
+      },
+      "to": {
+        "x": -4.399991200000045,
+        "y": -4.602041800000052
+      },
+      "length_mm": 8.79998240000009,
+      "diagonal": false
+    },
+    {
+      "index": 3,
+      "from": {
+        "x": -4.399991200000045,
+        "y": -4.602041800000052
+      },
+      "to": {
+        "x": -4.489793761210763,
+        "y": -4.564844361210817
+      },
+      "length_mm": 0.09720159182072881,
+      "diagonal": false
+    },
+    {
+      "index": 4,
+      "from": {
+        "x": -4.489793761210763,
+        "y": -4.564844361210817
+      },
+      "to": {
+        "x": -4.526991200000111,
+        "y": -4.475041800000099
+      },
+      "length_mm": 0.09720159182077232,
+      "diagonal": false
+    },
+    {
+      "index": 5,
+      "from": {
+        "x": -4.526991200000111,
+        "y": -4.475041800000099
+      },
+      "to": {
+        "x": -4.526991200000111,
+        "y": 0.4249483999998347
+      },
+      "length_mm": 4.899990199999934,
+      "diagonal": false
+    },
+    {
+      "index": 6,
+      "from": {
+        "x": -4.526991200000111,
+        "y": 0.4249483999998347
+      },
+      "to": {
+        "x": -4.489793761210763,
+        "y": 0.5147509612105523
+      },
+      "length_mm": 0.09720159182077232,
+      "diagonal": false
+    },
+    {
+      "index": 7,
+      "from": {
+        "x": -4.489793761210763,
+        "y": 0.5147509612105523
+      },
+      "to": {
+        "x": -4.399991200000045,
+        "y": 0.5519483999999011
+      },
+      "length_mm": 0.09720159182077232,
+      "diagonal": false
+    },
+    {
+      "index": 8,
+      "from": {
+        "x": -4.399991200000045,
+        "y": 0.5519483999999011
+      },
+      "to": {
+        "x": -4.272991200000092,
+        "y": -4.348041800000033
+      },
+      "length_mm": 4.9016357433101225,
+      "diagonal": false
+    },
+    {
+      "index": 9,
+      "from": {
+        "x": -4.272991200000092,
+        "y": -4.348041800000033
+      },
+      "to": {
+        "x": 4.399991200000045,
+        "y": 0.5519483999999011
+      },
+      "length_mm": 9.961452086458456,
+      "diagonal": true
+    },
+    {
+      "index": 10,
+      "from": {
+        "x": 4.399991200000045,
+        "y": 0.5519483999999011
+      },
+      "to": {
+        "x": 4.526991200000111,
+        "y": -4.475041800000099
+      },
+      "length_mm": 5.028594184351731,
+      "diagonal": false
+    }
+  ],
+  "imported_tsx_sha256": "179de42e8764eea61771b762acfdfd17495fc6986f2dce79f888abaf16cf9af7",
+  "source_json_sha256": "6a89ce88859667fdda170d739d17278446f6103da6053769e136f6faee207ad7",
+  "manufacturer_pdf_sha256": "1659ba00769b9b774a033fac72cb2f3bfc481a3272c53f34e87520f33635a9e1"
+}

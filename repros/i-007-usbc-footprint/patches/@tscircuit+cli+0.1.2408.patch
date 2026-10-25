@@ -1,0 +1,60 @@
+diff --git a/node_modules/@tscircuit/cli/dist/cli/main.js b/node_modules/@tscircuit/cli/dist/cli/main.js
+index 027fccc..704aaeb 100755
+--- a/node_modules/@tscircuit/cli/dist/cli/main.js
++++ b/node_modules/@tscircuit/cli/dist/cli/main.js
+@@ -396231,15 +396231,19 @@ var expandEasyEdaPathData = (pathData) => {
+     const command = commandMatch[1]?.toUpperCase();
+     const values = commandMatch[2]?.match(/[-+]?(?:\d*\.\d+|\d+\.?)(?:[eE][-+]?\d+)?/g)?.map(Number) ?? [];
+     if ((command === "M" || command === "L") && values.length >= 2) {
+-      currentPoint = { x: values[0], y: values[1] };
+-      rawRoute.push(currentPoint);
++      for (let offset = 0; offset + 1 < values.length; offset += 2) {
++        currentPoint = { x: values[offset], y: values[offset + 1] };
++        rawRoute.push(currentPoint);
++      }
+     } else if (command === "A" && currentPoint && values.length >= 7) {
+-      const [radiusX, , , largeArcFlag, sweepFlag, endX, endY] = values;
+-      const generatedArcRoute = generateArcFromSweep(currentPoint.x, currentPoint.y, endX, endY, radiusX, largeArcFlag === 1, sweepFlag === 1);
+-      const maxArcSegments = 16;
+-      const arcRoute = generatedArcRoute.length <= maxArcSegments + 1 ? generatedArcRoute : Array.from({ length: maxArcSegments + 1 }, (_, pointIndex) => generatedArcRoute.at(Math.round(pointIndex * (generatedArcRoute.length - 1) / maxArcSegments))).filter((point4) => !!point4);
+-      rawRoute.push(...arcRoute.slice(1));
+-      currentPoint = { x: endX, y: endY };
++      for (let offset = 0; offset + 6 < values.length; offset += 7) {
++        const [radiusX, , , largeArcFlag, sweepFlag, endX, endY] = values.slice(offset, offset + 7);
++        const generatedArcRoute = generateArcFromSweep(currentPoint.x, currentPoint.y, endX, endY, radiusX, largeArcFlag === 1, sweepFlag === 1);
++        const maxArcSegments = 16;
++        const arcRoute = generatedArcRoute.length <= maxArcSegments + 1 ? generatedArcRoute : Array.from({ length: maxArcSegments + 1 }, (_, pointIndex) => generatedArcRoute.at(Math.round(pointIndex * (generatedArcRoute.length - 1) / maxArcSegments))).filter((point4) => !!point4);
++        rawRoute.push(...arcRoute.slice(1));
++        currentPoint = { x: endX, y: endY };
++      }
+     }
+   }
+   return rawRoute;
+@@ -415552,15 +415556,19 @@ var expandEasyEdaPathData2 = (pathData) => {
+     const command = commandMatch[1]?.toUpperCase();
+     const values = commandMatch[2]?.match(/[-+]?(?:\d*\.\d+|\d+\.?)(?:[eE][-+]?\d+)?/g)?.map(Number) ?? [];
+     if ((command === "M" || command === "L") && values.length >= 2) {
+-      currentPoint = { x: values[0], y: values[1] };
+-      rawRoute.push(currentPoint);
++      for (let offset = 0; offset + 1 < values.length; offset += 2) {
++        currentPoint = { x: values[offset], y: values[offset + 1] };
++        rawRoute.push(currentPoint);
++      }
+     } else if (command === "A" && currentPoint && values.length >= 7) {
+-      const [radiusX, , , largeArcFlag, sweepFlag, endX, endY] = values;
+-      const generatedArcRoute = generateArcFromSweep2(currentPoint.x, currentPoint.y, endX, endY, radiusX, largeArcFlag === 1, sweepFlag === 1);
+-      const maxArcSegments = 16;
+-      const arcRoute = generatedArcRoute.length <= maxArcSegments + 1 ? generatedArcRoute : Array.from({ length: maxArcSegments + 1 }, (_, pointIndex) => generatedArcRoute.at(Math.round(pointIndex * (generatedArcRoute.length - 1) / maxArcSegments))).filter((point4) => !!point4);
+-      rawRoute.push(...arcRoute.slice(1));
+-      currentPoint = { x: endX, y: endY };
++      for (let offset = 0; offset + 6 < values.length; offset += 7) {
++        const [radiusX, , , largeArcFlag, sweepFlag, endX, endY] = values.slice(offset, offset + 7);
++        const generatedArcRoute = generateArcFromSweep2(currentPoint.x, currentPoint.y, endX, endY, radiusX, largeArcFlag === 1, sweepFlag === 1);
++        const maxArcSegments = 16;
++        const arcRoute = generatedArcRoute.length <= maxArcSegments + 1 ? generatedArcRoute : Array.from({ length: maxArcSegments + 1 }, (_, pointIndex) => generatedArcRoute.at(Math.round(pointIndex * (generatedArcRoute.length - 1) / maxArcSegments))).filter((point4) => !!point4);
++        rawRoute.push(...arcRoute.slice(1));
++        currentPoint = { x: endX, y: endY };
++      }
+     }
+   }
+   return rawRoute;

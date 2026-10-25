@@ -5,7 +5,8 @@ one board containing one unconnected imported USB-C connector. `U1` follows the
 imported `chip` primitive's reference convention; the name has no PCB effect.
 
 Prerequisites: Node 24+, npm, Bun (`tsci` uses Bun), and network access to npm,
-EasyEDA, and the model CDN. Latest npm versions checked on 2026-10-25:
+EasyEDA, and the model CDN. The fix branch patches the pinned CLI importer during `npm ci`; see
+[fix provenance](fixes/README.md). Latest npm versions checked on 2026-10-25:
 `@tscircuit/cli@0.1.2408`, `tscircuit@0.0.3016`; the lockfile pins this result.
 
 ```sh
@@ -14,6 +15,7 @@ export PATH="$PWD/node_modules/.bin:$PATH"
 tsci version --verbose
 tsci import --jlcpcb C37616412 --download --use-exact-footprint
 tsci build index.circuit.tsx --pcb-svgs --pcb-png
+npm test
 npm run verify
 ```
 
@@ -44,6 +46,10 @@ annotation over it. Fabrication-only SVG removes other layers from a **copy**;
 its fabrication path data/fill/stroke remain exactly as rendered. The supplier
 SVG uses the original EasyEDA `d` string directly in the browser, bypassing the
 importer. No build output or imported definition is repaired by these scripts.
+The fix is applied to the importer package; normal re-import regenerates the
+component and normal build updates the PCB outputs.
+[Before/after screenshot](evidence/before-after.png); preserved unmodified
+baseline files are under [evidence/baseline/](evidence/baseline/).
 The raw source was independently fetched using `fetchEasyEDAComponent` with
 `includeModelMetadata:false`; `fetch-source.py` provides a dependency-free refresh.
 Live supplier updates may change metadata or geometry, so retain the captured

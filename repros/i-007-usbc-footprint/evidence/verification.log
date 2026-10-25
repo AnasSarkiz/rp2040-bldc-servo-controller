@@ -1,0 +1,5 @@
+
+> verify
+> node scripts/verify.mjs
+
+Verified fixed 19-point U marking, zero long diagonals, and 106 identical non-fabrication records. Only generated fabrication TSX and source digest change.

@@ -1,0 +1,20 @@
+
+> test
+> node --test tests/*.test.mjs
+
+✔ expandEasyEdaPathData: all implicit M/L destinations survive (1.554288ms)
+✔ expandEasyEdaPathData: repeated A arguments equal explicit commands (0.429318ms)
+✔ expandEasyEdaPathData: real USB4215 marking is closed with no long diagonal (0.347926ms)
+✔ expandEasyEdaPathData: explicit single-group paths retain their vertices (0.164819ms)
+✔ expandEasyEdaPathData2: all implicit M/L destinations survive (0.248946ms)
+✔ expandEasyEdaPathData2: repeated A arguments equal explicit commands (0.351881ms)
+✔ expandEasyEdaPathData2: real USB4215 marking is closed with no long diagonal (0.228676ms)
+✔ expandEasyEdaPathData2: explicit single-group paths retain their vertices (0.096215ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 265.676976

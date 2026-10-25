@@ -5,10 +5,13 @@
   "scripts": {
     "build": "tsci build index.circuit.tsx --pcb-svgs --pcb-png",
     "capture": "node scripts/capture-evidence.mjs",
-    "verify": "node scripts/verify.mjs"
+    "verify": "node scripts/verify.mjs",
+    "postinstall": "patch-package --error-on-fail",
+    "test": "node --test tests/*.test.mjs"
   },
   "devDependencies": {
     "@tscircuit/cli": "0.1.2408",
+    "patch-package": "8.0.1",
     "playwright": "1.61.1",
     "tscircuit": "0.0.3016"
   }

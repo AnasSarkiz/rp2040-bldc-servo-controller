@@ -1,0 +1,25 @@
+bun test v1.4.4 (38afee6c8)
+
+tests/arc-utils.test.ts:
+(pass) generateArcFromSweep > uses the near circle center for a small arc [0.22ms]
+(pass) generateArcFromSweep > uses the opposite circle center for a large arc [0.11ms]
+
+tests/c37616412-repeated-path-arguments.test.ts:
+(pass) preserves every repeated L pair and implicit line pair after M [1.45ms]
+(pass) repeated A groups agree with explicitly repeated command letters [0.09ms]
+(pass) C37616412's captured U marking has no body-spanning diagonal [0.18ms]
+(pass) real component conversion carries the U marking into generated TSX [20.96ms]
+
+tests/arc-utils-semicircle.test.ts:
+(pass) generateArcFromSweep semicircle tolerance > arcs an exact semicircle instead of returning a flat chord [0.08ms]
+(pass) generateArcFromSweep semicircle tolerance > produces no NaN coordinates for a semicircle [0.03ms]
+(pass) generateArcFromSweep semicircle tolerance > still returns a flat chord when the radius is genuinely too small [0.02ms]
+(pass) generateArcFromSweep semicircle tolerance > still returns a flat chord for a zero-length path [0.01ms]
+(pass) expandEasyEdaPathData on a semicircle circle > expands the two semicircles into a closed route [0.05ms]
+(pass) expandEasyEdaPathData on a semicircle circle > closes back onto the start point [0.05ms]
+(pass) expandEasyEdaPathData on a semicircle circle > the expanded circle is 1.17mm wide with a 0.5846mm radius [0.05ms]
+
+ 13 pass
+ 0 fail
+ 72 expect() calls
+Ran 13 tests across 3 files. [113.00ms]
