@@ -1,0 +1,28 @@
+name: I-007 USB-C footprint
+on:
+  pull_request:
+    paths:
+      - 'repros/i-007-usbc-footprint/**'
+      - '.github/workflows/i-007-footprint.yml'
+  workflow_dispatch:
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: repros/i-007-usbc-footprint
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.4.4'
+      - run: npm ci
+      - run: npm run build
+      - run: npm run verify
+      - uses: actions/upload-artifact@v4
+        with:
+          name: i-007-pcb
+          path: repros/i-007-usbc-footprint/dist/index/
