@@ -1,0 +1,18 @@
+{
+  "revision": "sourcing-prototype-0.0.2",
+  "audit_bom_matches_generated_fixture": true,
+  "bom_component_rows": 7,
+  "unallocated_candidate_rows": 5,
+  "outline_mm": [
+    42,
+    42
+  ],
+  "layers": 4,
+  "placed_component_side": "top",
+  "smt_pad_side": "top",
+  "smt_pad_count": 165,
+  "required_pin_error_count": 13,
+  "electrical_design_complete": false,
+  "fabrication_ready": false,
+  "circuit_json_sha256": "fa4b103bddbaf8ba09c41bc1e5e230790597fe0580332f47bf6e6c325d9c850c"
+}

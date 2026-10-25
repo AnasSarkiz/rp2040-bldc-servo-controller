@@ -1,0 +1,16 @@
+{
+  "query": "C2671361",
+  "results": [
+    {
+      "source": "jlcpcb",
+      "lcsc": 2671361,
+      "mfr": "THVD1450DR",
+      "package": "SOIC-8",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "-40℃~+125℃ 1 1 256 3V~5.5V 3mA 50Mbps Half-Duplex Transceiver ±18kV SOIC-8 RS-485 / RS-422 ICs ROHS",
+      "stock": 5217,
+      "price": 0.9062
+    }
+  ]
+}

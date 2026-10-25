@@ -1,0 +1,16 @@
+{
+  "query": "C2040",
+  "results": [
+    {
+      "source": "jlcpcb",
+      "lcsc": 2040,
+      "mfr": "RP2040",
+      "package": "LQFN-56(7x7)",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "12bit 133MHz 30 LQFN-56(7x7) Microcontrollers (MCU/MPU/SOC) ROHS",
+      "stock": 71563,
+      "price": 0.9941
+    }
+  ]
+}

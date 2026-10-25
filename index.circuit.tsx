@@ -11,7 +11,7 @@ import { USB4215_03_A } from "./imports/USB4215_03_A/USB4215_03_A"
 // All electrical integration remains blocked as recorded in issue.md.
 export default function ImportedPartInspection() {
   return (
-    <board width="42.2mm" height="42.2mm" layers={4} routingDisabled>
+    <board width="42mm" height="42mm" layers={4} routingDisabled>
       <schematicsheet
         name="mcu"
         displayName="IMPORT AUDIT - MCU"
@@ -29,6 +29,7 @@ export default function ImportedPartInspection() {
       />
       <RP2040
         name="U1"
+        layer="top"
         pcbX={-10}
         pcbY={10}
         schX={-5}
@@ -37,6 +38,7 @@ export default function ImportedPartInspection() {
       />
       <DRV8316RRGFR
         name="U2"
+        layer="top"
         pcbX={1}
         pcbY={10}
         schX={-6}
@@ -46,6 +48,7 @@ export default function ImportedPartInspection() {
       />
       <STUSB4500QTR
         name="U3"
+        layer="top"
         pcbX={12}
         pcbY={10}
         schX={6}
@@ -54,6 +57,7 @@ export default function ImportedPartInspection() {
       />
       <W25Q16JVSSIQ
         name="U4"
+        layer="top"
         pcbX={-10}
         pcbY={-3}
         schX={5}
@@ -62,6 +66,7 @@ export default function ImportedPartInspection() {
       />
       <THVD1450DR
         name="U5"
+        layer="top"
         pcbX={1}
         pcbY={-3}
         schX={-5}
@@ -70,6 +75,7 @@ export default function ImportedPartInspection() {
       />
       <AS5047P_ATSM
         name="U6"
+        layer="top"
         pcbX={12}
         pcbY={-3}
         schX={5}
@@ -78,6 +84,7 @@ export default function ImportedPartInspection() {
       />
       <USB4215_03_A
         name="J1"
+        layer="top"
         pcbX={0}
         pcbY={-14}
         schX={0}

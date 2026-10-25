@@ -1,0 +1,16 @@
+{
+  "query": "C51118",
+  "results": [
+    {
+      "source": "jlcpcb",
+      "lcsc": 51118,
+      "mfr": "AP2112K-3.3TRG1",
+      "package": "SOT-25-5",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "-40℃~+85℃@(Ta) 1 250mV@(600mA) 3.3V 50uVrms 55uA 600mA 65dB@(1kHz) 6V Fixed Over Current Protection、Thermal Shutdown、Enable control Positive SOT-25-5 Voltage Regulators - Linear, Low Drop Out (LDO) Regulators ROHS",
+      "stock": 12262,
+      "price": 0.1577
+    }
+  ]
+}

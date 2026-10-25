@@ -1,8 +1,10 @@
-# RP2040 BLDC servo controller - blocked engineering prototype
+# RP2040 BLDC servo controller - WIP engineering prototype
 
 **The hardware design is incomplete. Do not fabricate, assemble, or power this revision. FOC is not implemented or tested.**
 
-The current `index.circuit.tsx` is an unconnected inspection fixture for the seven required JLCPCB imports. It is not a controller schematic. Its 42.2 mm square board is an inspection canvas, not a verified mechanical outline. No motor mounting holes have been guessed. U6 is shown for import inspection; the eventual AS5047P belongs on an external shaft-mounted encoder assembly.
+The current `index.circuit.tsx` is an unconnected inspection fixture for seven JLCPCB imports. It is not a controller schematic. Revision 0.0.2 uses a **42 × 42 mm target canvas, four layers and explicit TOP-only component placement**. Exact motor fit is unverified. No motor mounting holes have been guessed. U6 is shown for import inspection; the eventual AS5047P belongs on an external shaft-mounted encoder assembly.
+
+The sourcing review selects **C131025 for the same W25Q16JVSSIQ flash**. The high-stock **C165948 USB-C candidate is not approved**: its imported shell slots differ from the manufacturer's recommended layout, and power/ground metadata is incomplete. Four Basic passive candidates have supported imports but remain unallocated while stock and manufacturer footprint checks are pending. See [SOURCING.md](SOURCING.md), [candidate list](SOURCING-CANDIDATES.csv) and reproducible defects in [issue.md](issue.md).
 
 ## Requested hardware
 
@@ -10,7 +12,7 @@ The current `index.circuit.tsx` is an unconnected inspection fixture for the sev
 - RP2040, DRV8316R, STUSB4500, W25Q16JVSSIQ, USB4215-03-A and THVD1450DR. External AS5047P interface and optional daughterboard.
 - USB-C PD is the sole primary power source, including motor power. Target contract 20 V / 5 A using a compatible source and electronically marked 5 A cable; negotiate 5/9/15/20 V as applicable.
 - Regulated 24 V boost motor bus and separate 3.3 V logic supply. USB programming and communication, SWD, Hall and SPI encoder inputs, current feedback, fault monitoring, hardware disable and RS-485.
-- Four copper layers; exact rear motor fit using existing rear bolts.
+- Four copper layers; 42 × 42 mm target; TOP-only assembly; exact rear motor fit using existing rear bolts remains required and unverified.
 
 ## Architecture under review - not implemented
 
@@ -30,7 +32,7 @@ See [POWER-REVIEW.md](POWER-REVIEW.md) for preliminary calculations and the rema
 
 The three native A4 sheets in the source are explicitly labeled as unconnected import reviews. No functional schematic sheets are complete. See [PIN-REVIEW.md](PIN-REVIEW.md) for verified device pin groups and a proposed GPIO allocation; this is a planning record, not implemented connectivity.
 
-[BOM.csv](BOM.csv) inventories only the seven imported parts in the inspection fixture. **It is not a complete assembly BOM.** All support passives, power-stage parts, clock, connectors, protection, monitoring and programming switches remain unselected. No invented supplier codes or generic substitutes are included. C82317 imports correctly and LCSC confirms the identity, but JLCPCB assembly availability remains unresolved.
+[BOM.csv](BOM.csv) inventories every placed part in the seven-part fixture, with real supplier numbers, MPNs, quantities, packages, stock snapshot/date/provenance, Basic/Extended classification, assembly side and verified import status. **It is not a complete controller assembly BOM.** All functional support circuitry and quantities remain unfinished; unallocated candidates are separate. All seven current parts are Extended, not Promotional/Preferred. C131025 replaces the unindexed C82317 after same-MPN, pinout and copper-geometry review. No invented codes, component definitions or assembly quantities are included. The remaining complete-controller BOM work is listed in [SOURCING.md](SOURCING.md).
 
 ## Reproduce inspection
 
@@ -46,6 +48,7 @@ bunx --no-install tscircuit-cli check source index.circuit.tsx
 bunx --no-install tscircuit-cli check schematic-placement index.circuit.tsx
 bunx --no-install tscircuit-cli check placement index.circuit.tsx
 bunx --no-install tscircuit-cli build index.circuit.tsx --pcb-png --pcb-svgs --schematic-svgs --3d
+python3 scripts/check-sourcing.py
 ```
 
 To render every inspection sheet individually, run `bun scripts/render-import-sheets.mjs` after the failed-build JSON has been generated.
@@ -58,4 +61,4 @@ Routing remains disabled. An inspection build or successful software command doe
 
 GitHub and registry destinations are `AnasSarkiz/rp2040-bldc-servo-controller`. A public empty package is not a published verified board. Publication remains blocked until configuration-based datasheet exclusion and a matching valid circuit build can be verified. No fabrication package, physical measurements, firmware performance, working FOC, exact motor fit or hardware-tested status is claimed.
 
-The import-inspection source was pushed in [commit 6c8db5d](https://github.com/AnasSarkiz/rp2040-bldc-servo-controller/commit/6c8db5d07f03ca8d3ad408babe7f5ef01e341f19). Its Circuit JSON was fetched anonymously and verified byte-for-byte against the local failed-build artifact. The [public tscircuit package](https://tscircuit.com/AnasSarkiz/rp2040-bldc-servo-controller) exists but has no published version or build; registry publication is blocked.
+The original import audit was pushed in [commit 6c8db5d](https://github.com/AnasSarkiz/rp2040-bldc-servo-controller/commit/6c8db5d07f03ca8d3ad408babe7f5ef01e341f19). Current source and generated artifacts are published to the same [existing GitHub repository](https://github.com/AnasSarkiz/rp2040-bldc-servo-controller). Revision-specific push/hash verification is recorded in `VALIDATION.md` and `evidence/`. The [public tscircuit package](https://tscircuit.com/AnasSarkiz/rp2040-bldc-servo-controller) exists but has no published version or build; registry publication remains blocked by I-002.

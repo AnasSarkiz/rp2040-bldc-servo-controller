@@ -54,6 +54,13 @@
       "bytes": 2938591,
       "sha256": "6d23cdf57fd63fc2c2de517707e293beaf70f3f47b424bf58510666294c04d82",
       "review_status": "archived; complete design review not passed"
+    },
+    {
+      "file": "datasheets/type-c-31-m-12.pdf",
+      "bytes": 118176,
+      "sha256": "6ae33d50ac47820114661138dc4e4659f40fdc5d4f485b46685dfec338da1a9e",
+      "source_url": "https://datasheet.lcsc.com/datasheet/pdf/9e56b777c022540fcce7c7f67825f55e.pdf?productCode=C165948",
+      "review_status": "Manufacturer revision A full drawing and enlarged component-side layout visually reviewed; imported shell slots differ; connector NOT approved"
     }
   ],
   "rejected_files": [

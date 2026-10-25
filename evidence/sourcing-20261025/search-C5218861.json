@@ -1,0 +1,16 @@
+{
+  "query": "C5218861",
+  "results": [
+    {
+      "source": "jlcpcb",
+      "lcsc": 5218861,
+      "mfr": "DRV8316RRGFR",
+      "package": "VQFN-40(5x7)",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "-40℃~+125℃ 1.5uA 3 8A 8A 95mΩ SPI Three Phase Yes VQFN-40(5x7) Brushless DC (BLDC) Motor Driver ROHS",
+      "stock": 2059,
+      "price": 4.5471
+    }
+  ]
+}

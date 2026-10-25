@@ -1,6 +1,6 @@
 # Engineering and tooling issues
 
-Date: 2026-10-25. Revision: intake-prototype-0.0.1. This is an unconnected imported-part inspection, not a completed electrical design. Dependent design/fabrication work is gated by the issues below. No generated component definition is manually patched.
+Date: 2026-10-25. Current revision: sourcing-prototype-0.0.2, continuing intake-prototype-0.0.1. This is an unconnected imported-part inspection, not a completed electrical design. Dependent work remains gated; unrelated sourcing qualification continues where permitted. No generated component definition is manually patched.
 
 ## I-001 - RP2040 C2040 exact footprint coordinate rejected
 
@@ -50,7 +50,7 @@ Affected stage: BOM sourcing verification.
 
 `tsci search --jlcpcb --json C82317` returns an empty result. The official LCSC page `https://www.lcsc.com/product-detail/C82317.html` confirms W25Q16JVSSIQ / SOIC-8-208mil, and the supported JLCPCB import succeeds for C82317. C131025 independently appears as the same MPN with stock, but is not silently substituted. Manufacturer-text searches also return unrelated parts, so those results must not be treated as exact matches.
 
-Logs: `evidence/logs/search-C82317.json`, `search-C131025.json`, `search-W25Q16JV*.json`, `import-C82317.log`. Status: identity/import confirmed; live JLCPCB assembly availability for the requested code unresolved. Required next action: verify the requested code in an actual assembler BOM match or obtain an approved same-MPN sourcing correction.
+Logs: `evidence/logs/search-C82317.json`, `search-C131025.json`, `search-W25Q16JV*.json`, `import-C82317.log`. Original status: identity/import confirmed; C82317 assembly availability unresolved. **Revision 0.0.2 disposition:** the user's explicit alternative-sourcing instruction authorizes C131025. Exact import, same-MPN/pin/package review and stock snapshot are recorded in `SOURCING.md` and `evidence/sourcing-20261025/`. U4 now uses C131025. The C82317 search-index defect itself is not fixed, but no longer blocks the selected flash supplier code. Final assembler matching remains pending.
 
 ## I-005 - Manufacturer document download failures
 
@@ -92,4 +92,45 @@ A browser fallback to the official motor product page was rejected by its securi
 
 ## I-012 - Multi-sheet schematic preview/frame inconsistency
 
-Affected stage: schematic visual review. The build's generic schematic preview includes only its first sheet. Explicit rendering with the supported `convertCircuitJsonToSchematicSvg(..., {schematicSheetId})` API produces three separate views. The third (interfaces) view lacks a visible A4 frame although all three Circuit JSON sheets have A4 297x210 metadata. Reproduce with `bun scripts/render-import-sheets.mjs`; inspect `dist/index/schematic-interfaces.png` and the native sheet records. No generated JSON or SVG is hand-patched. Status: unresolved rendering limitation; no complete schematic visual-validation pass is claimed.
+Affected stage: schematic visual review. The build's generic schematic preview includes only its first sheet. Explicit rendering with the supported `convertCircuitJsonToSchematicSvg(..., {schematicSheetId})` API produces three separate views. The power and interfaces views lack a visible A4 frame in the current 0.0.2 review although all three Circuit JSON sheets have A4 297x210 metadata. Reproduce with `bun scripts/render-import-sheets.mjs`; inspect `dist/index/schematic-power.png`, `schematic-interfaces.png` and the native sheet records. No generated JSON or SVG is hand-patched. Status: unresolved rendering limitation; no complete schematic visual-validation pass is claimed.
+
+## I-013 - C165948 imported shell slots differ from manufacturer layout (BLOCKING)
+
+Affected stage: replacement connector footprint qualification and dependent placement/routing. CLI 0.1.2408, tscircuit 0.0.3016, Bun 1.3.9.
+
+```sh
+bunx --no-install tscircuit-cli import --jlcpcb C165948 --download --use-exact-footprint
+bunx --no-install tscircuit-cli build checks/usb-c-c165948.circuit.tsx --pcb-png --pcb-svgs --schematic-svgs --3d
+```
+
+Import/build both exit 0. Inspect `imports/TYPE_C_31_M_12/TYPE_C_31_M_12.tsx` and `dist/checks/usb-c-c165948/circuit.json`. Rear shell slots are drill 0.7999984 × 1.499997 mm, land 1.1999976 × 1.999996 mm. Front slots are drill 0.7999984 × 1.1999976 mm, land 1.1999976 × 1.7999964 mm. The archived HRO revision A drawing `datasheets/type-c-31-m-12.pdf` recommends rear drill 0.60 × 1.70, land 0.90 × 2.00; front drill 0.60 × 1.10, land 0.90 × 1.70 mm, with ±0.05 mm layout tolerance. These are discrepancies requiring qualification, not proof that arbitrary slot enlargement is safe.
+
+Attempted resolution: used current supported exact import; built isolated TOP-only fixture; visually compared full drawing and enlarged recommended component-side layout to import/generated geometry; reviewed PCB and 3D output. No supported corrected import is available in the checked version. No geometry was manually changed. Await corrected supported library data or manufacturer/assembler approval of the alternate land pattern. Status: unresolved; C165948 remains an unallocated candidate, not a replacement approved for fabrication.
+
+Evidence: `evidence/sourcing-20261025/import-C165948.log`, `c165948-build.log`, `type-c-31-m-12.png`, `type-c-layout-detail.png`, and the separate qualification JSON. The PDF's AutoCAD font collection is not supported by text extraction (`Unknown character collection 'PDFAUTOCAD-Indentity0'`); it was rendered and visually reviewed rather than relying on empty extracted text.
+
+## I-014 - C165948 omits USB power/ground electrical metadata (BLOCKING)
+
+Affected stage: alternative connector pin-specification verification.
+
+```sh
+bunx --no-install tscircuit-cli check pin_specification checks/usb-c-c165948.circuit.tsx
+```
+
+Exit 0 with three warnings: `source_component_pins_underspecified_warning`, `source_no_power_pin_defined_warning`, `source_no_ground_pin_defined_warning`. The import declares only passive attributes for pin5…pin12; VBUS pins15/16, GND pins13/14 and shell pins1…4 have no attributes. Thus the checker reports underspecification even though the signal pin subset has passive attributes. Pin names were compared to the manufacturer drawing, but names do not repair missing electrical attributes.
+
+Attempt: current exact import and isolated check/build, logs in `evidence/sourcing-20261025/c165948-pins.log`. Definitions were not patched or overridden. Required resolution: corrected supported import and rerun pin review. Existing J1's separate I-007/I-009 defects remain open; trying C165948 did not resolve them.
+
+## I-015 - Known Basic parts missing from tsci search index
+
+Affected stage: candidate stock/availability verification. Reproduce for C1525, C52923, C25744 and C25076:
+
+```sh
+bunx --no-install tscircuit-cli search --jlcpcb --json C1525
+bunx --no-install tscircuit-cli import --jlcpcb C1525 --download --use-exact-footprint
+bunx --no-install tscircuit-cli build checks/basic-passives.circuit.tsx --pcb-png --pcb-svgs --schematic-svgs --schematic-png --3d
+```
+
+Each exact-ID search returns `results: []`; supported exact imports all succeed. The separate four-part build exits 0 but emits four `source_component_availability_warning` records and eight missing-trace warnings. The official JLCPCB part pages identify all four as Basic SMT assembly parts. Direct read of `https://jlcsearch.tscircuit.com/api/search?q=C1525&limit=10` also returns an empty components array, identifying a search-index coverage gap rather than an import exception.
+
+Attempted resolution: exact-ID search, official assembler page cross-check, direct search service check, supported imports and isolated build. Stock remains **unknown**, never recorded as zero or invented. Candidate quantities remain unallocated; final stock verification and manufacturer footprint/DC-bias review are pending. No warnings are suppressed. Evidence: `evidence/sourcing-20261025/search-C*.json`, `direct-search-C1525.json`, `import-C*.log`, `basic-passives-build.log`, and `SOURCING-CANDIDATES.csv`.

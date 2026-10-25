@@ -1,0 +1,174 @@
+[
+  {
+    "check": "format",
+    "command": [
+      "bunx",
+      "--no-install",
+      "biome",
+      "format",
+      "--write",
+      "index.circuit.tsx",
+      "checks"
+    ],
+    "exit_code": 0,
+    "log": "evidence/sourcing-20261025/format.log"
+  },
+  {
+    "check": "typecheck",
+    "command": [
+      "bun",
+      "run",
+      "typecheck"
+    ],
+    "exit_code": 0,
+    "log": "evidence/sourcing-20261025/typecheck.log"
+  },
+  {
+    "check": "netlist",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "check",
+      "netlist",
+      "index.circuit.tsx"
+    ],
+    "exit_code": 0,
+    "log": "evidence/sourcing-20261025/netlist.log"
+  },
+  {
+    "check": "pin_specification",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "check",
+      "pin_specification",
+      "index.circuit.tsx"
+    ],
+    "exit_code": 0,
+    "log": "evidence/sourcing-20261025/pin_specification.log"
+  },
+  {
+    "check": "source",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "check",
+      "source",
+      "index.circuit.tsx"
+    ],
+    "exit_code": 0,
+    "log": "evidence/sourcing-20261025/source.log"
+  },
+  {
+    "check": "schematic-placement",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "check",
+      "schematic-placement",
+      "index.circuit.tsx"
+    ],
+    "exit_code": 0,
+    "log": "evidence/sourcing-20261025/schematic-placement.log"
+  },
+  {
+    "check": "placement",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "check",
+      "placement",
+      "index.circuit.tsx"
+    ],
+    "exit_code": 0,
+    "log": "evidence/sourcing-20261025/placement.log"
+  },
+  {
+    "check": "basic-passives-build",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "build",
+      "checks/basic-passives.circuit.tsx",
+      "--pcb-png",
+      "--pcb-svgs",
+      "--schematic-svgs",
+      "--schematic-png",
+      "--3d"
+    ],
+    "exit_code": 0,
+    "log": "evidence/sourcing-20261025/basic-passives-build.log"
+  },
+  {
+    "check": "frozen-install",
+    "command": [
+      "bun",
+      "install",
+      "--frozen-lockfile"
+    ],
+    "exit_code": 0,
+    "log": "evidence/sourcing-20261025/frozen-install.log"
+  },
+  {
+    "check": "format-check",
+    "command": [
+      "bun",
+      "run",
+      "format:check"
+    ],
+    "exit_code": 0,
+    "log": "evidence/sourcing-20261025/format-check.log"
+  },
+  {
+    "check": "typecheck-final",
+    "command": [
+      "bun",
+      "run",
+      "typecheck"
+    ],
+    "exit_code": 0,
+    "log": "evidence/sourcing-20261025/typecheck-final.log"
+  },
+  {
+    "check": "controller-build",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "build",
+      "index.circuit.tsx",
+      "--pcb-png",
+      "--pcb-svgs",
+      "--schematic-svgs",
+      "--schematic-png",
+      "--3d"
+    ],
+    "exit_code": 1,
+    "log": "evidence/sourcing-20261025/controller-build.log"
+  },
+  {
+    "check": "render-sheets",
+    "command": [
+      "bun",
+      "scripts/render-import-sheets.mjs"
+    ],
+    "exit_code": 0,
+    "log": "evidence/sourcing-20261025/render-sheets.log"
+  },
+  {
+    "check": "bom-consistency",
+    "command": [
+      "bun",
+      "run",
+      "test:sourcing"
+    ],
+    "exit_code": 0,
+    "log": "evidence/sourcing-20261025/bom-consistency.log"
+  }
+]

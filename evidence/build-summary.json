@@ -1,7 +1,7 @@
 {
-  "revision": "intake-prototype-0.0.1",
-  "circuit_json_sha256": "1825e66a9be7a31f62109791c3794aa5ce658ed419b67ca93f55a8e5adfc1fae",
-  "entry_source_sha256": "8048d55aff13fa888bffa33e47f753807c766185b5dc76d11ccbff4c437b02f3",
+  "revision": "sourcing-prototype-0.0.2",
+  "circuit_json_sha256": "fa4b103bddbaf8ba09c41bc1e5e230790597fe0580332f47bf6e6c325d9c850c",
+  "entry_source_sha256": "e019b3a6630db7f1f251953f59e5f1fccc0533e6026a3f5c368de0702374c927",
   "records_by_type": {
     "schematic_sheet": 3,
     "source_group": 1,
@@ -23,16 +23,17 @@
     "pcb_solder_paste": 173,
     "pcb_silkscreen_path": 52,
     "pcb_silkscreen_circle": 7,
-    "pcb_silkscreen_text": 5,
+    "pcb_silkscreen_text": 6,
     "pcb_courtyard_outline": 7,
     "pcb_plated_hole": 4,
     "pcb_fabrication_note_path": 1,
     "pcb_port": 169,
     "cad_component": 7,
     "source_pin_must_be_connected_error": 13,
-    "source_component_availability_warning": 1,
     "source_project_metadata": 1
   },
   "routing_disabled": true,
-  "electrical_design_complete": false
+  "electrical_design_complete": false,
+  "fabrication_ready": false,
+  "source_baseline_commit": "e15d14ce3d5f329120146d7c632b8dfa33469c48"
 }

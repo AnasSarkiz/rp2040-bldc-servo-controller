@@ -1,0 +1,66 @@
+{
+  "baseline_commit": "e15d14ce3d5f329120146d7c632b8dfa33469c48",
+  "previous_supplier": "C82317",
+  "selected_supplier": "C131025",
+  "mpn": "W25Q16JVSSIQ",
+  "eight_pin_copper_geometry_matches": true,
+  "absolute_tolerance_mm": 1e-09,
+  "current_pads": {
+    "pin1": {
+      "shape": "pill",
+      "x": -11.905,
+      "y": -6.530092,
+      "width": 0.6299962,
+      "height": 2.2500082
+    },
+    "pin2": {
+      "shape": "pill",
+      "x": -10.635,
+      "y": -6.530092,
+      "width": 0.6299962,
+      "height": 2.2500082
+    },
+    "pin3": {
+      "shape": "pill",
+      "x": -9.365,
+      "y": -6.530092,
+      "width": 0.6299962,
+      "height": 2.2500082
+    },
+    "pin4": {
+      "shape": "pill",
+      "x": -8.095,
+      "y": -6.530092,
+      "width": 0.6299962,
+      "height": 2.2500082
+    },
+    "pin8": {
+      "shape": "pill",
+      "x": -11.905,
+      "y": 0.5300919999999998,
+      "width": 0.6299962,
+      "height": 2.2500082
+    },
+    "pin7": {
+      "shape": "pill",
+      "x": -10.635,
+      "y": 0.5300919999999998,
+      "width": 0.6299962,
+      "height": 2.2500082
+    },
+    "pin6": {
+      "shape": "pill",
+      "x": -9.365,
+      "y": 0.5300919999999998,
+      "width": 0.6299962,
+      "height": 2.2500082
+    },
+    "pin5": {
+      "shape": "pill",
+      "x": -8.095,
+      "y": 0.5300919999999998,
+      "width": 0.6299962,
+      "height": 2.2500082
+    }
+  }
+}
