@@ -2,9 +2,11 @@
 
 **The hardware design is incomplete. Do not fabricate, assemble, or power this revision. FOC is not implemented or tested.**
 
-The current `index.circuit.tsx` is an unconnected inspection fixture for seven JLCPCB imports. It is not a controller schematic. Revision 0.0.2 uses a **42 × 42 mm target canvas, four layers and explicit TOP-only component placement**. Exact motor fit is unverified. No motor mounting holes have been guessed. U6 is shown for import inspection; the eventual AS5047P belongs on an external shaft-mounted encoder assembly.
+The current `index.circuit.tsx` is an unconnected inspection fixture for seven JLCPCB imports. It is not a controller schematic. Revision **0.0.3** retains the **42 × 42 mm target canvas, four layers and TOP-only placement** while extending engineering investigation. Exact motor fit is unverified. No mounting holes have been guessed. U6 is shown for import inspection; the eventual AS5047P belongs on an external shaft-mounted assembly.
 
-The sourcing review selects **C131025 for the same W25Q16JVSSIQ flash**. The high-stock **C165948 USB-C candidate is not approved**: its imported shell slots differ from the manufacturer's recommended layout, and power/ground metadata is incomplete. Four Basic passive candidates have supported imports but remain unallocated while stock and manufacturer footprint checks are pending. See [SOURCING.md](SOURCING.md), [candidate list](SOURCING-CANDIDATES.csv) and reproducible defects in [issue.md](issue.md).
+The sourcing review selects **C131025 for the same W25Q16JVSSIQ flash**. C165948 remains unapproved because of footprint/electrical metadata defects. Live official JLCPCB stock and available-order quantities are now verified for all seven fixture parts, both connector choices and four Basic passive candidates. Basic candidates remain unallocated pending manufacturer footprint/per-use review. A new TPS55340RTER/C169167 boost screening candidate has an import defect: two manufacturer-grounded pins are incorrectly marked do-not-connect. See [SOURCING.md](SOURCING.md), [candidate list](SOURCING-CANDIDATES.csv) and [issue.md](issue.md).
+
+The earlier missing-A4-frame report was incorrect and has been retracted. All three native frames and component membership are checked. The supported native stacked renderer now provides an [all-sheet preview](dist/index/schematic-all-sheets.svg). This improves inspection; it does not complete the electrical design.
 
 ## Requested hardware
 
@@ -26,13 +28,13 @@ STUSB4500 stores **three sink PDOs**, including mandatory 5 V. Supporting all fo
 
 LM5122 is a candidate synchronous boost controller reviewed at the datasheet level, not a selected/imported/finalized converter. A complete boost design still needs exact imported FETs, inductor, current sensing, input/output capacitors, compensation, soft-start, disconnect/protection and verified startup/transient behavior. Ordinary boost shutdown does not guarantee output disconnection. Regenerative braking must have a defined local energy sink; the USB source must not be back-fed. No converter efficiency, thermal rating, stall capability or braking energy rating has been verified.
 
-See [POWER-REVIEW.md](POWER-REVIEW.md) for preliminary calculations and the remaining engineering requirements.
+See [POWER-REVIEW.md](POWER-REVIEW.md) for calculations and remaining requirements. The new tolerance-aware screening shows why a nominal 100 W label cannot guarantee a 24 V / 3 A surge across the assumed board-input range. TPS55288 was screened out because its specified output range ends at 22 V. No boost converter is finalized or startup-qualified.
 
 ## Schematic, pin mapping and BOM
 
 The three native A4 sheets in the source are explicitly labeled as unconnected import reviews. No functional schematic sheets are complete. See [PIN-REVIEW.md](PIN-REVIEW.md) for verified device pin groups and a proposed GPIO allocation; this is a planning record, not implemented connectivity.
 
-[BOM.csv](BOM.csv) inventories every placed part in the seven-part fixture, with real supplier numbers, MPNs, quantities, packages, stock snapshot/date/provenance, Basic/Extended classification, assembly side and verified import status. **It is not a complete controller assembly BOM.** All functional support circuitry and quantities remain unfinished; unallocated candidates are separate. All seven current parts are Extended, not Promotional/Preferred. C131025 replaces the unindexed C82317 after same-MPN, pinout and copper-geometry review. No invented codes, component definitions or assembly quantities are included. The remaining complete-controller BOM work is listed in [SOURCING.md](SOURCING.md).
+[BOM.csv](BOM.csv) inventories every placed fixture part with real supplier numbers, MPNs, quantities, packages, primary stock snapshot/date, available-order quantity, tier, assembly side and import status. **It is not a complete controller assembly BOM.** Functional support circuitry and quantities remain unfinished; six unallocated candidates are separate. All seven current parts are Extended; no Promotional designation was shown. The CSV preserves `0402` as a package identifier. C131025 retains the reviewed same-MPN flash choice. No invented codes or component definitions are included. Remaining complete-controller work is listed in [SOURCING.md](SOURCING.md).
 
 ## Reproduce inspection
 
@@ -49,9 +51,12 @@ bunx --no-install tscircuit-cli check schematic-placement index.circuit.tsx
 bunx --no-install tscircuit-cli check placement index.circuit.tsx
 bunx --no-install tscircuit-cli build index.circuit.tsx --pcb-png --pcb-svgs --schematic-svgs --3d
 python3 scripts/check-sourcing.py
+bun run render:sheets
+bun run test:schematic-sheets
+python3 scripts/power-envelope.py
 ```
 
-To render every inspection sheet individually, run `bun scripts/render-import-sheets.mjs` after the failed-build JSON has been generated.
+Run `bun run render:sheets` after the failed-build JSON is generated to render all individual sheets and the native stacked preview. The sheet test checks presentation coverage, not electrical correctness. `checks/tps55340-import-defect.circuit.tsx` reproduces an import/data problem; it is not a boost converter design.
 
 Routing remains disabled. An inspection build or successful software command does not validate an unconnected hardware design. Final copper, shorts checks, snapshot acceptance and fabrication exports must wait for the electrical and placement gates.
 

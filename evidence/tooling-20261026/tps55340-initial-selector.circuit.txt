@@ -1,0 +1,24 @@
+import { TPS55340RTER } from "../imports/TPS55340RTER/TPS55340RTER"
+
+// Import defect reproduction only. Not an implemented boost converter.
+// TI SLVSBD4E table 5-1 requires NC pins 10/14 and the exposed pad grounded.
+// The imported doNotConnect attributes conflict with that requirement.
+export default function BoostImportDefect() {
+  return (
+    <board width="20mm" height="20mm" layers={4} routingDisabled>
+      <schematicsheet
+        name="boost-import-defect"
+        displayName="C169167 IMPORT DEFECT REPRO - NOT A CONVERTER"
+        sheetSize="A4"
+      />
+      <TPS55340RTER name="U1" layer="top" schSheetName="boost-import-defect" />
+      <trace from=".U1.pin10" to="net.GND" />
+      <trace from=".U1.pin14" to="net.GND" />
+      <trace from=".U1.pin17" to="net.GND" />
+      <trace from=".U1.AGND" to="net.GND" />
+      <trace from=".U1.PGND1" to="net.GND" />
+      <trace from=".U1.PGND2" to="net.GND" />
+      <trace from=".U1.PGND3" to="net.GND" />
+    </board>
+  )
+}

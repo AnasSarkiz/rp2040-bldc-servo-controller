@@ -1,0 +1,24 @@
+{
+  "lcsc": "C169167",
+  "manufacturer_requirement": "Ground QFN pins 10 and 14; TI SLVSBD4E table 5-1",
+  "ports": [
+    {
+      "pin_number": 10,
+      "source_port_id": "source_port_9",
+      "do_not_connect": true,
+      "connected_source_trace_ids": [
+        "source_trace_0"
+      ]
+    },
+    {
+      "pin_number": 14,
+      "source_port_id": "source_port_13",
+      "do_not_connect": true,
+      "connected_source_trace_ids": [
+        "source_trace_1"
+      ]
+    }
+  ],
+  "build_exit_code": 0,
+  "electrical_review_passed": false
+}

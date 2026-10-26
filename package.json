@@ -1,7 +1,7 @@
 {
   "name": "@tsci/AnasSarkiz.rp2040-bldc-servo-controller",
-  "version": "0.0.2",
-  "description": "Sourcing review prototype: RP2040 BLDC servo controller with USB-C PD and 24 V boost; electrically incomplete",
+  "version": "0.0.3",
+  "description": "Engineering review prototype: live JLCPCB inventory and reproducible tooling diagnostics; controller electrically incomplete",
   "main": "index.circuit.tsx",
   "keywords": [
     "tscircuit",
@@ -15,7 +15,9 @@
     "typecheck": "tsc --noEmit",
     "format": "biome format --write index.circuit.tsx checks",
     "format:check": "biome format index.circuit.tsx checks",
-    "test:sourcing": "python3 scripts/check-sourcing.py"
+    "test:sourcing": "python3 scripts/check-sourcing.py",
+    "render:sheets": "bun scripts/render-import-sheets.mjs",
+    "test:schematic-sheets": "python3 scripts/check-schematic-sheets.py"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.0",

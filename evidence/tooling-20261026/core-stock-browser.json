@@ -1,0 +1,98 @@
+[
+  {
+    "lcsc": "C2040",
+    "mpn": "RP2040",
+    "identity_visible": true,
+    "classification": "Extended",
+    "promotional_classification_visible": false,
+    "stock": 69399,
+    "available_order_quantity": 65093,
+    "assembly_support_visible": true,
+    "source_url": "https://jlcpcb.com/partdetail/C2040",
+    "checked_date": "2026-10-26"
+  },
+  {
+    "lcsc": "C5218861",
+    "mpn": "DRV8316RRGFR",
+    "identity_visible": true,
+    "classification": "Extended",
+    "promotional_classification_visible": false,
+    "stock": 2059,
+    "available_order_quantity": 1952,
+    "assembly_support_visible": true,
+    "source_url": "https://jlcpcb.com/partdetail/C5218861",
+    "checked_date": "2026-10-26"
+  },
+  {
+    "lcsc": "C2678061",
+    "mpn": "STUSB4500QTR",
+    "identity_visible": true,
+    "classification": "Extended",
+    "promotional_classification_visible": false,
+    "stock": 4862,
+    "available_order_quantity": 4682,
+    "assembly_support_visible": true,
+    "source_url": "https://jlcpcb.com/partdetail/C2678061",
+    "checked_date": "2026-10-26"
+  },
+  {
+    "lcsc": "C131025",
+    "mpn": "W25Q16JVSSIQ",
+    "identity_visible": true,
+    "classification": "Extended",
+    "promotional_classification_visible": false,
+    "stock": 11040,
+    "available_order_quantity": 10140,
+    "assembly_support_visible": true,
+    "source_url": "https://jlcpcb.com/partdetail/C131025",
+    "checked_date": "2026-10-26"
+  },
+  {
+    "lcsc": "C2671361",
+    "mpn": "THVD1450DR",
+    "identity_visible": true,
+    "classification": "Extended",
+    "promotional_classification_visible": false,
+    "stock": 5032,
+    "available_order_quantity": 4334,
+    "assembly_support_visible": true,
+    "source_url": "https://jlcpcb.com/partdetail/C2671361",
+    "checked_date": "2026-10-26"
+  },
+  {
+    "lcsc": "C962063",
+    "mpn": "AS5047P-ATSM",
+    "identity_visible": true,
+    "classification": "Extended",
+    "promotional_classification_visible": false,
+    "stock": 4854,
+    "available_order_quantity": 4473,
+    "assembly_support_visible": true,
+    "source_url": "https://jlcpcb.com/partdetail/C962063",
+    "checked_date": "2026-10-26"
+  },
+  {
+    "lcsc": "C37616412",
+    "mpn": "USB4215-03-A",
+    "identity_visible": true,
+    "classification": "Extended",
+    "promotional_classification_visible": false,
+    "stock": 2036,
+    "available_order_quantity": 1859,
+    "assembly_support_visible": true,
+    "source_url": "https://jlcpcb.com/partdetail/C37616412",
+    "checked_date": "2026-10-26"
+  },
+  {
+    "lcsc": "C165948",
+    "mpn": "TYPE-C-31-M-12",
+    "identity_visible": true,
+    "classification": "Extended",
+    "promotional_classification_visible": false,
+    "stock": 315274,
+    "available_order_quantity": 301401,
+    "assembly_support_visible": true,
+    "source_url": "https://jlcpcb.com/partdetail/C165948",
+    "checked_date": "2026-10-26"
+  }
+]

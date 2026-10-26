@@ -2,12 +2,12 @@
 
 ## Revision and scope
 
-- Date: 2026-10-25.
-- Board revision: **sourcing-prototype-0.0.2**, untested and electrically incomplete. Continues the same task directory/repository from `e15d14ce3d5f329120146d7c632b8dfa33469c48`; initial revision was intake-prototype-0.0.1.
-- Completed work: same-MPN C131025 flash sourcing replacement, inventory of the existing fixture, alternative connector qualification, four Basic passive candidate imports, explicit 42 × 42 mm target and TOP placement. Initial power/PD review and tooling investigation remain applicable. This is not a completed controller implementation.
+- Current review date: 2026-10-26. Earlier 2026-10-25 records remain historical evidence.
+- Board revision: **engineering-review-prototype-0.0.3**, untested and electrically incomplete. Continues this directory/repository from `f06a9e1ee29d00ba463604010612a929ad1e11eb`. Main electrical source is unchanged; the new boost import is an isolated defect reproduction, not an integrated converter.
+- Completed work: primary stock/available-order verification, native all-sheet preview with structural checks, correction of the earlier frame report, new pin-checker/search/import reproductions, and tolerance-aware boost screening. Earlier same-MPN flash review and 42 × 42 mm/four-layer/TOP requirements remain applicable. This is not a completed controller implementation.
 - Workspace: `boards/rp2040-bldc-servo-controller--20261025-01a1742f/`. New task; no source board or source-board revision.
 - Entry: `index.circuit.tsx`, an explicitly unconnected import-inspection fixture. No finished controller source exists.
-- Exact source/dependency/import checksums: `evidence/source-checksums.json`. Current build hash/record counts: `evidence/build-summary.json`; current commands/logs: `evidence/sourcing-20261025/check-results.json`. Historical logs remain in `evidence/logs/`. Git source commit is recorded by repository history; publication verification follows below.
+- Exact source/dependency/import checksums: `evidence/source-checksums.json`. Build hash/counts: `evidence/build-summary.json`; current commands/logs: `evidence/tooling-20261026/check-results.json`. Historical logs remain under their original dated directories. Git commit/publication verification follows below.
 - Bun 1.3.9; TypeScript 5.9.3; tscircuit 0.0.3016; local CLI package 0.1.2408; Biome 2.3.0. Initial global CLI package was 0.1.2237. All dependencies are pinned and the lockfile is retained. `bun install --frozen-lockfile` completed with no dependency changes.
 
 ## Stage gates
@@ -15,7 +15,7 @@
 | Stage | Status | Evidence / reason |
 | --- | --- | --- |
 | 1. Confirm requirements | **blocked** | USB-C-only 24 V boost and exact rear-mount requirements recorded. Official motor STEP/PDF cannot be acquired/visually inspected; rear geometry cannot be inferred from extracted front/body dimensions. Startup/braking and thermal operating envelope remain undefined. |
-| 2. Schematic and BOM review | **blocked** | C131025 same-MPN flash replacement reviewed and fixture BOM expanded. C165948 candidate has shell-slot discrepancy and missing metadata (I-013/I-014). Existing C37616412/C5218861 defects remain. Four Basic candidates imported but stock/footprint qualification pending. Full controller BOM, power circuit and interlocks do not exist. |
+| 2. Schematic and BOM review | **blocked** | Dated primary stock and assembly listings verified for all fixture parts and candidates; Basic stock uncertainty resolved. C165948/C37616412/C5218861 import defects remain. C169167 incorrectly forbids manufacturer-required ground connections (I-018). Full controller BOM, power circuit/interlocks and passive footprint/per-use qualification remain unfinished. |
 | 3. Placement before routing | **blocked** | Software inspection reports no fixture placement violations, and zero routing geometry is generated. This does not verify controller placement, rear fit, connector access, current paths, thermal design or mounting clearance. Stages 1/2 have not passed. |
 | 4. Route and validate copper | **not started** | Routing disabled in both source and build config. No source traces, PCB traces or vias. |
 | 5. Automated and visual checks | **not started** | Only import-fixture diagnostics/previews were run. The mandatory routed-board checks, shorts analysis and snapshot acceptance cannot start before earlier gates pass. |
@@ -35,7 +35,7 @@ Four layers and TOP-only component assembly are required. Revision 0.0.2 enforce
 
 Target manufacturer: JLCPCB. The [official capabilities](https://jlcpcb.com/capabilities/pcb-capabilities/) and [capabilities table](https://jlcpcb.com/capabilities/Capabilities) were checked on 2026-10-25. Published multilayer 1 oz minimum track/space is 0.09/0.09 mm, recommended conventional through-via drilling is at least 0.2 mm, and routed-edge copper clearance is at least 0.2 mm. **These minima are not chosen power-design rules.** Proposed conservative starting rules for later review: 0.15 mm signal width/clearance, 0.30 mm through drills with 0.70 mm pads, and 0.30 mm edge clearance; motor/boost power copper needs separate measured sizing. Use through vias only unless a separately supported process is selected. Target 1.6 mm FR4, 1 oz outer copper and a manufacturer-confirmed four-layer stackup with continuous ground reference; dielectric dimensions and USB impedance cannot be finalized without the actual stackup. None of these proposed rules has been applied/validated on a routed controller. The fixture retains tool defaults and has no traces/vias.
 
-## Current sourcing revision checks (0.0.2)
+## Historical sourcing revision checks (0.0.2)
 
 All commands ran from this task's directory with pinned CLI 0.1.2408. No imported definition was manually edited; C131025 and five candidate definitions were generated with the supported JLCPCB exact-import workflow. Raw stock responses, logs, candidate manufacturer drawing and comparisons are preserved in `evidence/sourcing-20261025/` and `SOURCING.md`.
 
@@ -79,9 +79,9 @@ Current 0.0.2 Circuit JSON retains seven source components, 169 source ports, th
 
 Actually inspected for current 0.0.2: the regenerated PCB and 3D PNGs and individually rendered MCU, power and interfaces schematic PNGs. They show only unconnected imported components. The diagonal fabrication artifact inside the retained USB connector remains visible and is not a copper trace. The 3D preview is a rendering, not a photo or fit check. Also inspected the isolated C165948 PCB/schematic/3D and Basic-passive PCB/schematic/3D outputs, the flash pinout/package datasheet pages, the HRO full drawing and layout enlargement, and BOM identity/stock table previews. No land-pattern or missing-stock warning is accepted as passed by these renderings.
 
-The CLI's generic schematic preview shows the first sheet. Each sheet was also rendered from the same Circuit JSON using the supported `convertCircuitJsonToSchematicSvg` API with `schematicSheetId`; reproduction is `bun scripts/render-import-sheets.mjs`. Native A4 records exist for all three, but current power/interfaces outputs lack the visible frame; this rendering issue is recorded in issue.md. No claim of complete schematic presentation/validation is made.
+Correction on 2026-10-26: the earlier claim that power/interfaces frames were missing was incorrect. All three actual SVGs contain native outer/inner frames inside the viewport, and PNG border pixels were present. Fresh full-sheet and stacked views were visually inspected. The generic first-sheet preview is documented single-sheet behavior, not a confirmed defect. Native `convertCircuitJsonToStackedSchematicSheetsSvg` now renders all three views without modifying JSON/SVG internals. Structural tests verify A4 sizes, frame bounds and exact component coverage. I-012 is closed as a corrected report; electrical schematic validation remains unfinished.
 
-Datasheets archived with signature/checksum verification: RP2040 datasheet and hardware design guide; DRV8316 datasheet and EVM guide; THVD1450; W25Q16JV; USB4215 drawing; LM5122 datasheet and 24 V EVM guide. See `evidence/datasheets-manifest.json`. RP2040 guide build 20/08/2026 is newer than some web-index copies. Only reviewed sections/diagrams may support conclusions; no complete design review is claimed. ST documents and motor/encoder PDFs remain unavailable locally. The AS5047P manufacturer pin table was read through the current Infineon web PDF, but the local response was empty and rejected.
+Datasheets archived with signature/checksum verification: RP2040 and hardware guide; DRV8316/EVM; THVD1450; W25Q16JV; USB4215/HRO drawings; LM5122/EVM; now TPS55340 and TPS55288 screening datasheets. See `evidence/datasheets-manifest.json`. New manufacturer pin/current/output-limit tables were rendered and inspected; complete converter design review is not claimed. ST document downloads timed out again on 2026-10-26 and remain unavailable locally, as do motor/encoder PDFs. The AS5047P pin table was previously read through the manufacturer web PDF, but its local empty response was rejected.
 
 ## Warnings and blocked work
 
@@ -116,3 +116,28 @@ Anonymous registry read on 2026-10-25 reconfirms public/unlisted=false and no re
 Sourcing implementation commit [`d7f16d3`](https://github.com/AnasSarkiz/rp2040-bldc-servo-controller/commit/d7f16d34411995b04f663e9e61aa56bf0f7f4f9d) is pushed to the existing public repository's `main` branch. Anonymous GitHub REST metadata reconfirms public visibility. Anonymous downloads verified byte-for-byte SHA-256 matches for **all three generated Circuit JSON files, BOM.csv, SOURCING-CANDIDATES.csv and the new HRO manufacturer PDF**. The main JSON hash matches the failed-build inspection artifact above. Detailed URLs/hashes are in `evidence/publication-verification.json` and `evidence/sourcing-20261025/publication-verification.json`.
 
 GitHub update succeeded. Registry board release remains **blocked and unpublished**: the public package still has `latest_version: null`, no release, and no comparable Circuit JSON. This step is not fully published to both destinations and is not a completed controller. The following verification-record commit changes documentation/evidence only; source, imports, BOM, pinned dependencies and generated geometry remain identical to the linked sourcing implementation commit, so the recorded checks remain applicable.
+
+## Engineering follow-up 0.0.3 — 2026-10-26
+
+Starting source commit: `f06a9e1ee29d00ba463604010612a929ad1e11eb`. Pinned tool versions remain Bun 1.3.9, CLI 0.1.2408, tscircuit 0.0.3016, TypeScript 5.9.3 and Biome 2.3.0; native SVG renderer is circuit-to-svg 0.0.453. Official CLI 0.1.2409 was source-inspected with npm tarball integrity verification, not installed or represented as tested: its publication-ignore defect remains.
+
+Completed step: primary inventory and available-order verification for seven fixture parts and six unallocated candidates, a native all-sheet preview and coverage check, three new tscircuit issue reproductions (I-016/I-017/I-018), correction of I-012, and reproducible current/tolerance power screening. I-019 documents an independent preview-formatting problem; raw CSV package identifiers remain correct. No main electrical trace, imported component patch or routing was added.
+
+| Check actually run | Result | Limit |
+| --- | --- | --- |
+| Configured format check and TypeScript | exit 0 | Includes new qualification fixture; no imported definition was formatted or patched. |
+| Main netlist | exit 0; 169 NOT_CONNECTED ports | The board remains an unconnected fixture. |
+| Main pin specification | exit 0; 4 warnings | Existing driver/USB metadata omissions remain. |
+| Main source, schematic-placement and placement | each exit 0 | Inspection placement only; no full mechanical/electrical approval. |
+| Main build with PCB/schematic/3D | **exit 1; 13 required RP2040 pin errors** | Unfinished circuitry, not a newly discovered tscircuit defect. |
+| Native individual/stacked schematic rendering and sheet test | exit 0; 3 framed A4 sheets, component counts 2/3/2 | All components appear on their assigned sheets; electrical review remains incomplete. |
+| BOM consistency | exit 0; 7 main rows, 6 unallocated candidates | Checks primary identities, stock/order quantities, dates, literal 0402 package strings, TOP side, 42 × 42 mm, four layers and routing disabled. |
+| C165948 pin specification | exit 0; 3 warnings | One misleading underspecification diagnostic plus genuine missing power/ground roles. |
+| C169167 pin specification / corrected-selector build | each exit 0; build warns VIN floats | Import incorrectly forbids ground connections required by TI. Build success does not resolve this mismatch; not a converter design. |
+| Analytical power-envelope calculation | exit 0 | Screening assumptions only; 24 V / 3 A needs at least 19.181 V board input under the stated limiter/efficiency assumptions. Startup/thermal limits remain unverified. |
+
+Detailed commands/results: `evidence/tooling-20261026/check-results.json`. Manufacturer/source evidence, re-import logs, API metadata responses, component data, power inputs and actual generated artifact hashes are in the same directory. The initial TPS reproduction's selector authoring errors are retained separately and were corrected before interpreting library behavior; no generated-definition workaround was used.
+
+Actually inspected: native stacked preview with all three frames; full power-sheet frame; updated BOM/candidate table previews; TPS55340 pin/electrical and TPS55288 output-limit manufacturer pages; isolated TPS55340 schematic, PCB and 3D outputs. The candidate table renderer still displays `402` while raw CSV correctly contains `0402`, even with text formatting; I-019 remains open for that preview. Main PCB/3D geometry is unchanged and is retained as an unconnected inspection output, not a fabricated board or fit test.
+
+Current main Circuit JSON SHA-256: `5b987792556d4fb29b76fbe63b84b58be4a1b9875508b57bffbb759ddc2240c8`. All four fixture JSON hashes are in `evidence/tooling-20261026/build-artifact-checksums.json`. Corrected A4 presentation and verified inventory clear those specific uncertainties; **no electrical, motor-power, mechanical-fit, routing, fabrication or physical-test stage advances**. PD/boost interlocks, complete BOM, exact motor fit and FOC remain unqualified. GitHub publication verification for this step follows after its source commit; registry upload remains blocked by I-002.

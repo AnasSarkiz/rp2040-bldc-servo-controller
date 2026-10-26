@@ -1,6 +1,8 @@
 # Engineering and tooling issues
 
-Date: 2026-10-25. Current revision: sourcing-prototype-0.0.2, continuing intake-prototype-0.0.1. This is an unconnected imported-part inspection, not a completed electrical design. Dependent work remains gated; unrelated sourcing qualification continues where permitted. No generated component definition is manually patched.
+Updated 2026-10-26. Current revision: engineering-review-prototype-0.0.3. The main board remains an unconnected imported-part inspection. Dependent work remains gated; unrelated investigation continues. No generated component definition is manually patched.
+
+Triage distinction: I-002, I-007, I-009, I-013–I-018 concern tscircuit tooling/import/service behavior. I-003/I-010 are mechanical-document access blockers; I-005 is document acquisition; I-006/I-008 are unfinished engineering; I-011 is integration access. **I-012's earlier missing-frame claim is retracted**, and I-019 is a separate non-tscircuit preview issue with verified raw CSV data. An unconnected required pin in the unfinished main schematic is not, by itself, a tscircuit bug.
 
 ## I-001 - RP2040 C2040 exact footprint coordinate rejected
 
@@ -30,6 +32,8 @@ getPackageFilePaths(projectDir, includeDist ? [] : ["**/dist/**"])
 The helper applies only its supplied ignored patterns and defaults. `pushSnippet` supplies no configured `ignoredFiles`; the subsequent `getUploadFiles` maps the selected files without a further configuration filter. In contrast, the development server passes `this.ignoredFiles` to the same helper. See `evidence/logs/publish-ignore-source.txt` for the exact installed source locations. `push --help` supports `--include-dist` but offers no exclusion flag or dry-run flag.
 
 Reproduce safely: put a PDF in `datasheets/`, set `ignoredFiles: ["datasheets/**"]`, inspect the `pushSnippet` file-selection call and helper in the installed CLI. Running a real push is intentionally avoided because it would upload the excluded files. Required next action: a supported CLI release/workflow that demonstrably applies publication exclusions, followed by verification of the uploaded file list and Circuit JSON hash. No hidden-folder relocation, dependency patch or undocumented flag is used. Status: unresolved, blocks registry release.
+
+2026-10-26 follow-up: the official npm **0.1.2409** tarball was inspected after verifying its SHA-512 integrity against registry metadata. It still calls `getPackageFilePaths(projectDir, includeDist ? [] : ["**/dist/**"])` without configured ignoredFiles. Evidence: `evidence/tooling-20261026/latest-cli-metadata.json` and `cli-0.1.2409-source-review.json`. The project stays pinned to 0.1.2408; no dependency patch or ineffective upgrade is presented as a fix.
 
 ## I-003 - Official motor drawing and STEP download inaccessible (BLOCKING)
 
@@ -82,6 +86,8 @@ POWER-REVIEW.md records screening calculations and explicit assumptions. Require
 
 Affected parts/stages: DRV8316R C5218861 and USB4215-03-A C37616412; schematic pin-specification review. The motor-driver import identifies some grounds but none of VM pins 9/10/11 as power inputs. The USB connector has no pinAttributes, including for power/ground. The mandatory pin-specification check emits four corresponding warnings. No declarations are manually changed, and warnings are not accepted as completed electrical verification. Required next action: corrected supported imported definitions followed by repeat pin-specification review. See final pin-specification log.
 
+2026-10-26: supported exact re-imports were repeated independently under `evidence/tooling-20261026/reimports/`, preserving the main definitions. The same omissions and USB fabrication artifact remain. Anonymous default datasheet metadata endpoints return HTTP 404 for normalized `drv8316rrgfr` and `usb4215-03-a`; the importer fetches these metadata independently of physical footprint acquisition. These responses establish a metadata coverage gap, not a bad supplier identity. Logs and selected API responses are in `evidence/tooling-20261026/reimport-C*.log` and `datasheet-metadata-*.json`. Both imports still exit 0; success is not electrical qualification.
+
 ## I-010 - Browser origin access declined
 
 A browser fallback to the official motor product page was rejected by its security gate: origin approval was declined and network egress authority was not granted. No alternate browser, indirect navigation or subsequent download workaround was attempted for that origin. This is separate from earlier HTTP 403 downloads. Exact rear-model inspection remains unavailable.
@@ -90,9 +96,11 @@ A browser fallback to the official motor product page was rejected by its securi
 
 `registry packages update --package-name AnasSarkiz/rp2040-bldc-servo-controller --enable-public-dist --github-repo AnasSarkiz/rp2040-bldc-servo-controller` returns HTTP 403 `repository_not_accessible`. The package and repository were created publicly and anonymous API reads confirm their visibility. GitHub CLI authentication succeeded as AnasSarkiz. The denied scope belongs to the tscircuit GitHub installation, not the shell sandbox. A separate public-dist update without GitHub linking succeeded. The user must grant that integration access to this repository if linked-source operation is required; no credentials are copied.
 
-## I-012 - Multi-sheet schematic preview/frame inconsistency
+## I-012 - Earlier missing-frame report was incorrect (CLOSED / CORRECTED)
 
-Affected stage: schematic visual review. The build's generic schematic preview includes only its first sheet. Explicit rendering with the supported `convertCircuitJsonToSchematicSvg(..., {schematicSheetId})` API produces three separate views. The power and interfaces views lack a visible A4 frame in the current 0.0.2 review although all three Circuit JSON sheets have A4 297x210 metadata. Reproduce with `bun scripts/render-import-sheets.mjs`; inspect `dist/index/schematic-power.png`, `schematic-interfaces.png` and the native sheet records. No generated JSON or SVG is hand-patched. Status: unresolved rendering limitation; no complete schematic visual-validation pass is claimed.
+The 0.0.2 visual-review record incorrectly reported missing power/interfaces frames. Reinspection of the actual SVGs on 2026-10-26 finds an outer and inner native frame on every sheet, inside the viewport. PNG border pixels were also present on all three; newly rendered full-sheet images were inspected. **No missing-frame renderer defect is confirmed.** The initial observation must not remain a fabrication/tooling blocker.
+
+The generic renderer's first-sheet-only output is documented single-sheet behavior. The supported `convertCircuitJsonToStackedSchematicSheetsSvg` API now generates `dist/index/schematic-all-sheets.svg/.png` without modifying generated geometry. `bun run test:schematic-sheets` checks A4 dimensions, frame bounds, exact component membership on each sheet, and coverage of all three sheets in the native stacked preview. All pass. This corrects the report; it does not claim that the unfinished electrical schematic passes review.
 
 ## I-013 - C165948 imported shell slots differ from manufacturer layout (BLOCKING)
 
@@ -134,3 +142,54 @@ bunx --no-install tscircuit-cli build checks/basic-passives.circuit.tsx --pcb-pn
 Each exact-ID search returns `results: []`; supported exact imports all succeed. The separate four-part build exits 0 but emits four `source_component_availability_warning` records and eight missing-trace warnings. The official JLCPCB part pages identify all four as Basic SMT assembly parts. Direct read of `https://jlcsearch.tscircuit.com/api/search?q=C1525&limit=10` also returns an empty components array, identifying a search-index coverage gap rather than an import exception.
 
 Attempted resolution: exact-ID search, official assembler page cross-check, direct search service check, supported imports and isolated build. Stock remains **unknown**, never recorded as zero or invented. Candidate quantities remain unallocated; final stock verification and manufacturer footprint/DC-bias review are pending. No warnings are suppressed. Evidence: `evidence/sourcing-20261025/search-C*.json`, `direct-search-C1525.json`, `import-C*.log`, `basic-passives-build.log`, and `SOURCING-CANDIDATES.csv`.
+
+2026-10-26 status: exact searches remain empty, but the rendered official JLCPCB pages now expose positive stock and available-order quantities for all four Basic parts. These are recorded separately in `evidence/tooling-20261026/basic-stock-browser.json` and the candidate CSV. **Stock verification is resolved for that snapshot; the tsci index/availability-warning defect remains open.** No warning is suppressed, and manufacturer land-pattern/DC-bias qualification is still pending.
+
+## I-016 - Pin checker ignores passive attributes and says none are set
+
+Category: tscircuit diagnostic false positive. Affects accuracy of pin-specification reports; does not resolve the genuine C165948 power/ground omissions.
+
+```sh
+bunx --no-install tscircuit-cli check pin_specification checks/usb-c-c165948.circuit.tsx
+```
+
+CLI 0.1.2408 / tscircuit 0.0.3016 emits `All pins on J1 are underspecified (no pinAttributes set)`, despite eight imported pins declaring `isPassive: true` and eight generated source_port records containing `is_passive: true`. The checker function `hasAnyPinAttribute` uses PIN_ATTRIBUTE_KEYS that omits `is_passive`. The error text therefore misrepresents existing attributes. The separate no-power and no-ground warnings are legitimate and remain blocking under I-014.
+
+Evidence: `evidence/tooling-20261026/c165948-pins.log`, `pin-checker-source.txt`, `pin-checker-attribute-evidence.json`, and the unchanged C165948 fixture JSON. Attempted resolution: repeat check, inspect generated source ports, trace the installed checker predicate. Required upstream fix: recognize declared attributes in the specification-coverage diagnostic while retaining meaningful power/ground checks. No local dependency or import patch and no warning suppression was used. Status: open.
+
+## I-017 - Family-name search returns unrelated parts without an exact match
+
+Category: tscircuit search relevance/coverage. Reproduce:
+
+```sh
+bunx --no-install tscircuit-cli search --jlcpcb --json TPS55340
+bunx --no-install tscircuit-cli search --jlcpcb --json LM5122
+```
+
+Both commands exit 0. TPS55340 returns LM258DR(UMW), MP2451DT-LF-Z, GBP308S and MAX812SEUS+T. LM5122 returns a flash, optocoupler and diode. None is the requested converter family. These results must not be interpreted as electrical alternatives. Evidence: `evidence/tooling-20261026/search-TPS55340.json` and `search-LM5122.json`.
+
+Attempted resolution: exact manufacturer search on the official JLCPCB website found TPS55340RTER **C169167**. `tsci search --jlcpcb --json C169167` then returns the correct identity, and its supported import succeeds. This resolves identification of that candidate without trusting unrelated results; the family-search problem remains. The candidate's independent metadata defect below still blocks power-stage use.
+
+## I-018 - C169167 forbids connections required by its datasheet (BLOCKING)
+
+Category: imported electrical metadata. Affected stage: TPS55340RTER boost-regulator qualification and all dependent converter work. CLI 0.1.2408 / tscircuit 0.0.3016.
+
+```sh
+bunx --no-install tscircuit-cli import --jlcpcb C169167 --download --use-exact-footprint
+bunx --no-install tscircuit-cli check pin_specification checks/tps55340-import-defect.circuit.tsx
+bunx --no-install tscircuit-cli build checks/tps55340-import-defect.circuit.tsx --pcb-png --pcb-svgs --schematic-svgs --schematic-png --3d
+```
+
+The exact import assigns `doNotConnect: true` to QFN pins 10/14. TI **SLVSBD4E table 5-1, page 3**, states that these reserved pins must connect to ground; its figure also recommends AGND connection. The archived/rendered manufacturer table is in `datasheets/tps55340.pdf` and `evidence/tooling-20261026/tps55340-pin-table.png`. Exposed-pad AGND/thermal requirements also remain subject to complete review.
+
+The isolated fixture connects those pins, AGND, PGND pins and the exposed pad to GND using native traces. Pin specification reports 0 warnings; the corrected-selector build exits 0 with one floating VIN warning, **without flagging the contradictory do-not-connect metadata**. Neither command qualifies this part. The chip is unpowered and the fixture is not a converter.
+
+Attempted resolution: supported exact import, visual manufacturer pin-table review and isolated reproduction. The first reproduction used incorrect `.U1.pin10` selector syntax, causing seven authoring errors; that source/log is retained as `tps55340-initial-selector.circuit.txt` and `tps55340-initial-selector-build.log`. Selectors were corrected to documented `.U1 > .pin10` syntax before assessing the library defect. Those initial selector errors were authoring errors, not tscircuit defects. No generated definition was modified or overridden. Proper next action: corrected supported metadata and repeated electrical review. Status: unresolved; C169167 remains an unallocated candidate, not a selected motor supply.
+
+## I-019 - Package identifier preview shows 402 instead of 0402 (OPEN; NOT TSCIRCUIT)
+
+Category: BOM table presentation, bundled artifact-tool runtime 26.1017.22136. During the sourcing refresh, the candidate-table preview showed `402` for package code `0402`. This was caught before publication. The initial reader-coercion hypothesis was tested and **not reproduced**: the minimal CSV probe returns the string `0402`, and raw exported CSV identifiers are intact. Do not attribute data corruption to the CSV parser on that evidence.
+
+Attempted fix: explicitly format the package column as text, including after writing values/styles, and retain the exact identifier from the primary record. Computed styles confirm numberFormat `@`, but the fresh `candidate-stock-v003.png` still displays `402`. Thus the **preview rendering defect remains open**; formatting did not resolve it. The raw exported CSV is checked literally for `0402` for all four Basic candidates, and `scripts/check-sourcing.py` compares those strings to primary records. No apostrophe or invented package code was inserted to mask the renderer behavior.
+
+Evidence: `evidence/tooling-20261026/refresh-sourcing.mjs`, `candidate-identifier-style.ndjson`, `csv-identifier-probe.mjs/.json`, `candidate-stock-v003.png`, and the raw candidate CSV. No electronic definition changed. Raw CSV/source correctness is verified; a claim that the preview itself is corrected would be false. The defect blocks approval of that preview's identifier display, not identification of the actual imported 0402 parts.

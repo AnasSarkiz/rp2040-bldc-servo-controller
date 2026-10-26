@@ -16131,7 +16131,19 @@
     "subcircuit_id": "subcircuit_source_group_0"
   },
   {
+    "type": "source_component_availability_warning",
+    "source_component_availability_warning_id": "source_component_availability_warning_dagI6bvgP4",
+    "warning_type": "source_component_availability_warning",
+    "message": "J1 may not have availability from jlcpcb (C37616412).",
+    "source_component_id": "source_component_6",
+    "subcircuit_id": "subcircuit_source_group_0",
+    "supplier_name": "jlcpcb",
+    "supplier_part_numbers": [
+      "C37616412"
+    ]
+  },
+  {
     "type": "source_project_metadata",
-    "source_filesystem_md5_hash": "87f72e812d154eb2ec9b4c353932abc8"
+    "source_filesystem_md5_hash": "7d0198337aa1fa67e507f304ca5c7fb2"
   }
 ]

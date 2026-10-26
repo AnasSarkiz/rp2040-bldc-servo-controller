@@ -1,0 +1,42 @@
+[
+  {
+    "lcsc": "C1525",
+    "mpn": "CL05B104KO5NNNC",
+    "classification": "Basic",
+    "stock": 34924001,
+    "available_order_quantity": 27022127,
+    "source_url": "https://jlcpcb.com/partdetail/C1525",
+    "checked_date": "2026-10-26",
+    "footprint": "0402"
+  },
+  {
+    "lcsc": "C52923",
+    "mpn": "CL05A105KA5NQNC",
+    "classification": "Basic",
+    "stock": 11305119,
+    "available_order_quantity": 9076812,
+    "source_url": "https://jlcpcb.com/partdetail/C52923",
+    "checked_date": "2026-10-26",
+    "footprint": "0402"
+  },
+  {
+    "lcsc": "C25744",
+    "mpn": "0402WGF1002TCE",
+    "classification": "Basic",
+    "stock": 17625023,
+    "available_order_quantity": 12281885,
+    "source_url": "https://jlcpcb.com/partdetail/C25744",
+    "checked_date": "2026-10-26",
+    "footprint": "0402"
+  },
+  {
+    "lcsc": "C25076",
+    "mpn": "0402WGF1000TCE",
+    "classification": "Basic",
+    "stock": 7054056,
+    "available_order_quantity": 5846161,
+    "source_url": "https://jlcpcb.com/partdetail/C25076",
+    "checked_date": "2026-10-26",
+    "footprint": "0402"
+  }
+]

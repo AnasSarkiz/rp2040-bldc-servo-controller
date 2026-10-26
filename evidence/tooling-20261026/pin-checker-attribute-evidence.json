@@ -1,0 +1,44 @@
+{
+  "cli_version": "0.1.2408",
+  "tscircuit_version": "0.0.3016",
+  "source_port_count": 16,
+  "passive_source_ports": [
+    "source_port_4",
+    "source_port_5",
+    "source_port_6",
+    "source_port_7",
+    "source_port_8",
+    "source_port_9",
+    "source_port_10",
+    "source_port_11"
+  ],
+  "underspecified_warnings": [
+    {
+      "type": "source_component_pins_underspecified_warning",
+      "source_component_pins_underspecified_warning_id": "source_component_pins_underspecified_warning_0",
+      "source_component_id": "source_component_0",
+      "source_port_ids": [
+        "source_port_0",
+        "source_port_1",
+        "source_port_2",
+        "source_port_3",
+        "source_port_4",
+        "source_port_5",
+        "source_port_6",
+        "source_port_7",
+        "source_port_8",
+        "source_port_9",
+        "source_port_10",
+        "source_port_11",
+        "source_port_12",
+        "source_port_13",
+        "source_port_14",
+        "source_port_15"
+      ],
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_component_pins_underspecified_warning",
+      "message": "All pins on J1 are underspecified (no pinAttributes set)"
+    }
+  ],
+  "is_passive_in_checker_attribute_keys": false
+}

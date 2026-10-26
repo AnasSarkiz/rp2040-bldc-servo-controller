@@ -1,0 +1,30 @@
+[
+  {
+    "file": "stusb4500.pdf",
+    "url": "https://www.st.com/resource/en/datasheet/stusb4500.pdf",
+    "status": "download failed",
+    "error": "The read operation timed out"
+  },
+  {
+    "file": "stusb4500-programming.pdf",
+    "url": "https://www.st.com/resource/en/user_manual/um2650-the-stusb4500-software-programing-guide-stmicroelectronics.pdf",
+    "status": "download failed",
+    "error": "The read operation timed out"
+  },
+  {
+    "file": "datasheets/tps55340.pdf",
+    "url": "https://www.ti.com/lit/ds/symlink/tps55340.pdf",
+    "status": "archived; electrical review pending",
+    "sha256": "e579aa4fcb549eab29e889f7f6dcbd0fd88cac2647082c65f102e411c3f666ca",
+    "bytes": 2932213,
+    "text_extract_exit": 0
+  },
+  {
+    "file": "datasheets/tps55288.pdf",
+    "url": "https://www.ti.com/lit/ds/symlink/tps55288.pdf",
+    "status": "archived; electrical review pending",
+    "sha256": "2b60a3054038493ae5dcdeb58d1f87c27397a886c60a8696376fa6e4d594dfbc",
+    "bytes": 3726365,
+    "text_extract_exit": 0
+  }
+]

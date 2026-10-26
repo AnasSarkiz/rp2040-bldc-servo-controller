@@ -1,6 +1,6 @@
-# Component sourcing review — prototype 0.0.2
+# Component sourcing review — prototype 0.0.3
 
-Reviewed 2026-10-25, starting from `e15d14ce3d5f329120146d7c632b8dfa33469c48` in the existing repository. **The source remains an unconnected inspection fixture. The complete controller assembly BOM does not exist yet.**
+Updated 2026-10-26, continuing the existing repository from `f06a9e1ee29d00ba463604010612a929ad1e11eb`. The 2026-10-25 search/import evidence is retained. **The main source remains an unconnected inspection fixture. The complete controller assembly BOM does not exist yet.**
 
 ## Selection policy
 
@@ -10,23 +10,23 @@ Do not trade away current feedback, PD negotiation, safe startup, reverse blocki
 
 ## Current imported parts
 
-Stock below is the exact-ID **tsci JLC search-index response**, not reserved inventory or a live assembler quotation. The raw JSON and import/build logs are in `evidence/sourcing-20261025/`. Classification for these rows is Extended (`is_basic=false`, `is_preferred=false`). Prices and quantities can change; repeat the assembler BOM match before fabrication.
+Stock below is from the **official rendered JLCPCB part listings checked on 2026-10-26**, not reserved inventory. The separate available-order quantity is also retained in BOM.csv: it differs from the total stock figure. All listed identities and SMT assembly support were observed on the actual assembler pages. No Promotional/Preferred designation was shown. Source records are in `evidence/tooling-20261026/core-stock-browser.json`; earlier search-index snapshots remain separate. Repeat the final assembler BOM/DFM match before fabrication.
 
-| Ref | LCSC | MPN | Reported stock | Decision |
-| --- | --- | --- | ---: | --- |
-| U1 | [C2040](https://jlcpcb.com/partdetail/C2040) | RP2040 | 71,563 | Retain required MCU. Coordinate defect previously resolved through supported re-import. |
-| U2 | [C5218861](https://jlcpcb.com/partdetail/C5218861) | DRV8316RRGFR | 2,059 | Retain required motor driver and integrated current feedback. VM pin metadata defect still blocks integration. |
-| U3 | [C2678061](https://jlcpcb.com/partdetail/C2678061) | STUSB4500QTR | 5,024 | Retain required PD sink. Three static PDOs need MCU reconfiguration for the four requested voltages. |
-| U4 | [C131025](https://jlcpcb.com/partdetail/WinbondElec-W25Q16JVSSIQ/C131025) | W25Q16JVSSIQ | 5,428 | **Selected** instead of C82317. Same manufacturer part and package, imported through the supported exact-footprint workflow. |
-| U5 | [C2671361](https://jlcpcb.com/partdetail/C2671361) | THVD1450DR | 5,217 | Retain required 3.3 V-compatible RS-485 device. Interface protection remains undesigned. |
-| U6 | [C962063](https://jlcpcb.com/partdetail/Ams-AS5047PATSM/C962063) | AS5047P-ATSM | 4,984 | Retain encoder requirement; fixture only, eventual separate shaft-mounted assembly. |
-| J1 | [C37616412](https://jlcpcb.com/partdetail/C37616412) | USB4215-03-A | 1,144 | Retained **only for inspection**, still blocked by malformed fabrication outline and missing electrical metadata. |
+| Ref | LCSC | MPN | Stock | Available order quantity | Decision |
+| --- | --- | --- | ---: | ---: | --- |
+| U1 | [C2040](https://jlcpcb.com/partdetail/C2040) | RP2040 | 69,399 | 65,093 | Retain required MCU. Coordinate defect previously resolved through supported re-import. |
+| U2 | [C5218861](https://jlcpcb.com/partdetail/C5218861) | DRV8316RRGFR | 2,059 | 1,952 | Retain required motor driver/current feedback. VM metadata defect still blocks integration. |
+| U3 | [C2678061](https://jlcpcb.com/partdetail/C2678061) | STUSB4500QTR | 4,862 | 4,682 | Retain required PD sink. Three static PDOs need MCU reconfiguration for four requested voltages. |
+| U4 | [C131025](https://jlcpcb.com/partdetail/WinbondElec-W25Q16JVSSIQ/C131025) | W25Q16JVSSIQ | 11,040 | 10,140 | **Selected** instead of C82317. Same manufacturer part and package; supported exact import. |
+| U5 | [C2671361](https://jlcpcb.com/partdetail/C2671361) | THVD1450DR | 5,032 | 4,334 | Retain required 3.3 V-compatible RS-485 device. Interface protection remains undesigned. |
+| U6 | [C962063](https://jlcpcb.com/partdetail/Ams-AS5047PATSM/C962063) | AS5047P-ATSM | 4,854 | 4,473 | Retain encoder requirement; fixture only, eventual external shaft-mounted assembly. |
+| J1 | [C37616412](https://jlcpcb.com/partdetail/C37616412) | USB4215-03-A | 2,036 | 1,859 | Inspection only; malformed fabrication outline and missing electrical metadata remain blocking. |
 
-The official JLCPCB pages confirm assembly listings for RP2040, flash, PD controller, encoder and the two connector candidates. Some short-form part pages could not be retrieved for the driver/transceiver, so their final assembly-service availability is not asserted from a successful import alone. All rows still require actual assembler BOM/DFM confirmation. The PD page and search service also reported different stock counts; this table consistently uses the archived search snapshot, without presenting it as live stock.
+The earlier short-form web fetch failures for driver/transceiver were resolved by viewing the official pages in the browser. Every core part now has observed SMT assembly support. This confirms a listing, not acceptance of this incomplete board by the assembler. The search index and official website differ, so this revision uses the dated primary listings consistently.
 
 ### Flash substitution verification
 
-`tsci search --jlcpcb --json C82317` remains empty. C131025 returns the exact W25Q16JVSSIQ MPN, SOIC-8-208mil, stock 5,428. The [official JLC listing](https://jlcpcb.com/partdetail/WinbondElec-W25Q16JVSSIQ/C131025) identifies Extended, SMT assembly, Economic and Standard services. No change to flash capacity, voltage or package was made.
+The 2026-10-25 qualification found an empty C82317 search and an exact C131025 W25Q16JVSSIQ/SOIC-8-208mil match with search-index stock 5,428. The refreshed primary stock for 2026-10-26 is in the table above. The [official JLC listing](https://jlcpcb.com/partdetail/WinbondElec-W25Q16JVSSIQ/C131025) identifies Extended, SMT assembly, Economic and Standard services. No change to flash capacity, voltage or package was made.
 
 Reviewed the archived Winbond W25Q16JV Rev G datasheet, printed pages 4–5, 55–57, 65 and ordering information. PDF pages 6 and 66 were rendered and visually inspected. The device is 16 Mbit (2 MiB), 2.7–3.6 V; use the logic 3.3 V rail, never PD VBUS. Pin 1 /CS, 2 DO/IO1, 3 /WP/IO2, 4 GND, 5 DI/IO0, 6 CLK, 7 /HOLD/IO3, 8 VCC match the import. The SS package is the 208-mil version with 1.27 mm lead pitch. Imported copper pad centers are x ±1.905/±0.635 mm, y ±3.530092 mm, pad size 0.6299962 × 2.2500082 mm. These match the previous C82317 imported copper within numerical rounding. The supported re-import also updates generated TypeScript structure; no imported definition was hand-edited.
 
@@ -34,7 +34,7 @@ This verifies a sourcing replacement, not a working RP2040 boot circuit. Decoupl
 
 ### C165948 USB-C alternative — not approved
 
-[C165948](https://jlcpcb.com/partdetail/C165948), HRO TYPE-C-31-M-12, reports stock **330,440**, Extended, not Preferred. JLCPCB lists SMT assembly with Economic/Standard support. It provides the USB 2.0 data and both CC contacts needed by this architecture. This is a different footprint and mechanical envelope, so it cannot replace J1 without layout/access review.
+[C165948](https://jlcpcb.com/partdetail/C165948), HRO TYPE-C-31-M-12, has observed stock **315,274** and available order quantity **301,401** on 2026-10-26, Extended, no Promotional designation shown. JLCPCB lists SMT assembly with Economic/Standard support. It provides USB 2.0 data and both CC contacts. Its different footprint/envelope still needs layout/access review.
 
 The manufacturer drawing is archived as `datasheets/type-c-31-m-12.pdf`, revision A dated 2020-12-08. Its full page and enlarged component-side recommended layout were visually inspected. It specifies nominal **20 V / 5 A**, 10,000 mating cycles and −30…+80 °C. A 20 V rating does not, by itself, finish review of maximum PD VBUS tolerance and protection transients. It must never contact the boosted 24 V bus. TOP placement is possible, with shell legs extending through the board; bottom solder on shell stakes does not imply bottom component placement.
 
@@ -58,9 +58,24 @@ Supported exact imports acquired C1525 (Samsung 100 nF, 16 V X7R, 0402), C52923 
 - [C25744 / 0402WGF1002TCE](https://jlcpcb.com/partdetail/C25744)
 - [C25076 / 0402WGF1000TCE](https://jlcpcb.com/partdetail/C25076)
 
-All four import successfully and their separate unconnected fixture builds/renders. All four generate availability warnings because tsci's search returns no records. **Stock is unknown, not zero.** Official pages establish identity/classification, not a verified current stock quantity. Manufacturer land-pattern/datasheet and capacitor effective capacitance under DC bias still need review. Supplier-linked PDF fetching through the web tool returned an unsupported-content-type error; no substitute data sheet was fabricated.
+All four import successfully and the separate unconnected fixture builds/renders. The search still returns no records on 2026-10-26, but the official rendered pages now establish actual stock and available order quantities:
 
-The 16 V capacitor is ineligible for raw 20 V PD or 24 V motor supply. The 25 V 0402 capacitor is not approved for a nominal 24 V motor rail with tolerance/transients and DC-bias derating. Resistor dissipation must be checked per use; 100 Ω is not a replacement for RP2040's specified USB series resistance. These are **unallocated candidates**, with quantity 0 explicitly meaning no controller allocation; they are not extra BOM items. See `SOURCING-CANDIDATES.csv`.
+| LCSC | Stock | Available order quantity | Class |
+| --- | ---: | ---: | --- |
+| C1525 | 34,924,001 | 27,022,127 | Basic |
+| C52923 | 11,305,119 | 9,076,812 | Basic |
+| C25744 | 17,625,023 | 12,281,885 | Basic |
+| C25076 | 7,054,056 | 5,846,161 | Basic |
+
+Evidence: `evidence/tooling-20261026/basic-stock-browser.json`. The tsci availability warnings are now contradicted by a primary stock listing; they remain visible and are not suppressed. **Stock uncertainty is resolved for this dated snapshot.** Manufacturer land-pattern/datasheet review and capacitor effective capacitance under DC bias remain unfinished. Earlier supplier PDF-fetch problems are retained as history.
+
+The 16 V capacitor is ineligible for raw 20 V PD or 24 V motor supply. The 25 V 0402 capacitor is not approved for a nominal 24 V motor rail with tolerance/transients and DC-bias derating. Resistor dissipation must be checked per use; 100 Ω is not a replacement for RP2040's specified USB series resistance. These are **unallocated candidates**, with quantity 0 meaning no controller allocation. The raw CSV preserves `0402` as text and is checked against the primary records. A separate preview tool still displays `402` despite explicit text formatting; I-019 documents that open presentation defect without treating it as CSV data corruption.
+
+## Boost screening follow-up
+
+The official assembler search identifies [TPS55340RTER / C169167](https://jlcpcb.com/partdetail/TexasInstruments-TPS55340RTER/C169167), WQFN-16-EP(3x3), Extended, stock 18,223 and available order quantity 18,106. The supported exact import succeeds. However, it incorrectly assigns `doNotConnect` to pins 10/14, which TI SLVSBD4E table 5-1 requires grounded. The candidate remains **blocked/unallocated** under I-018; no imported definition was patched. It is not a selected converter.
+
+TPS55288 was screened out using its manufacturer datasheet: its output range ends at 22 V despite the 36 V input headline. TPS55340's 5.25 A limit is internal switch current, not a 5.25 A output rating. The new current/tolerance screening in `POWER-REVIEW.md` does not verify startup or thermal performance.
 
 ## Unfinished complete-controller BOM
 

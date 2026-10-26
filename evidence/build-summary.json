@@ -1,6 +1,6 @@
 {
-  "revision": "sourcing-prototype-0.0.2",
-  "circuit_json_sha256": "fa4b103bddbaf8ba09c41bc1e5e230790597fe0580332f47bf6e6c325d9c850c",
+  "revision": "engineering-review-prototype-0.0.3",
+  "circuit_json_sha256": "5b987792556d4fb29b76fbe63b84b58be4a1b9875508b57bffbb759ddc2240c8",
   "entry_source_sha256": "e019b3a6630db7f1f251953f59e5f1fccc0533e6026a3f5c368de0702374c927",
   "records_by_type": {
     "schematic_sheet": 3,
@@ -30,10 +30,11 @@
     "pcb_port": 169,
     "cad_component": 7,
     "source_pin_must_be_connected_error": 13,
+    "source_component_availability_warning": 1,
     "source_project_metadata": 1
   },
   "routing_disabled": true,
   "electrical_design_complete": false,
   "fabrication_ready": false,
-  "source_baseline_commit": "e15d14ce3d5f329120146d7c632b8dfa33469c48"
+  "source_baseline_commit": "f06a9e1ee29d00ba463604010612a929ad1e11eb"
 }

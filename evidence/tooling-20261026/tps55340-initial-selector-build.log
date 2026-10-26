@@ -1,0 +1,36 @@
+Building 1 file(s)...
+Building checks/tps55340-import-defect.circuit.tsx...
+Generating circuit JSON...
+Circuit JSON written to dist/checks/tps55340-import-defect/circuit.json
+Port VIN on U1 is missing a trace
+Port AGND on U1 is missing a trace
+Port PGND3 on U1 is missing a trace
+Port PGND2 on U1 is missing a trace
+Port PGND1 on U1 is missing a trace
+Generating preview images...
+[checks/tps55340-import-defect] Generating PCB SVG...
+[checks/tps55340-import-defect] Written pcb.svg
+[checks/tps55340-import-defect] Generating PCB PNG...
+[checks/tps55340-import-defect] Written pcb.png
+[checks/tps55340-import-defect] Generating schematic SVG...
+[checks/tps55340-import-defect] Written schematic.svg
+[checks/tps55340-import-defect] Generating schematic PNG...
+[checks/tps55340-import-defect] Written schematic.png
+[checks/tps55340-import-defect] Generating 3D PNG...
+[checks/tps55340-import-defect] Written 3d.png
+
+Build complete
+  Circuits  0 passed 1 failed
+  Options   pcb-png, schematic-png, pcb-svgs, schematic-svgs, 3d
+  Config    routing-disabled (from tscircuit.config.json)
+  Output    dist
+
+⚠ Build completed with errors
+Could not find port for selector ".U1.pin10". Component "U1" found, but does not have pin "pin10". It has [SW3, pin1, 1, VIN, pin2, 2, EN, pin3, 3, SS, pin4, 4, SYNC, pin5, 5, AGND, pin6, 6, COMP, pin7, 7, FB, pin8, 8, FREQ, pin9, 9, NC2, pin10, 10, PGND3, pin11, 11, PGND2, pin12, 12, PGND1, pin13, 13, NC1, pin14, 14, SW2, pin15, 15, SW1, pin16, 16, EP, pin17, 17]
+Could not find port for selector ".U1.pin14". Component "U1" found, but does not have pin "pin14". It has [SW3, pin1, 1, VIN, pin2, 2, EN, pin3, 3, SS, pin4, 4, SYNC, pin5, 5, AGND, pin6, 6, COMP, pin7, 7, FB, pin8, 8, FREQ, pin9, 9, NC2, pin10, 10, PGND3, pin11, 11, PGND2, pin12, 12, PGND1, pin13, 13, NC1, pin14, 14, SW2, pin15, 15, SW1, pin16, 16, EP, pin17, 17]
+Could not find port for selector ".U1.pin17". Component "U1" found, but does not have pin "pin17". It has [SW3, pin1, 1, VIN, pin2, 2, EN, pin3, 3, SS, pin4, 4, SYNC, pin5, 5, AGND, pin6, 6, COMP, pin7, 7, FB, pin8, 8, FREQ, pin9, 9, NC2, pin10, 10, PGND3, pin11, 11, PGND2, pin12, 12, PGND1, pin13, 13, NC1, pin14, 14, SW2, pin15, 15, SW1, pin16, 16, EP, pin17, 17]
+Could not find port for selector ".U1.AGND". Component "U1" found, but does not have pin "AGND". It has [SW3, pin1, 1, VIN, pin2, 2, EN, pin3, 3, SS, pin4, 4, SYNC, pin5, 5, AGND, pin6, 6, COMP, pin7, 7, FB, pin8, 8, FREQ, pin9, 9, NC2, pin10, 10, PGND3, pin11, 11, PGND2, pin12, 12, PGND1, pin13, 13, NC1, pin14, 14, SW2, pin15, 15, SW1, pin16, 16, EP, pin17, 17]
+Could not find port for selector ".U1.PGND1". Component "U1" found, but does not have pin "PGND1". It has [SW3, pin1, 1, VIN, pin2, 2, EN, pin3, 3, SS, pin4, 4, SYNC, pin5, 5, AGND, pin6, 6, COMP, pin7, 7, FB, pin8, 8, FREQ, pin9, 9, NC2, pin10, 10, PGND3, pin11, 11, PGND2, pin12, 12, PGND1, pin13, 13, NC1, pin14, 14, SW2, pin15, 15, SW1, pin16, 16, EP, pin17, 17]
+Could not find port for selector ".U1.PGND2". Component "U1" found, but does not have pin "PGND2". It has [SW3, pin1, 1, VIN, pin2, 2, EN, pin3, 3, SS, pin4, 4, SYNC, pin5, 5, AGND, pin6, 6, COMP, pin7, 7, FB, pin8, 8, FREQ, pin9, 9, NC2, pin10, 10, PGND3, pin11, 11, PGND2, pin12, 12, PGND1, pin13, 13, NC1, pin14, 14, SW2, pin15, 15, SW1, pin16, 16, EP, pin17, 17]
+Could not find port for selector ".U1.PGND3". Component "U1" found, but does not have pin "PGND3". It has [SW3, pin1, 1, VIN, pin2, 2, EN, pin3, 3, SS, pin4, 4, SYNC, pin5, 5, AGND, pin6, 6, COMP, pin7, 7, FB, pin8, 8, FREQ, pin9, 9, NC2, pin10, 10, PGND3, pin11, 11, PGND2, pin12, 12, PGND1, pin13, 13, NC1, pin14, 14, SW2, pin15, 15, SW1, pin16, 16, EP, pin17, 17]
+Build exiting with code 1: circuit build errors occurred

@@ -1,5 +1,8 @@
 import { readFileSync, writeFileSync } from "node:fs"
-import { convertCircuitJsonToSchematicSvg } from "circuit-to-svg"
+import {
+  convertCircuitJsonToSchematicSvg,
+  convertCircuitJsonToStackedSchematicSheetsSvg,
+} from "circuit-to-svg"
 import { Resvg } from "@resvg/resvg-js"
 
 const circuitJson = JSON.parse(readFileSync("dist/index/circuit.json", "utf8"))
@@ -15,3 +18,14 @@ for (const sheet of sheets) {
   writeFileSync(`${basename}.png`, new Resvg(svg).render().asPng())
   console.log(`Rendered ${sheet.name}`)
 }
+
+const stackedSvg = convertCircuitJsonToStackedSchematicSheetsSvg(circuitJson, {
+  width: 1800,
+  height: 1273,
+})
+writeFileSync("dist/index/schematic-all-sheets.svg", stackedSvg)
+writeFileSync(
+  "dist/index/schematic-all-sheets.png",
+  new Resvg(stackedSvg).render().asPng(),
+)
+console.log(`Rendered all ${sheets.length} sheets using the native stacked API`)

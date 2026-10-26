@@ -1,0 +1,53 @@
+{
+  "url": "https://registry-api.tscircuit.com/datasheets/get?chip_name=type-c-31-m-12",
+  "status": 200,
+  "chip_name": "TYPE-C-31-M-12",
+  "pin_attributes": {
+    "pinA4": {
+      "isPassive": true
+    },
+    "pinA5": {
+      "isPassive": true
+    },
+    "pinA6": {
+      "isPassive": true
+    },
+    "pinA7": {
+      "isPassive": true
+    },
+    "pinA8": {
+      "isPassive": true
+    },
+    "pinA9": {
+      "isPassive": true
+    },
+    "pinB4": {
+      "isPassive": true
+    },
+    "pinB5": {
+      "isPassive": true
+    },
+    "pinB6": {
+      "isPassive": true
+    },
+    "pinB7": {
+      "isPassive": true
+    },
+    "pinB8": {
+      "isPassive": true
+    },
+    "pinB9": {
+      "isPassive": true
+    },
+    "pinA1/B12": {
+      "isPassive": true
+    },
+    "pinB1/A12": {
+      "isPassive": true
+    },
+    "pinSHIELD": {
+      "isPassive": true
+    }
+  },
+  "internally_connected_pins": null
+}

@@ -21,6 +21,13 @@ def check_sourcing():
         for record in circuit
         if record["type"] == "source_component"
     }
+    primary_listings = (
+        load_json("evidence/tooling-20261026/core-stock-browser.json")
+        + load_json("evidence/tooling-20261026/basic-stock-browser.json")
+        + [load_json("evidence/tooling-20261026/boost-stock-browser.json")]
+    )
+    primary_by_supplier = {listing["lcsc"]: listing for listing in primary_listings}
+    assert len(primary_by_supplier) == len(primary_listings)
     expected_parts = {
         "U1": "C2040",
         "U2": "C5218861",
@@ -43,11 +50,13 @@ def check_sourcing():
         assert bom_row["Assembly Side"] == "TOP"
         assert bom_row["Verified Import Status"]
         assert "incomplete" in bom_row["BOM Scope"]
-        search = load_json(f"evidence/sourcing-20261025/search-{supplier_number}.json")
-        exact_match = next(part for part in search["results"] if f'C{part["lcsc"]}' == supplier_number)
-        assert int(bom_row["Stock"]) == exact_match["stock"]
-        assert not exact_match["is_basic"] and not exact_match["is_preferred"]
-        assert bom_row["JLCPCB Class"] == "Extended"
+        listing = primary_by_supplier[supplier_number]
+        assert listing["identity_visible"] and listing["assembly_support_visible"]
+        assert bom_row["Manufacturer Part Number"] == listing["mpn"]
+        assert int(bom_row["Stock"]) == listing["stock"]
+        assert int(bom_row["Available Order Quantity"]) == listing["available_order_quantity"]
+        assert bom_row["Checked Date"] == listing["checked_date"]
+        assert bom_row["JLCPCB Class"] == listing["classification"]
 
     board = next(record for record in circuit if record["type"] == "pcb_board")
     assert (board["width"], board["height"], board["num_layers"]) == (42, 42, 4)
@@ -67,14 +76,22 @@ def check_sourcing():
     with Path("SOURCING-CANDIDATES.csv").open(newline="") as candidate_file:
         candidate_rows = list(csv.DictReader(candidate_file))
     assert {row["LCSC Number"] for row in candidate_rows} == {
-        "C165948", "C1525", "C52923", "C25744", "C25076"
+        "C165948", "C1525", "C52923", "C25744", "C25076", "C169167"
     }
     assert all(int(row["Allocated Quantity"]) == 0 for row in candidate_rows)
+    for candidate in candidate_rows:
+        listing = primary_by_supplier[candidate["LCSC Number"]]
+        assert candidate["Manufacturer Part Number"] == listing["mpn"]
+        assert int(candidate["Stock"]) == listing["stock"]
+        assert int(candidate["Available Order Quantity"]) == listing["available_order_quantity"]
+        assert candidate["JLCPCB Class"] == listing["classification"]
+        if "footprint" in listing:
+            assert candidate["Footprint"] == listing["footprint"]
 
     # These counts expose the still-failing hardware build. They are not waived
     # by a successful consistency audit, and are not prerequisites for its exit.
     summary = {
-        "revision": "sourcing-prototype-0.0.2",
+        "revision": "engineering-review-prototype-0.0.3",
         "audit_bom_matches_generated_fixture": True,
         "bom_component_rows": len(bom_rows),
         "unallocated_candidate_rows": len(candidate_rows),
@@ -88,7 +105,7 @@ def check_sourcing():
         "fabrication_ready": False,
         "circuit_json_sha256": hashlib.sha256(circuit_path.read_bytes()).hexdigest(),
     }
-    Path("evidence/sourcing-20261025/bom-consistency.json").write_text(json.dumps(summary, indent=2) + "\n")
+    Path("evidence/tooling-20261026/bom-consistency.json").write_text(json.dumps(summary, indent=2) + "\n")
     print(json.dumps(summary, indent=2))
 
 

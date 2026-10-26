@@ -1,0 +1,12 @@
+{
+  "lcsc": "C169167",
+  "mpn": "TPS55340RTER",
+  "identity_visible": true,
+  "classification": "Extended",
+  "stock": 18223,
+  "available_order_quantity": 18106,
+  "assembly_support_visible": true,
+  "source_url": "https://jlcpcb.com/partdetail/TexasInstruments-TPS55340RTER/C169167",
+  "checked_date": "2026-10-26",
+  "disposition": "Screening candidate only; not selected for motor power"
+}

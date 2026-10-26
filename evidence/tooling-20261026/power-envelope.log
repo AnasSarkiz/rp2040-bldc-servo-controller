@@ -1,0 +1,4 @@
+Input current limiter assumed range: 4.275–4.725 A
+24 V / 3 A requires board input >= 19.181 V under these assumptions
+18 V input screening ceiling: 2.811 A at 24 V
+Startup, thermal performance and completed protection: NOT VERIFIED

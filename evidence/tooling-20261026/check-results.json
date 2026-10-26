@@ -1,0 +1,207 @@
+[
+  {
+    "check": "format",
+    "command": [
+      "bun",
+      "run",
+      "format"
+    ],
+    "exit_code": 0,
+    "log": "evidence/tooling-20261026/format.log"
+  },
+  {
+    "check": "typecheck",
+    "command": [
+      "bun",
+      "run",
+      "typecheck"
+    ],
+    "exit_code": 0,
+    "log": "evidence/tooling-20261026/typecheck.log"
+  },
+  {
+    "check": "c165948-pins",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "check",
+      "pin_specification",
+      "checks/usb-c-c165948.circuit.tsx"
+    ],
+    "exit_code": 0,
+    "log": "evidence/tooling-20261026/c165948-pins.log"
+  },
+  {
+    "check": "tps55340-pins",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "check",
+      "pin_specification",
+      "checks/tps55340-import-defect.circuit.tsx"
+    ],
+    "exit_code": 0,
+    "log": "evidence/tooling-20261026/tps55340-pins.log"
+  },
+  {
+    "check": "tps55340-build",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "build",
+      "checks/tps55340-import-defect.circuit.tsx",
+      "--pcb-png",
+      "--pcb-svgs",
+      "--schematic-svgs",
+      "--schematic-png",
+      "--3d"
+    ],
+    "exit_code": 0,
+    "log": "evidence/tooling-20261026/tps55340-build.log",
+    "note": "Corrected documented selector syntax; not a converter validation"
+  },
+  {
+    "check": "format-check",
+    "command": [
+      "bun",
+      "run",
+      "format:check"
+    ],
+    "exit_code": 0,
+    "log": "evidence/tooling-20261026/format-check.log"
+  },
+  {
+    "check": "typecheck-final",
+    "command": [
+      "bun",
+      "run",
+      "typecheck"
+    ],
+    "exit_code": 0,
+    "log": "evidence/tooling-20261026/typecheck-final.log"
+  },
+  {
+    "check": "netlist",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "check",
+      "netlist",
+      "index.circuit.tsx"
+    ],
+    "exit_code": 0,
+    "log": "evidence/tooling-20261026/netlist.log"
+  },
+  {
+    "check": "pin_specification",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "check",
+      "pin_specification",
+      "index.circuit.tsx"
+    ],
+    "exit_code": 0,
+    "log": "evidence/tooling-20261026/pin_specification.log"
+  },
+  {
+    "check": "source",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "check",
+      "source",
+      "index.circuit.tsx"
+    ],
+    "exit_code": 0,
+    "log": "evidence/tooling-20261026/source.log"
+  },
+  {
+    "check": "schematic-placement",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "check",
+      "schematic-placement",
+      "index.circuit.tsx"
+    ],
+    "exit_code": 0,
+    "log": "evidence/tooling-20261026/schematic-placement.log"
+  },
+  {
+    "check": "placement",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "check",
+      "placement",
+      "index.circuit.tsx"
+    ],
+    "exit_code": 0,
+    "log": "evidence/tooling-20261026/placement.log"
+  },
+  {
+    "check": "main-build",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "build",
+      "index.circuit.tsx",
+      "--pcb-png",
+      "--pcb-svgs",
+      "--schematic-svgs",
+      "--schematic-png",
+      "--3d"
+    ],
+    "exit_code": 1,
+    "log": "evidence/tooling-20261026/main-build.log"
+  },
+  {
+    "check": "render-sheets",
+    "command": [
+      "bun",
+      "run",
+      "render:sheets"
+    ],
+    "exit_code": 0,
+    "log": "evidence/tooling-20261026/render-sheets.log"
+  },
+  {
+    "check": "schematic-sheet-check",
+    "command": [
+      "bun",
+      "run",
+      "test:schematic-sheets"
+    ],
+    "exit_code": 0,
+    "log": "evidence/tooling-20261026/schematic-sheet-check.log"
+  },
+  {
+    "check": "bom-consistency",
+    "command": [
+      "bun",
+      "run",
+      "test:sourcing"
+    ],
+    "exit_code": 0,
+    "log": "evidence/tooling-20261026/bom-consistency.log"
+  },
+  {
+    "check": "power-envelope",
+    "command": [
+      "python3",
+      "scripts/power-envelope.py"
+    ],
+    "exit_code": 0,
+    "log": "evidence/tooling-20261026/power-envelope.log"
+  }
+]

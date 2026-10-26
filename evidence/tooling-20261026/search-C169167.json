@@ -1,0 +1,16 @@
+{
+  "query": "C169167",
+  "results": [
+    {
+      "source": "jlcpcb",
+      "lcsc": 169167,
+      "mfr": "TPS55340RTER",
+      "package": "WQFN-16-EP(3x3)",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "-40℃~+125℃@(TA) 1 1.14MHz 2.9V~32V 2.9V~38V 5.25A 500uA Adjustable Boost Boost、SEPIC、Flyback Built-in No WQFN-16-EP(3x3) DC-DC Converters ROHS",
+      "stock": 18215,
+      "price": 2.0255
+    }
+  ]
+}

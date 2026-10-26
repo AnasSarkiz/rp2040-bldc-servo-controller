@@ -61,6 +61,20 @@
       "sha256": "6ae33d50ac47820114661138dc4e4659f40fdc5d4f485b46685dfec338da1a9e",
       "source_url": "https://datasheet.lcsc.com/datasheet/pdf/9e56b777c022540fcce7c7f67825f55e.pdf?productCode=C165948",
       "review_status": "Manufacturer revision A full drawing and enlarged component-side layout visually reviewed; imported shell slots differ; connector NOT approved"
+    },
+    {
+      "file": "datasheets/tps55340.pdf",
+      "bytes": 2932213,
+      "sha256": "e579aa4fcb549eab29e889f7f6dcbd0fd88cac2647082c65f102e411c3f666ca",
+      "source_url": "https://www.ti.com/lit/ds/symlink/tps55340.pdf",
+      "review_status": "Screening only: pin table page 3 and electrical limits page 5 visually reviewed; import NC metadata contradicts manufacturer; converter NOT qualified"
+    },
+    {
+      "file": "datasheets/tps55288.pdf",
+      "bytes": 3726365,
+      "sha256": "2b60a3054038493ae5dcdeb58d1f87c27397a886c60a8696376fa6e4d594dfbc",
+      "source_url": "https://www.ti.com/lit/ds/symlink/tps55288.pdf",
+      "review_status": "Screened OUT for 24 V motor bus: page 6 output maximum 22 V visually reviewed"
     }
   ],
   "rejected_files": [
@@ -69,5 +83,6 @@
       "bytes": 0,
       "status": "invalid/empty HTTP response; removed, not a datasheet"
     }
-  ]
+  ],
+  "latest_update_date": "2026-10-26"
 }

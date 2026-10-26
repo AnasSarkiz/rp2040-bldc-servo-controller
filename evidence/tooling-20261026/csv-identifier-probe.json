@@ -1,0 +1,7 @@
+{
+  "source_identifier": "0402",
+  "parsed_identifier": "0402",
+  "parsed_type": "string",
+  "leading_zero_preserved": true,
+  "resolution": "The reader preserves the string. Format identifiers explicitly as text for preview, and validate the exported CSV against the primary source."
+}

@@ -1,0 +1,31 @@
+{
+  "version": "0.1.2409",
+  "gitHead": "8d0055d13cebc8b14cfb85dffe0dcf980e94be78",
+  "repository": {
+    "url": "git+https://github.com/tscircuit/cli.git",
+    "type": "git"
+  },
+  "dist": {
+    "shasum": "262d5bb53875c2a702a352d1445cb60c669b2700",
+    "tarball": "https://registry.npmjs.org/@tscircuit/cli/-/cli-0.1.2409.tgz",
+    "fileCount": 18,
+    "integrity": "sha512-UDbJGayK+RwtBfKtEF2pmvVl8U3dn2edEdEy8z7rHs37qZ4t/w1DEYyDz5wrtPvC1z2gRRKbJ4JlYJ8MkTVrUQ==",
+    "signatures": [
+      {
+        "sig": "MEQCIE/hjdNvHWAp2tTagNBc+JqzNg6PUyB+bYqdwoqWdcilAiAhVGhl2G2Jxf72rkJtnDFNTCXdwTnp+Jr5CbGJ8z2PIg==",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      },
+      {
+        "sig": "MEQCIH0YErKSEoOqk6TIvrlqZZmnmkYUzLjvwDsHl6op7YHoAiBcQXfB/GCfvCccYBsL0M8OhTmRDWhWojJfWm+j9qiB2w==",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      }
+    ],
+    "attestations": {
+      "url": "https://registry.npmjs.org/-/npm/v1/attestations/@tscircuit%2fcli@0.1.2409",
+      "provenance": {
+        "predicateType": "https://slsa.dev/provenance/v1"
+      }
+    },
+    "unpackedSize": 82192212
+  }
+}
