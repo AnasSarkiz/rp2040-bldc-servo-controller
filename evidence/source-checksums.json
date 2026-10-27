@@ -1,8 +1,8 @@
 {
-  "index.circuit.tsx": "e019b3a6630db7f1f251953f59e5f1fccc0533e6026a3f5c368de0702374c927",
-  "package.json": "dcdc2411c7ae4853ddf4792c1986ec04e92f80bc1ef4d33048d5c2092b77b4a2",
+  "index.circuit.tsx": "73c938ae468b4f7749ecad963ee5be51f2e83e7571e63245c1c61597871e5641",
+  "package.json": "407714a75e92786c25bf69d2f759bc3866f9f1947ce79cf1e24454d59ada0025",
   "bun.lock": "76f01ea4a449ee4541839ed4cf0ffa4baad14ec031b1ffa367136478e36942db",
-  "tscircuit.config.json": "df6430cf51b66ed5755ffe994271abb7cb183c9f2000e0b5e659f4c925e6b962",
+  "tscircuit.config.json": "9fe936beca95ce3eb78e808d7c7c46c0649e204ba940103fbc241f550fa4c60d",
   "tsconfig.json": "9ba752b72806fd76d5a164db1ebad828283db64d022a59525298823f3c9b206a",
   "BOM.csv": "ca782b2f66771271cd16265c94a37e423a807514906bb5c40b8bf106953985f5",
   "SOURCING-CANDIDATES.csv": "062d575fa74fdefa7d9887f06387d0b0aa2835f3c9fa6eac28a417b78b1720a5",
@@ -51,5 +51,6 @@
   "scripts/check-schematic-sheets.py": "99f4ff96974d90e764f7d4cd69495df5b7f3ba3634502242217954f267b6725e",
   "scripts/check-sourcing.py": "ee947dfb906608437c1d57f29a1fd42dacc711cfd147bc2cae0244531f1a933b",
   "scripts/power-envelope.py": "876189e084bddc484684e9d5bd916e54569efbb61d6ca841f50d060c75b5c9d6",
-  "scripts/render-import-sheets.mjs": "49154968a3fceb97fe2fdb14f4bbed4dae8413fab963c703e1af8ed1c9102539"
+  "scripts/render-import-sheets.mjs": "49154968a3fceb97fe2fdb14f4bbed4dae8413fab963c703e1af8ed1c9102539",
+  "imports/AS5047P_ATSM.tsx": "53d73d2cb14c588c090a47e27ea90849a25e38d0a469c77ca7a519c7550108af"
 }

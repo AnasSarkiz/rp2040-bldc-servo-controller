@@ -1,0 +1,2 @@
+$ biome format index.circuit.tsx checks
+Checked 4 files in 23ms. No fixes applied.

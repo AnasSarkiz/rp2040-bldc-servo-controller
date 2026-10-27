@@ -1,6 +1,6 @@
 # Engineering and tooling issues
 
-Updated 2026-10-27. Current revision: toolchain-review-prototype-0.0.4. The main board remains an unconnected imported-part inspection. Dependent work remains gated; unrelated investigation continues. No generated component definition is manually patched.
+Updated 2026-10-27. Current revision: toolchain-review-prototype-0.0.5. The main board remains an unconnected imported-part inspection. Dependent work remains gated; unrelated investigation continues. No generated component definition is manually patched.
 
 Triage distinction: I-002, I-007, I-009, I-013–I-018 concern tscircuit tooling/import/service behavior. I-003/I-010 are mechanical-document access blockers; I-005 is document acquisition; I-006/I-008 are unfinished engineering; I-011 is integration access. **I-012's earlier missing-frame claim is retracted**, and I-019 is a separate non-tscircuit preview issue with verified raw CSV data. An unconnected required pin in the unfinished main schematic is not, by itself, a tscircuit bug.
 
@@ -19,7 +19,7 @@ Generated pad 57 has `pcbX="-1.1368683772161603e-13mm"`. Build reports `Invalid 
 
 Attempted resolution: installed supported CLI 0.1.2408 locally; regenerated the same component through its supported exact-footprint import. The newer importer emits `pcbX="-0mm"`. Also tested the supported default import, which chooses a footprinter match with reported 99.79% copper IoU. That alternate was not adopted. Reproductions are in `evidence/reimport-exact/` and `evidence/reimport-default/`; import logs are in `evidence/logs/rp2040-reimport-*.log`. The root import was regenerated with the exact footprint. No manual coordinate change or pin-attribute suppression was used. Status: coordinate defect resolved by supported re-import; the final build has no invalid-coordinate error. Independent component defects below still block integration.
 
-## I-002 - Push omits configured ignoredFiles from its file selection (BLOCKING)
+## I-002 - Push omits configured ignoredFiles (FIXED in CLI 0.1.2414)
 
 Affected stage: registry publication, consistency and datasheet exclusion.
 
@@ -217,3 +217,23 @@ bunx --no-install tscircuit-cli build index.circuit.tsx --pcb-png --pcb-svgs --s
 The update succeeds but emits incorrect-peer warnings for `circuit-to-svg@0.0.453`, `react-dom@19.3.1` and `react@19.3.1`. Verified installed manifests show CLI 0.1.2414 declaring peer `circuit-to-svg: ^0.0.447`, while tscircuit 0.0.3028 requires `^0.0.453`. Under semver's 0.0.x rules those ranges do not overlap. `jscad-fiber` 0.0.92 and `jscad-electronics` 0.0.210 declare exact React/React DOM 19.1.0 peers, while the library's broad dependencies resolve 19.3.1.
 
 Evidence: official npm metadata and `installed-versions-and-peers.json` in `evidence/update-20261027/`, refreshed `bun.lock`, frozen-install/typecheck/build logs. The frozen install exits 0; TypeScript, rendering and isolated fixture builds work in the exercised paths. The main build fails on the same 13 hardware connectivity errors, not a proven peer-mismatch crash. No blanket runtime compatibility is claimed. Attempted diagnosis: inspect actual manifests, identify the conflicting ranges and rerun software/render checks. Proper resolution is compatible upstream package declarations/releases. No override, warning suppression, forced downgrade or dependency patch is used. Status: unresolved packaging warning, distinct from the hardware blockers.
+
+### I-002 end-to-end result
+
+CLI 0.1.2414 fixes the exclusion defect. Anonymous enumeration of the partial 0.0.4 release verifies that none of the requested datasheets, evidence, mechanical files, unused candidate imports or isolated fixture outputs were uploaded. All 49 uploaded files match the local bytes, including `dist/index/circuit.json`. I-002 is closed for this verified CLI/configuration. The distinct request-size failure below prevents treating 0.0.4 as a complete release.
+
+## I-021 - Registry request-size limits reject archive and required STEP asset
+
+Affected stage: complete registry publication. CLI 0.1.2414, tscircuit 0.0.3028, board version 0.0.4. Reproduce from implementation commit `756d68f863bec3e5d169955b3be269830db17914`:
+
+```sh
+bunx --no-install tscircuit-cli push --include-dist
+```
+
+The default archive request is rejected with **HTTP 413** at `/package_files/upload_archive`; its base64 field has 5,523,548 characters. The CLI's built-in individual upload then succeeds for 49 files but rejects `imports/AS5047P_ATSM/AS5047P_ATSM.step` with **HTTP 413** at `/package_files/create`. The STEP asset is 4,413,008 bytes before JSON encoding and is imported by the generated component. Push correctly exits **1**. The CLI does not reach its final ready-to-build update. Anonymous registry metadata nevertheless points latest to version 0.0.4, release `7c42fc54-f5e2-4142-b98d-e33ebf8b1479`, whose `ready_to_build` is false. A visible latest-version identifier therefore does not prove a complete publication.
+
+Evidence: `evidence/update-20261027/push.log`, `push-log-payload-manifest.json`, `registry-release-post-response.json` and `publication-verification.json`. The log preserves statuses, response, uploaded paths and full failure summary; only the megabytes of archive base64 were omitted, with its size/hash and the original log hash recorded. All 49 uploaded files were anonymously downloaded and byte-verified. No datasheet/evidence exclusion was bypassed. Missing required STEP content blocks a complete 0.0.4 release; it is not hidden or declared optional.
+
+Supported resolution investigated for version 0.0.5: the normal `tsci import --jlcpcb C962063 --use-exact-footprint` workflow (without optional `--download`) generates official model-CDN URLs. Both remote OBJ and STEP bytes were anonymously downloaded and exactly match the archived original assets. Re-import source comparison confirms identical electrical pins, pads and courtyard. A single pin-one notch silkscreen arc has different tessellation; the full generated diff is retained. No component definition was manually edited. `index.circuit.tsx` now selects this supported generated import; the historical downloaded folder remains on GitHub and is excluded from publication because it is unused. This introduces an explicit official-CDN dependency for the encoder's model assets.
+
+A subsequent `push --include-dist --no-compress` uses the documented individual upload mode, avoiding the oversized aggregate request. It does not repair or waive upstream size limits. Current 0.0.5 upload and hash-verification status is recorded in VALIDATION.md and `evidence/update-20261027/v0.0.5/`. No malformed asset, substituted part, hand-edited import or hidden error is used.

@@ -1,7 +1,7 @@
 {
   "name": "@tsci/AnasSarkiz.rp2040-bldc-servo-controller",
-  "version": "0.0.4",
-  "description": "Toolchain update prototype: tscircuit 0.0.3028 / CLI 0.1.2414; controller electrically incomplete",
+  "version": "0.0.5",
+  "description": "Inspection prototype: updated tscircuit toolchain and supported remote encoder models; hardware electrically incomplete",
   "main": "index.circuit.tsx",
   "keywords": [
     "tscircuit",

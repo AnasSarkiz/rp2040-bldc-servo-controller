@@ -1,102 +1,490 @@
 {
-  "verified_at_utc": "2026-10-26T16:12:03.075264+00:00",
-  "revision": "engineering-review-prototype-0.0.3",
+  "verified_at_utc": "2026-10-27T13:35:43.635497+00:00",
+  "revision": "toolchain-review-prototype-0.0.4",
   "github": {
+    "verified_at_utc": "2026-10-27T13:32:52.825480+00:00",
     "repository": "AnasSarkiz/rp2040-bldc-servo-controller",
-    "source_commit": "c50d7c546784ac6c886ce0e4f897dd171cc6e504",
-    "commit_url": "https://github.com/AnasSarkiz/rp2040-bldc-servo-controller/commit/c50d7c546784ac6c886ce0e4f897dd171cc6e504",
+    "source_commit": "756d68f863bec3e5d169955b3be269830db17914",
+    "commit_url": "https://github.com/AnasSarkiz/rp2040-bldc-servo-controller/commit/756d68f863bec3e5d169955b3be269830db17914",
     "is_public": true,
     "anonymous_artifacts": [
       {
         "path": "dist/checks/basic-passives/circuit.json",
-        "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/c50d7c546784ac6c886ce0e4f897dd171cc6e504/dist/checks/basic-passives/circuit.json",
-        "local_sha256": "e20addeabaa2d7df418f29aa609f66d70499ade6e7e592184ddd7d08036cc8fc",
-        "remote_sha256": "e20addeabaa2d7df418f29aa609f66d70499ade6e7e592184ddd7d08036cc8fc",
+        "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/756d68f863bec3e5d169955b3be269830db17914/dist/checks/basic-passives/circuit.json",
+        "local_sha256": "c80d925fdd84b87b2dc41e33040a8cc18a3cb6363a11fa40356600393a8d1dcf",
+        "remote_sha256": "c80d925fdd84b87b2dc41e33040a8cc18a3cb6363a11fa40356600393a8d1dcf",
         "matches": true
       },
       {
         "path": "dist/checks/tps55340-import-defect/circuit.json",
-        "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/c50d7c546784ac6c886ce0e4f897dd171cc6e504/dist/checks/tps55340-import-defect/circuit.json",
-        "local_sha256": "573092c2e1d8d4fa1e764aa12d836f36f0fd4639cae343450f9b53aa067a2cfe",
-        "remote_sha256": "573092c2e1d8d4fa1e764aa12d836f36f0fd4639cae343450f9b53aa067a2cfe",
+        "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/756d68f863bec3e5d169955b3be269830db17914/dist/checks/tps55340-import-defect/circuit.json",
+        "local_sha256": "ba42907179a6c7dc03515f5939496511e8c5e153c1dde630b1805c0660570a1f",
+        "remote_sha256": "ba42907179a6c7dc03515f5939496511e8c5e153c1dde630b1805c0660570a1f",
         "matches": true
       },
       {
         "path": "dist/checks/usb-c-c165948/circuit.json",
-        "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/c50d7c546784ac6c886ce0e4f897dd171cc6e504/dist/checks/usb-c-c165948/circuit.json",
-        "local_sha256": "25635120cf12ee82096e5448d14073ca1b1c0a79271f6cdacdfa4e32fb0a9e43",
-        "remote_sha256": "25635120cf12ee82096e5448d14073ca1b1c0a79271f6cdacdfa4e32fb0a9e43",
+        "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/756d68f863bec3e5d169955b3be269830db17914/dist/checks/usb-c-c165948/circuit.json",
+        "local_sha256": "8d3e70b716b655a4a76a2caad911d018ee566fce03ed84542f70187ab52c5323",
+        "remote_sha256": "8d3e70b716b655a4a76a2caad911d018ee566fce03ed84542f70187ab52c5323",
         "matches": true
       },
       {
         "path": "dist/index/circuit.json",
-        "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/c50d7c546784ac6c886ce0e4f897dd171cc6e504/dist/index/circuit.json",
-        "local_sha256": "5b987792556d4fb29b76fbe63b84b58be4a1b9875508b57bffbb759ddc2240c8",
-        "remote_sha256": "5b987792556d4fb29b76fbe63b84b58be4a1b9875508b57bffbb759ddc2240c8",
+        "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/756d68f863bec3e5d169955b3be269830db17914/dist/index/circuit.json",
+        "local_sha256": "414f0a076b385b3b880e753ed36642822cad919b3a1ca03222a2b10b6f97a795",
+        "remote_sha256": "414f0a076b385b3b880e753ed36642822cad919b3a1ca03222a2b10b6f97a795",
         "matches": true
       },
       {
+        "path": "package.json",
+        "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/756d68f863bec3e5d169955b3be269830db17914/package.json",
+        "local_sha256": "dcdc2411c7ae4853ddf4792c1986ec04e92f80bc1ef4d33048d5c2092b77b4a2",
+        "remote_sha256": "dcdc2411c7ae4853ddf4792c1986ec04e92f80bc1ef4d33048d5c2092b77b4a2",
+        "matches": true
+      },
+      {
+        "path": "bun.lock",
+        "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/756d68f863bec3e5d169955b3be269830db17914/bun.lock",
+        "local_sha256": "76f01ea4a449ee4541839ed4cf0ffa4baad14ec031b1ffa367136478e36942db",
+        "remote_sha256": "76f01ea4a449ee4541839ed4cf0ffa4baad14ec031b1ffa367136478e36942db",
+        "matches": true
+      },
+      {
+        "path": "tscircuit.config.json",
+        "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/756d68f863bec3e5d169955b3be269830db17914/tscircuit.config.json",
+        "local_sha256": "df6430cf51b66ed5755ffe994271abb7cb183c9f2000e0b5e659f4c925e6b962",
+        "remote_sha256": "df6430cf51b66ed5755ffe994271abb7cb183c9f2000e0b5e659f4c925e6b962",
+        "matches": true
+      },
+      {
+        "path": "issue.md",
+        "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/756d68f863bec3e5d169955b3be269830db17914/issue.md",
+        "local_sha256": "e6384f0661ef39eb78f34dcdc1eab7be9fadc8801263e370501a8bcc57561e2d",
+        "remote_sha256": "e6384f0661ef39eb78f34dcdc1eab7be9fadc8801263e370501a8bcc57561e2d",
+        "matches": true
+      }
+    ],
+    "hardware_validation_passed": false
+  },
+  "registry": {
+    "name": "AnasSarkiz/rp2040-bldc-servo-controller",
+    "url": "https://tscircuit.com/AnasSarkiz/rp2040-bldc-servo-controller",
+    "is_public": true,
+    "is_private": false,
+    "is_unlisted": false,
+    "latest_version": "0.0.4",
+    "package_release_id": "7c42fc54-f5e2-4142-b98d-e33ebf8b1479",
+    "ready_to_build": false,
+    "upload_exit_code": 1,
+    "uploaded_file_count": 49,
+    "anonymous_artifacts": [
+      {
         "path": "BOM.csv",
-        "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/c50d7c546784ac6c886ce0e4f897dd171cc6e504/BOM.csv",
+        "package_file_id": "dbd00b88-bb6f-414d-8568-8809e7d48354",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=dbd00b88-bb6f-414d-8568-8809e7d48354",
         "local_sha256": "ca782b2f66771271cd16265c94a37e423a807514906bb5c40b8bf106953985f5",
         "remote_sha256": "ca782b2f66771271cd16265c94a37e423a807514906bb5c40b8bf106953985f5",
         "matches": true
       },
       {
+        "path": "PIN-REVIEW.md",
+        "package_file_id": "c7d3c737-b174-42ba-a0bc-f75cb6cfc580",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=c7d3c737-b174-42ba-a0bc-f75cb6cfc580",
+        "local_sha256": "7305da5962f471ae73c785e16204c94f7bfad8270df11539cbdb89fdd4254264",
+        "remote_sha256": "7305da5962f471ae73c785e16204c94f7bfad8270df11539cbdb89fdd4254264",
+        "matches": true
+      },
+      {
+        "path": "POWER-REVIEW.md",
+        "package_file_id": "6f412288-c78b-4186-a014-0accebccb1bd",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=6f412288-c78b-4186-a014-0accebccb1bd",
+        "local_sha256": "53f7c78ac9dafb249099866150177d00eab9b5498c02d7f1b4aabad0de0948da",
+        "remote_sha256": "53f7c78ac9dafb249099866150177d00eab9b5498c02d7f1b4aabad0de0948da",
+        "matches": true
+      },
+      {
+        "path": "README.md",
+        "package_file_id": "c146f301-4a2e-4c5e-99df-8f66ddbf4a80",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=c146f301-4a2e-4c5e-99df-8f66ddbf4a80",
+        "local_sha256": "02eb384a023a61c181571fac8f6253df773061495c9ee765eac2f73373a141af",
+        "remote_sha256": "02eb384a023a61c181571fac8f6253df773061495c9ee765eac2f73373a141af",
+        "matches": true
+      },
+      {
         "path": "SOURCING-CANDIDATES.csv",
-        "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/c50d7c546784ac6c886ce0e4f897dd171cc6e504/SOURCING-CANDIDATES.csv",
+        "package_file_id": "2b7994c6-6096-4151-b53d-d3efb6f0b137",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=2b7994c6-6096-4151-b53d-d3efb6f0b137",
         "local_sha256": "062d575fa74fdefa7d9887f06387d0b0aa2835f3c9fa6eac28a417b78b1720a5",
         "remote_sha256": "062d575fa74fdefa7d9887f06387d0b0aa2835f3c9fa6eac28a417b78b1720a5",
         "matches": true
       },
       {
-        "path": "datasheets/tps55340.pdf",
-        "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/c50d7c546784ac6c886ce0e4f897dd171cc6e504/datasheets/tps55340.pdf",
-        "local_sha256": "e579aa4fcb549eab29e889f7f6dcbd0fd88cac2647082c65f102e411c3f666ca",
-        "remote_sha256": "e579aa4fcb549eab29e889f7f6dcbd0fd88cac2647082c65f102e411c3f666ca",
+        "path": "SOURCING.md",
+        "package_file_id": "90f42af7-37cb-43f0-a9db-7d7d563d010d",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=90f42af7-37cb-43f0-a9db-7d7d563d010d",
+        "local_sha256": "91559825e2010eb26f817944864278e3a922cdd4e464a4393a0fc5f766baf242",
+        "remote_sha256": "91559825e2010eb26f817944864278e3a922cdd4e464a4393a0fc5f766baf242",
         "matches": true
       },
       {
-        "path": "datasheets/tps55288.pdf",
-        "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/c50d7c546784ac6c886ce0e4f897dd171cc6e504/datasheets/tps55288.pdf",
-        "local_sha256": "2b60a3054038493ae5dcdeb58d1f87c27397a886c60a8696376fa6e4d594dfbc",
-        "remote_sha256": "2b60a3054038493ae5dcdeb58d1f87c27397a886c60a8696376fa6e4d594dfbc",
+        "path": "biome.json",
+        "package_file_id": "48e005ff-ddd3-4f9b-a3d2-7651492e206e",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=48e005ff-ddd3-4f9b-a3d2-7651492e206e",
+        "local_sha256": "70683e30cd5ee942409fd5a3574d9e167661065f3d4609ec918292aad407daad",
+        "remote_sha256": "70683e30cd5ee942409fd5a3574d9e167661065f3d4609ec918292aad407daad",
         "matches": true
       },
       {
-        "path": "issue.md",
-        "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/c50d7c546784ac6c886ce0e4f897dd171cc6e504/issue.md",
-        "local_sha256": "1ef315611db8fa0823ff8cd042601ce9d9419a47cfcf76d7157da116c04a370b",
-        "remote_sha256": "1ef315611db8fa0823ff8cd042601ce9d9419a47cfcf76d7157da116c04a370b",
+        "path": "dist/index/3d.png",
+        "package_file_id": "e6564219-4720-4350-8063-43ed95024209",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=e6564219-4720-4350-8063-43ed95024209",
+        "local_sha256": "29f551edba9b647c390145e53c3b669f3130582fb078837af8a3c3a18d3a4747",
+        "remote_sha256": "29f551edba9b647c390145e53c3b669f3130582fb078837af8a3c3a18d3a4747",
+        "matches": true
+      },
+      {
+        "path": "dist/index/circuit.json",
+        "package_file_id": "e2cbacb8-79c1-4eed-8a4a-efca94daf414",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=e2cbacb8-79c1-4eed-8a4a-efca94daf414",
+        "local_sha256": "414f0a076b385b3b880e753ed36642822cad919b3a1ca03222a2b10b6f97a795",
+        "remote_sha256": "414f0a076b385b3b880e753ed36642822cad919b3a1ca03222a2b10b6f97a795",
+        "matches": true
+      },
+      {
+        "path": "dist/index/pcb.png",
+        "package_file_id": "b0864f3b-03cd-4b7d-90b5-f6b9143f5d77",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=b0864f3b-03cd-4b7d-90b5-f6b9143f5d77",
+        "local_sha256": "73114dfa11e16a23bc1090beb8aa806e967d2b17d65be292b84a946d42071544",
+        "remote_sha256": "73114dfa11e16a23bc1090beb8aa806e967d2b17d65be292b84a946d42071544",
+        "matches": true
+      },
+      {
+        "path": "dist/index/pcb.svg",
+        "package_file_id": "cf2da910-c8ef-484c-a6c0-cf802c2007f8",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=cf2da910-c8ef-484c-a6c0-cf802c2007f8",
+        "local_sha256": "003b984d5a58984b28c0840151592baa6d207f37e333da4693145fdde05b185b",
+        "remote_sha256": "003b984d5a58984b28c0840151592baa6d207f37e333da4693145fdde05b185b",
+        "matches": true
+      },
+      {
+        "path": "dist/index/schematic-all-sheets.png",
+        "package_file_id": "a86aa453-325f-49cc-a4cb-49cee71a451d",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=a86aa453-325f-49cc-a4cb-49cee71a451d",
+        "local_sha256": "ef39ba35f3db0e658b042e05f73b71535cb283a653cd287c98c7886512a29194",
+        "remote_sha256": "ef39ba35f3db0e658b042e05f73b71535cb283a653cd287c98c7886512a29194",
         "matches": true
       },
       {
         "path": "dist/index/schematic-all-sheets.svg",
-        "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/c50d7c546784ac6c886ce0e4f897dd171cc6e504/dist/index/schematic-all-sheets.svg",
+        "package_file_id": "163e10ef-239c-452e-9f2f-138848680715",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=163e10ef-239c-452e-9f2f-138848680715",
         "local_sha256": "47fb65a5d5f139c600e086140bbc46880886bc927e71c879ad0234fe411a3b2e",
         "remote_sha256": "47fb65a5d5f139c600e086140bbc46880886bc927e71c879ad0234fe411a3b2e",
         "matches": true
+      },
+      {
+        "path": "dist/index/schematic-interfaces.png",
+        "package_file_id": "01908f18-ab41-4a30-b7eb-cd85f008b475",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=01908f18-ab41-4a30-b7eb-cd85f008b475",
+        "local_sha256": "39bc41207bef1787e7a12e2dd3df240b8f7590924eaef84a6ff6c161cbf5a482",
+        "remote_sha256": "39bc41207bef1787e7a12e2dd3df240b8f7590924eaef84a6ff6c161cbf5a482",
+        "matches": true
+      },
+      {
+        "path": "dist/index/schematic-interfaces.svg",
+        "package_file_id": "859abe91-1014-441a-b915-c799e5d8e1bf",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=859abe91-1014-441a-b915-c799e5d8e1bf",
+        "local_sha256": "6140abcaed08fb7221dad1473bcd058afdd718b916ad79606956fdb380bbe4c7",
+        "remote_sha256": "6140abcaed08fb7221dad1473bcd058afdd718b916ad79606956fdb380bbe4c7",
+        "matches": true
+      },
+      {
+        "path": "dist/index/schematic-mcu.png",
+        "package_file_id": "bc9fbade-558b-4556-a4fa-63c5b8a78aac",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=bc9fbade-558b-4556-a4fa-63c5b8a78aac",
+        "local_sha256": "1758521afd5e51f082253834c24fd977c92f0434869ed0d06adb8b46af472091",
+        "remote_sha256": "1758521afd5e51f082253834c24fd977c92f0434869ed0d06adb8b46af472091",
+        "matches": true
+      },
+      {
+        "path": "dist/index/schematic-mcu.svg",
+        "package_file_id": "905cfb48-1dbb-44e7-be1e-0d3d8eddb5bf",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=905cfb48-1dbb-44e7-be1e-0d3d8eddb5bf",
+        "local_sha256": "e15a14fdc59fe6b54b402fdc0cf46be542b9f51d1c19a478801f546e66ea2988",
+        "remote_sha256": "e15a14fdc59fe6b54b402fdc0cf46be542b9f51d1c19a478801f546e66ea2988",
+        "matches": true
+      },
+      {
+        "path": "dist/index/schematic-power.png",
+        "package_file_id": "00106ae4-c42f-43c1-b37b-d0d4309b4042",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=00106ae4-c42f-43c1-b37b-d0d4309b4042",
+        "local_sha256": "5500cc29b7591d0a1225b6f5b8c448ffead1a1413a8dc9310e9c5fce42a495e4",
+        "remote_sha256": "5500cc29b7591d0a1225b6f5b8c448ffead1a1413a8dc9310e9c5fce42a495e4",
+        "matches": true
+      },
+      {
+        "path": "dist/index/schematic-power.svg",
+        "package_file_id": "d9e8a201-ee9e-40ca-9f7b-36a8773c842c",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=d9e8a201-ee9e-40ca-9f7b-36a8773c842c",
+        "local_sha256": "e573e22ee0c0644447be4f74ea43a8d1563fec7c1bbd79098c089af54f43baba",
+        "remote_sha256": "e573e22ee0c0644447be4f74ea43a8d1563fec7c1bbd79098c089af54f43baba",
+        "matches": true
+      },
+      {
+        "path": "dist/index/schematic.png",
+        "package_file_id": "84ccfd8e-4532-4bed-b761-9fa92af5cef7",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=84ccfd8e-4532-4bed-b761-9fa92af5cef7",
+        "local_sha256": "e40a3c475b94e2071a6323dcea9b616cf3798cf7c9151a9e273a6080fb0ceb3a",
+        "remote_sha256": "e40a3c475b94e2071a6323dcea9b616cf3798cf7c9151a9e273a6080fb0ceb3a",
+        "matches": true
+      },
+      {
+        "path": "dist/index/schematic.svg",
+        "package_file_id": "bdf348ff-d1d0-435e-9a87-574de9575c46",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=bdf348ff-d1d0-435e-9a87-574de9575c46",
+        "local_sha256": "2d54c013edaad35de06cf904cc75141486163bd1e01b08af30becaeaaa1e2238",
+        "remote_sha256": "2d54c013edaad35de06cf904cc75141486163bd1e01b08af30becaeaaa1e2238",
+        "matches": true
+      },
+      {
+        "path": "imports/AS5047P_ATSM/AS5047P_ATSM.obj",
+        "package_file_id": "63f06e56-f9c6-4f79-b8ed-cef749e64a7d",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=63f06e56-f9c6-4f79-b8ed-cef749e64a7d",
+        "local_sha256": "115b99db6d1656651beb8619478e04fc22b7bd93204d2f46adb9f6e1a7e128e5",
+        "remote_sha256": "115b99db6d1656651beb8619478e04fc22b7bd93204d2f46adb9f6e1a7e128e5",
+        "matches": true
+      },
+      {
+        "path": "imports/AS5047P_ATSM/AS5047P_ATSM.tsx",
+        "package_file_id": "c2f72d03-0e04-4ead-af28-c3a4ee637625",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=c2f72d03-0e04-4ead-af28-c3a4ee637625",
+        "local_sha256": "248350c5e0eaac8d3170d0330d85b6db3b29a90aa0abc313f339fc6352c9d260",
+        "remote_sha256": "248350c5e0eaac8d3170d0330d85b6db3b29a90aa0abc313f339fc6352c9d260",
+        "matches": true
+      },
+      {
+        "path": "imports/DRV8316RRGFR/DRV8316RRGFR.obj",
+        "package_file_id": "ca8587ea-27f6-4935-af0c-ddb2b9f73ec9",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=ca8587ea-27f6-4935-af0c-ddb2b9f73ec9",
+        "local_sha256": "c6a0f8aed776acade8969d632b082371c8b6c4fa5df7a6af3b991993e6f92373",
+        "remote_sha256": "c6a0f8aed776acade8969d632b082371c8b6c4fa5df7a6af3b991993e6f92373",
+        "matches": true
+      },
+      {
+        "path": "imports/DRV8316RRGFR/DRV8316RRGFR.step",
+        "package_file_id": "fa640f74-5dfb-4724-be78-444d5ad13b76",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=fa640f74-5dfb-4724-be78-444d5ad13b76",
+        "local_sha256": "c2fec537ad8203654363e663ffa65fc8d7b832bf9401056d1bf6982c668b55b1",
+        "remote_sha256": "c2fec537ad8203654363e663ffa65fc8d7b832bf9401056d1bf6982c668b55b1",
+        "matches": true
+      },
+      {
+        "path": "imports/DRV8316RRGFR/DRV8316RRGFR.tsx",
+        "package_file_id": "91c688c5-f58f-4722-a246-379546c0ca2d",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=91c688c5-f58f-4722-a246-379546c0ca2d",
+        "local_sha256": "5a9cbd0cc7582c33c6478dcacb77ef901a6faa30777707ea608c743bb5fe09d5",
+        "remote_sha256": "5a9cbd0cc7582c33c6478dcacb77ef901a6faa30777707ea608c743bb5fe09d5",
+        "matches": true
+      },
+      {
+        "path": "imports/RP2040/RP2040.obj",
+        "package_file_id": "769dc69a-1fe7-4f4b-9e47-18ebe29bda45",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=769dc69a-1fe7-4f4b-9e47-18ebe29bda45",
+        "local_sha256": "a3a668d5b1ab3b8962838676908b1a52503a1374525738f51d09eef15bbcd39e",
+        "remote_sha256": "a3a668d5b1ab3b8962838676908b1a52503a1374525738f51d09eef15bbcd39e",
+        "matches": true
+      },
+      {
+        "path": "imports/RP2040/RP2040.step",
+        "package_file_id": "d38e473e-2d5a-4a5f-aa7b-57f168f93778",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=d38e473e-2d5a-4a5f-aa7b-57f168f93778",
+        "local_sha256": "174a866c06fe9b824f197259a77cb3b39625ba986ddd7214fb32f0d873eb4bbd",
+        "remote_sha256": "174a866c06fe9b824f197259a77cb3b39625ba986ddd7214fb32f0d873eb4bbd",
+        "matches": true
+      },
+      {
+        "path": "imports/RP2040/RP2040.tsx",
+        "package_file_id": "d0e35ab9-5a25-4006-9298-f7f11cfbd51c",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=d0e35ab9-5a25-4006-9298-f7f11cfbd51c",
+        "local_sha256": "72ada7e0fdea2889683e5142de8f933482d1118c3ebb6259d1b1294e9ab1a0d6",
+        "remote_sha256": "72ada7e0fdea2889683e5142de8f933482d1118c3ebb6259d1b1294e9ab1a0d6",
+        "matches": true
+      },
+      {
+        "path": "imports/STUSB4500QTR/STUSB4500QTR.obj",
+        "package_file_id": "0dc5c988-cd24-44c1-afef-4668240a19ef",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=0dc5c988-cd24-44c1-afef-4668240a19ef",
+        "local_sha256": "9b98ac8ce94b7b8cb64bca363dd638dbc5a3ef9641bd176f62fef17645b69883",
+        "remote_sha256": "9b98ac8ce94b7b8cb64bca363dd638dbc5a3ef9641bd176f62fef17645b69883",
+        "matches": true
+      },
+      {
+        "path": "imports/STUSB4500QTR/STUSB4500QTR.step",
+        "package_file_id": "bf903339-8fab-4108-8052-ff4f833bc54a",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=bf903339-8fab-4108-8052-ff4f833bc54a",
+        "local_sha256": "356258af4ccb3230644ca08a5d2dbc242e15022c10613c2b1720e7c7a3ae6acb",
+        "remote_sha256": "356258af4ccb3230644ca08a5d2dbc242e15022c10613c2b1720e7c7a3ae6acb",
+        "matches": true
+      },
+      {
+        "path": "imports/STUSB4500QTR/STUSB4500QTR.tsx",
+        "package_file_id": "3e395654-4572-449f-9e3d-463c91c8eeec",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=3e395654-4572-449f-9e3d-463c91c8eeec",
+        "local_sha256": "b7f06f7f2cd4521a21944b65bfa69e2dd170da6dede39fc88c53ad8065c70cb0",
+        "remote_sha256": "b7f06f7f2cd4521a21944b65bfa69e2dd170da6dede39fc88c53ad8065c70cb0",
+        "matches": true
+      },
+      {
+        "path": "imports/THVD1450DR/THVD1450DR.obj",
+        "package_file_id": "c0492eca-20a4-43a9-b602-00020e0acb80",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=c0492eca-20a4-43a9-b602-00020e0acb80",
+        "local_sha256": "18c8f36579d4dc6d93c51d3556539c69f8f75cd557fdba6d9cf73cbf0e23d278",
+        "remote_sha256": "18c8f36579d4dc6d93c51d3556539c69f8f75cd557fdba6d9cf73cbf0e23d278",
+        "matches": true
+      },
+      {
+        "path": "imports/THVD1450DR/THVD1450DR.step",
+        "package_file_id": "44661f1b-7936-439b-a7b5-c21feba40b9b",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=44661f1b-7936-439b-a7b5-c21feba40b9b",
+        "local_sha256": "70f46697efa1daced22df982a5fd03c112d6cf25207f9a1afdf37b49a391ab84",
+        "remote_sha256": "70f46697efa1daced22df982a5fd03c112d6cf25207f9a1afdf37b49a391ab84",
+        "matches": true
+      },
+      {
+        "path": "imports/THVD1450DR/THVD1450DR.tsx",
+        "package_file_id": "1cdb87a6-bf3a-4743-8c9b-546159f57241",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=1cdb87a6-bf3a-4743-8c9b-546159f57241",
+        "local_sha256": "ab3fb051d71e5bde8113b399e3a57e9a4222ab9993e274e8a9ff7e204420fdd3",
+        "remote_sha256": "ab3fb051d71e5bde8113b399e3a57e9a4222ab9993e274e8a9ff7e204420fdd3",
+        "matches": true
+      },
+      {
+        "path": "imports/USB4215_03_A/USB4215_03_A.obj",
+        "package_file_id": "c320b413-5bf8-418e-a8c6-c7ede077d0a0",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=c320b413-5bf8-418e-a8c6-c7ede077d0a0",
+        "local_sha256": "46238974b6b80ff60cd7d967ea719d66f819f3220774a8b05f54b5bf8748d96b",
+        "remote_sha256": "46238974b6b80ff60cd7d967ea719d66f819f3220774a8b05f54b5bf8748d96b",
+        "matches": true
+      },
+      {
+        "path": "imports/USB4215_03_A/USB4215_03_A.step",
+        "package_file_id": "87aa74ee-a63d-4789-a2b0-2e0d15cf90b6",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=87aa74ee-a63d-4789-a2b0-2e0d15cf90b6",
+        "local_sha256": "5937fd773e108dff0de35c0b763990b71ff25a31b892117e062f56e53e2b1ce4",
+        "remote_sha256": "5937fd773e108dff0de35c0b763990b71ff25a31b892117e062f56e53e2b1ce4",
+        "matches": true
+      },
+      {
+        "path": "imports/USB4215_03_A/USB4215_03_A.tsx",
+        "package_file_id": "35b254e8-1bc9-4d85-9acb-e3b167456861",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=35b254e8-1bc9-4d85-9acb-e3b167456861",
+        "local_sha256": "179de42e8764eea61771b762acfdfd17495fc6986f2dce79f888abaf16cf9af7",
+        "remote_sha256": "179de42e8764eea61771b762acfdfd17495fc6986f2dce79f888abaf16cf9af7",
+        "matches": true
+      },
+      {
+        "path": "imports/W25Q16JVSSIQ/W25Q16JVSSIQ.obj",
+        "package_file_id": "45f604f5-8feb-46e0-94f7-c43aaacb5e89",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=45f604f5-8feb-46e0-94f7-c43aaacb5e89",
+        "local_sha256": "d4b38ace1c41e2db92b9549d5e4f24ddb55b3b667d90422128f25738b2533c28",
+        "remote_sha256": "d4b38ace1c41e2db92b9549d5e4f24ddb55b3b667d90422128f25738b2533c28",
+        "matches": true
+      },
+      {
+        "path": "imports/W25Q16JVSSIQ/W25Q16JVSSIQ.step",
+        "package_file_id": "6469d66e-66e2-4c28-9233-57f7142d4923",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=6469d66e-66e2-4c28-9233-57f7142d4923",
+        "local_sha256": "b25ef19a40b85dd9751285be5b5a2d18a6cb87678eca5c3795786936a2029d15",
+        "remote_sha256": "b25ef19a40b85dd9751285be5b5a2d18a6cb87678eca5c3795786936a2029d15",
+        "matches": true
+      },
+      {
+        "path": "imports/W25Q16JVSSIQ/W25Q16JVSSIQ.tsx",
+        "package_file_id": "d7326a31-edfe-423a-b6fc-1a92635211c3",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=d7326a31-edfe-423a-b6fc-1a92635211c3",
+        "local_sha256": "a35728f640bbaa3e48e0e3c8171139ee4931d7766a4724c7220861f8652a64e3",
+        "remote_sha256": "a35728f640bbaa3e48e0e3c8171139ee4931d7766a4724c7220861f8652a64e3",
+        "matches": true
+      },
+      {
+        "path": "index.circuit.tsx",
+        "package_file_id": "1dd0ca40-9caa-4190-8416-444f990230b3",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=1dd0ca40-9caa-4190-8416-444f990230b3",
+        "local_sha256": "e019b3a6630db7f1f251953f59e5f1fccc0533e6026a3f5c368de0702374c927",
+        "remote_sha256": "e019b3a6630db7f1f251953f59e5f1fccc0533e6026a3f5c368de0702374c927",
+        "matches": true
+      },
+      {
+        "path": "package.json",
+        "package_file_id": "f72b993b-6f73-4e9a-9ec6-3c33533a18e4",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=f72b993b-6f73-4e9a-9ec6-3c33533a18e4",
+        "local_sha256": "dcdc2411c7ae4853ddf4792c1986ec04e92f80bc1ef4d33048d5c2092b77b4a2",
+        "remote_sha256": "dcdc2411c7ae4853ddf4792c1986ec04e92f80bc1ef4d33048d5c2092b77b4a2",
+        "matches": true
+      },
+      {
+        "path": "scripts/check-schematic-sheets.py",
+        "package_file_id": "8bb78e7f-2ff8-4c04-b718-55bd282a9271",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=8bb78e7f-2ff8-4c04-b718-55bd282a9271",
+        "local_sha256": "99f4ff96974d90e764f7d4cd69495df5b7f3ba3634502242217954f267b6725e",
+        "remote_sha256": "99f4ff96974d90e764f7d4cd69495df5b7f3ba3634502242217954f267b6725e",
+        "matches": true
+      },
+      {
+        "path": "scripts/check-sourcing.py",
+        "package_file_id": "6db2acba-927d-4149-a417-679bff079f3c",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=6db2acba-927d-4149-a417-679bff079f3c",
+        "local_sha256": "ee947dfb906608437c1d57f29a1fd42dacc711cfd147bc2cae0244531f1a933b",
+        "remote_sha256": "ee947dfb906608437c1d57f29a1fd42dacc711cfd147bc2cae0244531f1a933b",
+        "matches": true
+      },
+      {
+        "path": "scripts/power-envelope.py",
+        "package_file_id": "9de849be-9252-4990-9431-2fa0ee0a4d69",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=9de849be-9252-4990-9431-2fa0ee0a4d69",
+        "local_sha256": "876189e084bddc484684e9d5bd916e54569efbb61d6ca841f50d060c75b5c9d6",
+        "remote_sha256": "876189e084bddc484684e9d5bd916e54569efbb61d6ca841f50d060c75b5c9d6",
+        "matches": true
+      },
+      {
+        "path": "scripts/render-import-sheets.mjs",
+        "package_file_id": "a4d6a5ed-57a0-489e-b42c-7765a674ecb2",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=a4d6a5ed-57a0-489e-b42c-7765a674ecb2",
+        "local_sha256": "49154968a3fceb97fe2fdb14f4bbed4dae8413fab963c703e1af8ed1c9102539",
+        "remote_sha256": "49154968a3fceb97fe2fdb14f4bbed4dae8413fab963c703e1af8ed1c9102539",
+        "matches": true
+      },
+      {
+        "path": "tscircuit.config.json",
+        "package_file_id": "a94f5951-0361-47ae-bca7-e0b8e95eea33",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=a94f5951-0361-47ae-bca7-e0b8e95eea33",
+        "local_sha256": "df6430cf51b66ed5755ffe994271abb7cb183c9f2000e0b5e659f4c925e6b962",
+        "remote_sha256": "df6430cf51b66ed5755ffe994271abb7cb183c9f2000e0b5e659f4c925e6b962",
+        "matches": true
+      },
+      {
+        "path": "tsconfig.json",
+        "package_file_id": "67c49103-d451-4a86-b48c-83a1c8cb48bb",
+        "anonymous_url": "https://registry-api.tscircuit.com/package_files/download?package_file_id=67c49103-d451-4a86-b48c-83a1c8cb48bb",
+        "local_sha256": "9ba752b72806fd76d5a164db1ebad828283db64d022a59525298823f3c9b206a",
+        "remote_sha256": "9ba752b72806fd76d5a164db1ebad828283db64d022a59525298823f3c9b206a",
+        "matches": true
       }
     ],
-    "validation_status": "unconnected import inspection; main build still fails 13 required pins"
-  },
-  "registry": {
-    "name": "AnasSarkiz/rp2040-bldc-servo-controller",
-    "is_public": true,
-    "is_private": false,
-    "is_unlisted": false,
-    "latest_version": null,
-    "latest_package_release_id": null,
-    "public_dist_enabled": true,
-    "url": "https://tscircuit.com/AnasSarkiz/rp2040-bldc-servo-controller",
-    "release_published": false,
-    "circuit_json_match_verified": false,
+    "exclusions_verified": true,
+    "forbidden_uploaded_files": [],
+    "circuit_json_matches_local_and_github": true,
+    "missing_required_files": [
+      "imports/AS5047P_ATSM/AS5047P_ATSM.step"
+    ],
+    "complete_release_published": false,
+    "cloud_build_completed": false,
     "blockers": [
-      "I-002 configured publication exclusions ignored by installed CLI and source-reviewed 0.1.2409",
-      "I-011 GitHub integration repository_not_accessible",
-      "electrical design remains incomplete"
+      "I-021 registry request-size rejection leaves a required imported STEP asset missing",
+      "main hardware build retains 13 required-pin errors"
     ]
   },
-  "verification_transport_note": "Python urllib raw-file TLS handshake timed out. Repeated anonymous downloads with curl succeeded with certificate validation enabled; all 10 hashes match. This was a transport failure, not a tscircuit defect.",
-  "fully_published": false
+  "fully_published": false,
+  "hardware_validation_passed": false
 }

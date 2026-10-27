@@ -3,7 +3,7 @@ import { DRV8316RRGFR } from "./imports/DRV8316RRGFR/DRV8316RRGFR"
 import { STUSB4500QTR } from "./imports/STUSB4500QTR/STUSB4500QTR"
 import { W25Q16JVSSIQ } from "./imports/W25Q16JVSSIQ/W25Q16JVSSIQ"
 import { THVD1450DR } from "./imports/THVD1450DR/THVD1450DR"
-import { AS5047P_ATSM } from "./imports/AS5047P_ATSM/AS5047P_ATSM"
+import { AS5047P_ATSM } from "./imports/AS5047P_ATSM"
 import { USB4215_03_A } from "./imports/USB4215_03_A/USB4215_03_A"
 
 // Unconnected import inspection only. Not an electrical implementation.

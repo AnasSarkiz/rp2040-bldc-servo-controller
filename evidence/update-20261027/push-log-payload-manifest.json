@@ -1,0 +1,11 @@
+{
+  "raw_log_sha256": "702c5988a282f69128cffe8d7d88649371570e2159e11c93a96be092ad5b12e5",
+  "raw_log_bytes": 5525801,
+  "omitted_payloads": [
+    {
+      "base64_character_count": 5523548,
+      "base64_text_sha256": "65ed158372049dd73878f48c5c7fb8ab9e4dbc0dc01d8ca61c89565adcfb0cd8"
+    }
+  ],
+  "reason": "Avoid duplicating megabytes of public package assets in error logs; HTTP status, response, upload paths and failure summary are preserved."
+}

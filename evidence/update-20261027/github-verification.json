@@ -1,0 +1,66 @@
+{
+  "verified_at_utc": "2026-10-27T13:32:52.825480+00:00",
+  "repository": "AnasSarkiz/rp2040-bldc-servo-controller",
+  "source_commit": "756d68f863bec3e5d169955b3be269830db17914",
+  "commit_url": "https://github.com/AnasSarkiz/rp2040-bldc-servo-controller/commit/756d68f863bec3e5d169955b3be269830db17914",
+  "is_public": true,
+  "anonymous_artifacts": [
+    {
+      "path": "dist/checks/basic-passives/circuit.json",
+      "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/756d68f863bec3e5d169955b3be269830db17914/dist/checks/basic-passives/circuit.json",
+      "local_sha256": "c80d925fdd84b87b2dc41e33040a8cc18a3cb6363a11fa40356600393a8d1dcf",
+      "remote_sha256": "c80d925fdd84b87b2dc41e33040a8cc18a3cb6363a11fa40356600393a8d1dcf",
+      "matches": true
+    },
+    {
+      "path": "dist/checks/tps55340-import-defect/circuit.json",
+      "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/756d68f863bec3e5d169955b3be269830db17914/dist/checks/tps55340-import-defect/circuit.json",
+      "local_sha256": "ba42907179a6c7dc03515f5939496511e8c5e153c1dde630b1805c0660570a1f",
+      "remote_sha256": "ba42907179a6c7dc03515f5939496511e8c5e153c1dde630b1805c0660570a1f",
+      "matches": true
+    },
+    {
+      "path": "dist/checks/usb-c-c165948/circuit.json",
+      "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/756d68f863bec3e5d169955b3be269830db17914/dist/checks/usb-c-c165948/circuit.json",
+      "local_sha256": "8d3e70b716b655a4a76a2caad911d018ee566fce03ed84542f70187ab52c5323",
+      "remote_sha256": "8d3e70b716b655a4a76a2caad911d018ee566fce03ed84542f70187ab52c5323",
+      "matches": true
+    },
+    {
+      "path": "dist/index/circuit.json",
+      "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/756d68f863bec3e5d169955b3be269830db17914/dist/index/circuit.json",
+      "local_sha256": "414f0a076b385b3b880e753ed36642822cad919b3a1ca03222a2b10b6f97a795",
+      "remote_sha256": "414f0a076b385b3b880e753ed36642822cad919b3a1ca03222a2b10b6f97a795",
+      "matches": true
+    },
+    {
+      "path": "package.json",
+      "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/756d68f863bec3e5d169955b3be269830db17914/package.json",
+      "local_sha256": "dcdc2411c7ae4853ddf4792c1986ec04e92f80bc1ef4d33048d5c2092b77b4a2",
+      "remote_sha256": "dcdc2411c7ae4853ddf4792c1986ec04e92f80bc1ef4d33048d5c2092b77b4a2",
+      "matches": true
+    },
+    {
+      "path": "bun.lock",
+      "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/756d68f863bec3e5d169955b3be269830db17914/bun.lock",
+      "local_sha256": "76f01ea4a449ee4541839ed4cf0ffa4baad14ec031b1ffa367136478e36942db",
+      "remote_sha256": "76f01ea4a449ee4541839ed4cf0ffa4baad14ec031b1ffa367136478e36942db",
+      "matches": true
+    },
+    {
+      "path": "tscircuit.config.json",
+      "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/756d68f863bec3e5d169955b3be269830db17914/tscircuit.config.json",
+      "local_sha256": "df6430cf51b66ed5755ffe994271abb7cb183c9f2000e0b5e659f4c925e6b962",
+      "remote_sha256": "df6430cf51b66ed5755ffe994271abb7cb183c9f2000e0b5e659f4c925e6b962",
+      "matches": true
+    },
+    {
+      "path": "issue.md",
+      "anonymous_url": "https://raw.githubusercontent.com/AnasSarkiz/rp2040-bldc-servo-controller/756d68f863bec3e5d169955b3be269830db17914/issue.md",
+      "local_sha256": "e6384f0661ef39eb78f34dcdc1eab7be9fadc8801263e370501a8bcc57561e2d",
+      "remote_sha256": "e6384f0661ef39eb78f34dcdc1eab7be9fadc8801263e370501a8bcc57561e2d",
+      "matches": true
+    }
+  ],
+  "hardware_validation_passed": false
+}

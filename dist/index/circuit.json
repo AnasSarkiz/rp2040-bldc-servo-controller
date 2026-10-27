@@ -12938,36 +12938,40 @@
         "y": -2.3141999999999996
       },
       {
-        "x": 9.719957397247953,
-        "y": -2.355558817512687
+        "x": 9.697323839595839,
+        "y": -2.3477654567816586
       },
       {
-        "x": 9.92622370634308,
-        "y": -2.474646743525625
+        "x": 9.888503093431453,
+        "y": -2.445176167593516
       },
       {
-        "x": 10.079320169137532,
-        "y": -2.6571000182827618
+        "x": 10.040223806299508,
+        "y": -2.596896894472934
       },
       {
-        "x": 10.160781094904337,
-        "y": -2.880912086686152
+        "x": 10.137634499456027,
+        "y": -2.7880761573043884
       },
       {
-        "x": 10.160781094904337,
-        "y": -3.119087913313834
+        "x": 10.171199936666582,
+        "y": -2.999999999999986
       },
       {
-        "x": 10.079320169137532,
-        "y": -3.34289998171721
+        "x": 10.137634499456027,
+        "y": -3.2119238426955974
       },
       {
-        "x": 9.92622370634308,
-        "y": -3.525353256474361
+        "x": 10.040223806299508,
+        "y": -3.4031031055270518
       },
       {
-        "x": 9.719957397247953,
-        "y": -3.6444411824872986
+        "x": 9.888503093431453,
+        "y": -3.55482383240647
+      },
+      {
+        "x": 9.697323839595839,
+        "y": -3.652234543218327
       },
       {
         "x": 9.485399999999998,
@@ -15978,8 +15982,8 @@
     },
     "pcb_component_id": "pcb_component_5",
     "source_component_id": "source_component_5",
-    "model_obj_url": "./imports/AS5047P_ATSM/AS5047P_ATSM.obj",
-    "model_step_url": "./imports/AS5047P_ATSM/AS5047P_ATSM.step",
+    "model_obj_url": "https://modelcdn.tscircuit.com/easyeda_models/assets/C962063.obj?uuid=5377177da492449fa1a3111d646cac17&cachebust_origin=",
+    "model_step_url": "https://modelcdn.tscircuit.com/easyeda_models/assets/C962063.step?uuid=5377177da492449fa1a3111d646cac17&cachebust_origin=",
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
     "model_origin_position": {
@@ -16132,7 +16136,7 @@
   },
   {
     "type": "source_component_availability_warning",
-    "source_component_availability_warning_id": "source_component_availability_warning_emTqx3pzZn",
+    "source_component_availability_warning_id": "source_component_availability_warning_86fNLe5t6l",
     "warning_type": "source_component_availability_warning",
     "message": "U3 may not have availability from jlcpcb (C2678061).",
     "source_component_id": "source_component_2",
@@ -16144,7 +16148,7 @@
   },
   {
     "type": "source_component_availability_warning",
-    "source_component_availability_warning_id": "source_component_availability_warning_XP5RVfu3LM",
+    "source_component_availability_warning_id": "source_component_availability_warning_QqCvcULXkj",
     "warning_type": "source_component_availability_warning",
     "message": "U5 may not have availability from jlcpcb (C2671361).",
     "source_component_id": "source_component_4",
@@ -16156,7 +16160,7 @@
   },
   {
     "type": "source_component_availability_warning",
-    "source_component_availability_warning_id": "source_component_availability_warning_i9jx1vox6H",
+    "source_component_availability_warning_id": "source_component_availability_warning_hTjKLwaoRn",
     "warning_type": "source_component_availability_warning",
     "message": "J1 may not have availability from jlcpcb (C37616412).",
     "source_component_id": "source_component_6",
@@ -16168,6 +16172,6 @@
   },
   {
     "type": "source_project_metadata",
-    "source_filesystem_md5_hash": "ec3153176571b95b9534ba873b53a732"
+    "source_filesystem_md5_hash": "291a6e701bfd35ee02b52bc104744a81"
   }
 ]

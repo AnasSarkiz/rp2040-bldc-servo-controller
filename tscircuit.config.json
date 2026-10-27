@@ -15,7 +15,8 @@
     "imports/CL05B104KO5NNNC/**",
     "imports/CL05A105KA5NQNC/**",
     "imports/A_0402WGF1002TCE/**",
-    "imports/A_0402WGF1000TCE/**"
+    "imports/A_0402WGF1000TCE/**",
+    "imports/AS5047P_ATSM/**"
   ],
   "build": {
     "circuitJson": true,

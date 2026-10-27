@@ -1,5 +1,5 @@
 {
-  "revision": "toolchain-review-prototype-0.0.4",
+  "revision": "toolchain-review-prototype-0.0.5",
   "audit_bom_matches_generated_fixture": true,
   "bom_component_rows": 7,
   "unallocated_candidate_rows": 6,
@@ -14,5 +14,5 @@
   "required_pin_error_count": 13,
   "electrical_design_complete": false,
   "fabrication_ready": false,
-  "circuit_json_sha256": "414f0a076b385b3b880e753ed36642822cad919b3a1ca03222a2b10b6f97a795"
+  "circuit_json_sha256": "cc15ae1a9df91ee6166bdce6f1be7a97a6861d04c642426478ad55ade1f6ee3f"
 }

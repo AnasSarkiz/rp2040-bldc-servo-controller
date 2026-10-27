@@ -1,0 +1,66 @@
+Uploading package archive...
+Archive upload failed, falling back to file-by-file upload: Error: FAIL [413]: POST /package_files/upload_archive
+
+Request Body:
+{"package_name_with_version":"AnasSarkiz/rp2040-bldc-servo-controller@0.0.4","archive_base64":"[omitted large public source archive; 5523548 base64 characters; SHA256 65ed158372049dd73878f48c5c7fb8ab9e4dbc0dc01d8ca61c89565adcfb0cd8]"}
+
+Request Entity Too L
+⬆︎ BOM.csv
+⬆︎ PIN-REVIEW.md
+⬆︎ POWER-REVIEW.md
+⬆︎ README.md
+⬆︎ SOURCING-CANDIDATES.csv
+⬆︎ SOURCING.md
+⬆︎ biome.json
+📦 dist/index/3d.png
+⬆︎ dist/index/circuit.json
+📦 dist/index/pcb.png
+⬆︎ dist/index/pcb.svg
+📦 dist/index/schematic-all-sheets.png
+⬆︎ dist/index/schematic-all-sheets.svg
+📦 dist/index/schematic-interfaces.png
+⬆︎ dist/index/schematic-interfaces.svg
+📦 dist/index/schematic-mcu.png
+⬆︎ dist/index/schematic-mcu.svg
+📦 dist/index/schematic-power.png
+⬆︎ dist/index/schematic-power.svg
+📦 dist/index/schematic.png
+⬆︎ dist/index/schematic.svg
+📦 imports/AS5047P_ATSM/AS5047P_ATSM.obj
+  imports/AS5047P_ATSM/AS5047P_ATSM.step - failed
+⬆︎ imports/AS5047P_ATSM/AS5047P_ATSM.tsx
+📦 imports/DRV8316RRGFR/DRV8316RRGFR.obj
+⬆︎ imports/DRV8316RRGFR/DRV8316RRGFR.step
+⬆︎ imports/DRV8316RRGFR/DRV8316RRGFR.tsx
+📦 imports/RP2040/RP2040.obj
+⬆︎ imports/RP2040/RP2040.step
+⬆︎ imports/RP2040/RP2040.tsx
+📦 imports/STUSB4500QTR/STUSB4500QTR.obj
+📦 imports/STUSB4500QTR/STUSB4500QTR.step
+⬆︎ imports/STUSB4500QTR/STUSB4500QTR.tsx
+📦 imports/THVD1450DR/THVD1450DR.obj
+⬆︎ imports/THVD1450DR/THVD1450DR.step
+⬆︎ imports/THVD1450DR/THVD1450DR.tsx
+📦 imports/USB4215_03_A/USB4215_03_A.obj
+⬆︎ imports/USB4215_03_A/USB4215_03_A.step
+⬆︎ imports/USB4215_03_A/USB4215_03_A.tsx
+📦 imports/W25Q16JVSSIQ/W25Q16JVSSIQ.obj
+⬆︎ imports/W25Q16JVSSIQ/W25Q16JVSSIQ.step
+⬆︎ imports/W25Q16JVSSIQ/W25Q16JVSSIQ.tsx
+⬆︎ index.circuit.tsx
+⬆︎ package.json
+⬆︎ scripts/check-schematic-sheets.py
+⬆︎ scripts/check-sourcing.py
+⬆︎ scripts/power-envelope.py
+⬆︎ scripts/render-import-sheets.mjs
+⬆︎ tscircuit.config.json
+⬆︎ tsconfig.json
+
+
+Upload Summary
+  Succeeded: 49 files
+  Failed: 1 files
+    - imports/AS5047P_ATSM/AS5047P_ATSM.step
+      Error: FAIL [413]: POST /package_files/create
+
+Publish completed with 49 files uploaded and 1 failed upload(s)

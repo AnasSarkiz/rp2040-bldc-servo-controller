@@ -1,0 +1,43 @@
+{
+  "previous_commit": "756d68f863bec3e5d169955b3be269830db17914",
+  "changed_record_types": [
+    "cad_component",
+    "pcb_silkscreen_path",
+    "source_component_availability_warning",
+    "source_project_metadata"
+  ],
+  "source_component_port_and_copper_pad_records_identical": true,
+  "remote_models_byte_verified": true,
+  "known_visual_change": "one encoder notch silkscreen arc tessellation; official model URLs replace local CAD asset paths",
+  "record_counts": {
+    "schematic_sheet": 3,
+    "source_group": 1,
+    "source_port": 169,
+    "source_component": 7,
+    "source_board": 1,
+    "source_refdes_convention_warning": 1,
+    "source_pin_missing_trace_warning": 28,
+    "source_no_power_pin_defined_warning": 2,
+    "source_no_ground_pin_defined_warning": 1,
+    "source_component_pins_underspecified_warning": 1,
+    "schematic_component": 7,
+    "schematic_text": 14,
+    "schematic_group": 1,
+    "schematic_port": 169,
+    "pcb_component": 7,
+    "pcb_board": 1,
+    "pcb_smtpad": 165,
+    "pcb_solder_paste": 173,
+    "pcb_silkscreen_path": 52,
+    "pcb_silkscreen_circle": 7,
+    "pcb_silkscreen_text": 6,
+    "pcb_courtyard_outline": 7,
+    "pcb_plated_hole": 4,
+    "pcb_fabrication_note_path": 1,
+    "pcb_port": 169,
+    "cad_component": 7,
+    "source_pin_must_be_connected_error": 13,
+    "source_component_availability_warning": 3,
+    "source_project_metadata": 1
+  }
+}

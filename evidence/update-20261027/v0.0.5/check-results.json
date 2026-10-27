@@ -1,0 +1,134 @@
+[
+  {
+    "check": "format-check",
+    "command": [
+      "bun",
+      "run",
+      "format:check"
+    ],
+    "exit_code": 0,
+    "log": "evidence/update-20261027/v0.0.5/format-check.log"
+  },
+  {
+    "check": "typecheck",
+    "command": [
+      "bun",
+      "run",
+      "typecheck"
+    ],
+    "exit_code": 0,
+    "log": "evidence/update-20261027/v0.0.5/typecheck.log"
+  },
+  {
+    "check": "netlist",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "check",
+      "netlist",
+      "index.circuit.tsx"
+    ],
+    "exit_code": 0,
+    "log": "evidence/update-20261027/v0.0.5/netlist.log"
+  },
+  {
+    "check": "pin-specification",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "check",
+      "pin_specification",
+      "index.circuit.tsx"
+    ],
+    "exit_code": 0,
+    "log": "evidence/update-20261027/v0.0.5/pin-specification.log"
+  },
+  {
+    "check": "source",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "check",
+      "source",
+      "index.circuit.tsx"
+    ],
+    "exit_code": 0,
+    "log": "evidence/update-20261027/v0.0.5/source.log"
+  },
+  {
+    "check": "schematic-placement",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "check",
+      "schematic-placement",
+      "index.circuit.tsx"
+    ],
+    "exit_code": 0,
+    "log": "evidence/update-20261027/v0.0.5/schematic-placement.log"
+  },
+  {
+    "check": "placement",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "check",
+      "placement",
+      "index.circuit.tsx"
+    ],
+    "exit_code": 0,
+    "log": "evidence/update-20261027/v0.0.5/placement.log"
+  },
+  {
+    "check": "main-build",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "build",
+      "index.circuit.tsx",
+      "--pcb-png",
+      "--pcb-svgs",
+      "--schematic-svgs",
+      "--schematic-png",
+      "--3d"
+    ],
+    "exit_code": 1,
+    "log": "evidence/update-20261027/v0.0.5/main-build.log"
+  },
+  {
+    "check": "render-sheets",
+    "command": [
+      "bun",
+      "run",
+      "render:sheets"
+    ],
+    "exit_code": 0,
+    "log": "evidence/update-20261027/v0.0.5/render-sheets.log"
+  },
+  {
+    "check": "sheet-coverage",
+    "command": [
+      "bun",
+      "run",
+      "test:schematic-sheets"
+    ],
+    "exit_code": 0,
+    "log": "evidence/update-20261027/v0.0.5/sheet-coverage.log"
+  },
+  {
+    "check": "bom-consistency",
+    "command": [
+      "bun",
+      "run",
+      "test:sourcing"
+    ],
+    "exit_code": 0,
+    "log": "evidence/update-20261027/v0.0.5/bom-consistency.log"
+  }
+]
