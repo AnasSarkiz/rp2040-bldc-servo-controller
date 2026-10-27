@@ -1,0 +1,105 @@
+{
+  "tscircuit": {
+    "version": "0.0.3028",
+    "peer_dependencies": {
+      "typescript": "^5.0.0"
+    }
+  },
+  "@tscircuit/cli": {
+    "version": "0.1.2414",
+    "peer_dependencies": {
+      "@tscircuit/math-utils": "0.0.36",
+      "circuit-json": "^0.0.534",
+      "circuit-to-svg": "^0.0.447",
+      "tscircuit": "*"
+    }
+  },
+  "circuit-to-svg": {
+    "version": "0.0.453",
+    "peer_dependencies": {
+      "@tscircuit/alphabet": "*",
+      "@tscircuit/circuit-json-util": "*",
+      "circuit-json": "*",
+      "circuit-json-to-connectivity-map": "*",
+      "schematic-symbols": "*"
+    }
+  },
+  "react": {
+    "version": "19.3.1",
+    "peer_dependencies": {}
+  },
+  "react-dom": {
+    "version": "19.3.1",
+    "peer_dependencies": {
+      "react": "^19.3.1"
+    }
+  },
+  "jscad-fiber": {
+    "version": "0.0.92",
+    "peer_dependencies": {
+      "@jscad/modeling": "*",
+      "react": "19.1.0",
+      "react-dom": "19.1.0",
+      "react-reconciler": "*",
+      "three": "*"
+    }
+  },
+  "jscad-electronics": {
+    "version": "0.0.210",
+    "peer_dependencies": {
+      "@jscad/modeling": "^2.12.5",
+      "@tscircuit/footprinter": "*",
+      "@tscircuit/alphabet": "^0.0.24",
+      "circuit-json": "^0.0.426",
+      "jscad-fiber": "^0.0.89",
+      "react": "19.1.0",
+      "react-dom": "19.1.0",
+      "three": "^0.179.1"
+    }
+  },
+  "@tscircuit/core": {
+    "version": "0.0.2210",
+    "peer_dependencies": {
+      "@tscircuit/capacity-autorouter": "*",
+      "@tscircuit/checks": "*",
+      "@tscircuit/circuit-json-util": "*",
+      "@tscircuit/create-fdm-enclosure": "*",
+      "@tscircuit/footprinter": "*",
+      "@tscircuit/infgrid-ijump-astar": "*",
+      "@tscircuit/math-utils": "*",
+      "@tscircuit/modelprinter": "*",
+      "@tscircuit/props": "*",
+      "@tscircuit/schematic-match-adapt": "*",
+      "circuit-json-to-bpc": "*",
+      "bpc-graph": "*",
+      "@tscircuit/matchpack": "*",
+      "circuit-json": "*",
+      "circuit-json-to-connectivity-map": "*",
+      "circuit-json-to-spice": "*",
+      "schematic-symbols": "*",
+      "spicets": "*",
+      "typescript": "^5.0.0",
+      "@tscircuit/cableprinter": "*",
+      "circuit-json-to-gltf": "*"
+    }
+  },
+  "@tscircuit/props": {
+    "version": "0.0.712",
+    "peer_dependencies": {
+      "circuit-json": "*",
+      "react": "*",
+      "zod": "*"
+    }
+  },
+  "@tscircuit/checks": {
+    "version": "0.0.264",
+    "peer_dependencies": {
+      "@flatten-js/core": "*",
+      "@tscircuit/math-utils": "*",
+      "circuit-json": "*",
+      "circuit-json-to-connectivity-map": "*",
+      "typescript": "^5.5.3",
+      "@tscircuit/circuit-json-util": "*"
+    }
+  }
+}

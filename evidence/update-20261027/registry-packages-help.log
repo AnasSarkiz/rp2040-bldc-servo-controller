@@ -1,0 +1,11 @@
+Usage: tsci registry packages [options] [command]
+
+Manage packages in the tscircuit registry
+
+Options:
+  -h, --help        display help for command
+
+Commands:
+  create [options]  Create a package in the tscircuit registry
+  update [options]  Update a package in the tscircuit registry
+  help [command]    display help for command

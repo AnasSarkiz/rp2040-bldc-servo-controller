@@ -1,7 +1,7 @@
 {
   "name": "@tsci/AnasSarkiz.rp2040-bldc-servo-controller",
-  "version": "0.0.3",
-  "description": "Engineering review prototype: live JLCPCB inventory and reproducible tooling diagnostics; controller electrically incomplete",
+  "version": "0.0.4",
+  "description": "Toolchain update prototype: tscircuit 0.0.3028 / CLI 0.1.2414; controller electrically incomplete",
   "main": "index.circuit.tsx",
   "keywords": [
     "tscircuit",
@@ -21,8 +21,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.0",
-    "@tscircuit/cli": "0.1.2408",
-    "tscircuit": "0.0.3016",
+    "@tscircuit/cli": "0.1.2414",
+    "tscircuit": "0.0.3028",
     "typescript": "5.9.3"
   },
   "author": "AnasSarkiz"

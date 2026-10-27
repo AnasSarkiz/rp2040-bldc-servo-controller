@@ -2,9 +2,9 @@
 
 **The hardware design is incomplete. Do not fabricate, assemble, or power this revision. FOC is not implemented or tested.**
 
-The current `index.circuit.tsx` is an unconnected inspection fixture for seven JLCPCB imports. It is not a controller schematic. Revision **0.0.3** retains the **42 × 42 mm target canvas, four layers and TOP-only placement** while extending engineering investigation. Exact motor fit is unverified. No mounting holes have been guessed. U6 is shown for import inspection; the eventual AS5047P belongs on an external shaft-mounted assembly.
+The current `index.circuit.tsx` is an unconnected inspection fixture for seven JLCPCB imports. It is not a controller schematic. Revision **0.0.4** retains the **42 × 42 mm target canvas, four layers and TOP-only placement** while updating the toolchain and repeating inspection checks. Exact motor fit is unverified. No mounting holes have been guessed. U6 is shown for import inspection; the eventual AS5047P belongs on an external shaft-mounted assembly.
 
-The sourcing review selects **C131025 for the same W25Q16JVSSIQ flash**. C165948 remains unapproved because of footprint/electrical metadata defects. Live official JLCPCB stock and available-order quantities are now verified for all seven fixture parts, both connector choices and four Basic passive candidates. Basic candidates remain unallocated pending manufacturer footprint/per-use review. A new TPS55340RTER/C169167 boost screening candidate has an import defect: two manufacturer-grounded pins are incorrectly marked do-not-connect. See [SOURCING.md](SOURCING.md), [candidate list](SOURCING-CANDIDATES.csv) and [issue.md](issue.md).
+The sourcing review selects **C131025 for the same W25Q16JVSSIQ flash**. C165948 remains unapproved because of footprint/electrical metadata defects. Official JLCPCB stock and available-order quantities were verified on 2026-10-26 for all seven fixture parts, both connector choices and four Basic passive candidates. Basic candidates remain unallocated pending manufacturer footprint/per-use review. A new TPS55340RTER/C169167 boost screening candidate has an import defect: two manufacturer-grounded pins are incorrectly marked do-not-connect. See [SOURCING.md](SOURCING.md), [candidate list](SOURCING-CANDIDATES.csv) and [issue.md](issue.md).
 
 The earlier missing-A4-frame report was incorrect and has been retracted. All three native frames and component membership are checked. The supported native stacked renderer now provides an [all-sheet preview](dist/index/schematic-all-sheets.svg). This improves inspection; it does not complete the electrical design.
 
@@ -38,7 +38,7 @@ The three native A4 sheets in the source are explicitly labeled as unconnected i
 
 ## Reproduce inspection
 
-Use Bun 1.3.9 and the pinned dependencies in `bun.lock`. The local CLI is `@tscircuit/cli` 0.1.2408; `tsci --version` prints a tscircuit library version and must not be mistaken for the CLI package version.
+Use Bun 1.3.9 and the pinned dependencies in `bun.lock`. The local CLI is `@tscircuit/cli` 0.1.2414; the tscircuit library is 0.0.3028; `tsci --version` prints a tscircuit library version and must not be mistaken for the CLI package version.
 
 ```sh
 bun install --frozen-lockfile
@@ -64,10 +64,16 @@ Routing remains disabled. An inspection build or successful software command doe
 
 [VALIDATION.md](VALIDATION.md) records stage status and exact check results. [issue.md](issue.md) records reproduction steps, errors and attempted resolutions. Downloaded manufacturer PDFs are in `datasheets/`; URLs, checksums and download failures are in `evidence/`. Some datasheet and motor CAD downloads remain unavailable; those files are not presented as reviewed or archived.
 
-GitHub and registry destinations are `AnasSarkiz/rp2040-bldc-servo-controller`. A public empty package is not a published verified board. Publication remains blocked until configuration-based datasheet exclusion and a matching valid circuit build can be verified. No fabrication package, physical measurements, firmware performance, working FOC, exact motor fit or hardware-tested status is claimed.
+GitHub and registry destinations are `AnasSarkiz/rp2040-bldc-servo-controller`. A public empty package is not a published verified board. CLI 0.1.2414 fixes configuration-based publication exclusion; registry publication verification for this revision is recorded in VALIDATION.md. The hardware build remains failed and this is only an inspection prototype. No fabrication package, physical measurements, firmware performance, working FOC, exact motor fit or hardware-tested status is claimed.
 
 The original import audit was pushed in [commit 6c8db5d](https://github.com/AnasSarkiz/rp2040-bldc-servo-controller/commit/6c8db5d07f03ca8d3ad408babe7f5ef01e341f19). Current source and generated artifacts are published to the same [existing GitHub repository](https://github.com/AnasSarkiz/rp2040-bldc-servo-controller). Revision-specific push/hash verification is recorded in `VALIDATION.md` and `evidence/`. The [public tscircuit package](https://tscircuit.com/AnasSarkiz/rp2040-bldc-servo-controller) exists but has no published version or build; registry publication remains blocked by I-002.
 
 Sourcing revision 0.0.2 is in [commit d7f16d3](https://github.com/AnasSarkiz/rp2040-bldc-servo-controller/commit/d7f16d34411995b04f663e9e61aa56bf0f7f4f9d). Its three Circuit JSON artifacts, both sourcing CSVs and the new manufacturer PDF were fetched anonymously and verified against local SHA-256 hashes. Main build failure and all hardware blockers remain explicit.
 
 Engineering review 0.0.3 is pushed in [commit c50d7c5](https://github.com/AnasSarkiz/rp2040-bldc-servo-controller/commit/c50d7c546784ac6c886ce0e4f897dd171cc6e504). All four inspection Circuit JSON files, the sourcing CSVs, new TI PDFs, issue log and all-sheet SVG were fetched anonymously and matched local hashes. New tscircuit defects I-016/I-017/I-018 have reproductions and evidence in `issue.md`; the earlier missing-sheet-frame claim is corrected. The main build still fails on 13 unconnected required pins. Registry publication, complete circuitry, exact motor fit, startup/thermal qualification and fabrication approval remain blocked.
+
+## Toolchain update 0.0.4 — 2026-10-27
+
+Updated tscircuit **0.0.3016 → 0.0.3028** and local CLI **0.1.2408 → 0.1.2414**, pinned exactly with the refreshed Bun lockfile. Formatting, TypeScript, all five pre-routing check commands, native sheet coverage and BOM consistency complete successfully at the command level. Netlist still reports 169 NOT_CONNECTED ports. The main build **fails with 13 required-pin errors**, and all checked PCB/CAD/schematic geometry is unchanged. All three isolated qualification fixtures rebuild with warnings. No electronic import, wiring, routing or component selection was changed.
+
+The CLI now applies configured publication exclusions (I-002); explicit glob patterns also exclude datasheets, evidence, unused candidate imports and isolated fixture outputs. No dependency or imported definition was patched. I-007/I-009/I-013/I-014/I-015/I-016/I-017/I-018 remain unresolved. I-020 records upstream peer-version incompatibilities observed during installation; no new runtime failure was demonstrated by this update. Stock dates remain the original 2026-10-26 snapshot, not a new inventory claim. See VALIDATION.md for the actual registry upload/anonymous artifact verification outcome.

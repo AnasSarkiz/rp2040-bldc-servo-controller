@@ -1,0 +1,27 @@
+{
+  "query": "LM5122",
+  "results": [
+    {
+      "source": "jlcpcb",
+      "lcsc": 383794,
+      "mfr": "BY25Q128ASSIG(R)",
+      "package": "SOP-8-208mil",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "-40℃~+85℃ 100,000 cycles 120MHz 128Mbit 2.7V~3.6V 5uA 600us SPI SOP-8-208mil NOR FLASH ROHS",
+      "stock": 3919,
+      "price": 1.4333
+    },
+    {
+      "source": "jlcpcb",
+      "lcsc": 692046,
+      "mfr": "HCPL-4100-500E",
+      "package": "SOP-8-2.54mm",
+      "is_basic": false,
+      "is_preferred": false,
+      "description": "0℃~+70℃ 1 1.6us 100uA 10kV/us 1us 20Kbps 20mA 24mA 27V 3.75kV 360mW 4.5V~20V DC SOP-8-2.54mm Logic Output Optoisolators ROHS",
+      "stock": 757,
+      "price": 4.5602
+    }
+  ]
+}

@@ -1,8 +1,113 @@
 {
-  "revision": "engineering-review-prototype-0.0.3",
-  "circuit_json_sha256": "5b987792556d4fb29b76fbe63b84b58be4a1b9875508b57bffbb759ddc2240c8",
-  "entry_source_sha256": "e019b3a6630db7f1f251953f59e5f1fccc0533e6026a3f5c368de0702374c927",
-  "records_by_type": {
+  "revision": "toolchain-review-prototype-0.0.4",
+  "checked_date": "2026-10-27",
+  "tool_versions": {
+    "tscircuit": {
+      "version": "0.0.3028",
+      "peer_dependencies": {
+        "typescript": "^5.0.0"
+      }
+    },
+    "@tscircuit/cli": {
+      "version": "0.1.2414",
+      "peer_dependencies": {
+        "@tscircuit/math-utils": "0.0.36",
+        "circuit-json": "^0.0.534",
+        "circuit-to-svg": "^0.0.447",
+        "tscircuit": "*"
+      }
+    },
+    "circuit-to-svg": {
+      "version": "0.0.453",
+      "peer_dependencies": {
+        "@tscircuit/alphabet": "*",
+        "@tscircuit/circuit-json-util": "*",
+        "circuit-json": "*",
+        "circuit-json-to-connectivity-map": "*",
+        "schematic-symbols": "*"
+      }
+    },
+    "react": {
+      "version": "19.3.1",
+      "peer_dependencies": {}
+    },
+    "react-dom": {
+      "version": "19.3.1",
+      "peer_dependencies": {
+        "react": "^19.3.1"
+      }
+    },
+    "jscad-fiber": {
+      "version": "0.0.92",
+      "peer_dependencies": {
+        "@jscad/modeling": "*",
+        "react": "19.1.0",
+        "react-dom": "19.1.0",
+        "react-reconciler": "*",
+        "three": "*"
+      }
+    },
+    "jscad-electronics": {
+      "version": "0.0.210",
+      "peer_dependencies": {
+        "@jscad/modeling": "^2.12.5",
+        "@tscircuit/footprinter": "*",
+        "@tscircuit/alphabet": "^0.0.24",
+        "circuit-json": "^0.0.426",
+        "jscad-fiber": "^0.0.89",
+        "react": "19.1.0",
+        "react-dom": "19.1.0",
+        "three": "^0.179.1"
+      }
+    },
+    "@tscircuit/core": {
+      "version": "0.0.2210",
+      "peer_dependencies": {
+        "@tscircuit/capacity-autorouter": "*",
+        "@tscircuit/checks": "*",
+        "@tscircuit/circuit-json-util": "*",
+        "@tscircuit/create-fdm-enclosure": "*",
+        "@tscircuit/footprinter": "*",
+        "@tscircuit/infgrid-ijump-astar": "*",
+        "@tscircuit/math-utils": "*",
+        "@tscircuit/modelprinter": "*",
+        "@tscircuit/props": "*",
+        "@tscircuit/schematic-match-adapt": "*",
+        "circuit-json-to-bpc": "*",
+        "bpc-graph": "*",
+        "@tscircuit/matchpack": "*",
+        "circuit-json": "*",
+        "circuit-json-to-connectivity-map": "*",
+        "circuit-json-to-spice": "*",
+        "schematic-symbols": "*",
+        "spicets": "*",
+        "typescript": "^5.0.0",
+        "@tscircuit/cableprinter": "*",
+        "circuit-json-to-gltf": "*"
+      }
+    },
+    "@tscircuit/props": {
+      "version": "0.0.712",
+      "peer_dependencies": {
+        "circuit-json": "*",
+        "react": "*",
+        "zod": "*"
+      }
+    },
+    "@tscircuit/checks": {
+      "version": "0.0.264",
+      "peer_dependencies": {
+        "@flatten-js/core": "*",
+        "@tscircuit/math-utils": "*",
+        "circuit-json": "*",
+        "circuit-json-to-connectivity-map": "*",
+        "typescript": "^5.5.3",
+        "@tscircuit/circuit-json-util": "*"
+      }
+    }
+  },
+  "main_build_exit_code": 1,
+  "record_counts": {
     "schematic_sheet": 3,
     "source_group": 1,
     "source_port": 169,
@@ -30,11 +135,11 @@
     "pcb_port": 169,
     "cad_component": 7,
     "source_pin_must_be_connected_error": 13,
-    "source_component_availability_warning": 1,
+    "source_component_availability_warning": 3,
     "source_project_metadata": 1
   },
-  "routing_disabled": true,
+  "main_circuit_json_sha256": "414f0a076b385b3b880e753ed36642822cad919b3a1ca03222a2b10b6f97a795",
   "electrical_design_complete": false,
   "fabrication_ready": false,
-  "source_baseline_commit": "f06a9e1ee29d00ba463604010612a929ad1e11eb"
+  "routing_enabled": false
 }

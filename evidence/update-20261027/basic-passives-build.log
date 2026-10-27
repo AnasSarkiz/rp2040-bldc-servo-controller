@@ -1,0 +1,36 @@
+Building 1 file(s)...
+Building checks/basic-passives.circuit.tsx...
+Generating circuit JSON...
+Circuit JSON written to dist/checks/basic-passives/circuit.json
+Port pin1 on C1 is missing a trace
+Port pin2 on C1 is missing a trace
+Port pin1 on C2 is missing a trace
+Port pin2 on C2 is missing a trace
+Port pin1 on R1 is missing a trace
+Port pin2 on R1 is missing a trace
+Port pin1 on R2 is missing a trace
+Port pin2 on R2 is missing a trace
+R2 may not have availability from jlcpcb (C25076).
+C2 may not have availability from jlcpcb (C52923).
+R1 may not have availability from jlcpcb (C25744).
+C1 may not have availability from jlcpcb (C1525).
+Generating preview images...
+[checks/basic-passives] Generating PCB SVG...
+[checks/basic-passives] Written pcb.svg
+[checks/basic-passives] Generating PCB PNG...
+[checks/basic-passives] Written pcb.png
+[checks/basic-passives] Generating schematic SVG...
+[checks/basic-passives] Written schematic.svg
+[checks/basic-passives] Generating schematic PNG...
+[checks/basic-passives] Written schematic.png
+[checks/basic-passives] Generating 3D PNG...
+[checks/basic-passives] Written 3d.png
+
+Build complete
+  Circuits  1 passed
+  Options   pcb-png, schematic-png, pcb-svgs, schematic-svgs, 3d
+  Config    routing-disabled (from tscircuit.config.json)
+  Output    dist
+
+✓ Done
+Build exiting with code 0: build finished successfully

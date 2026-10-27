@@ -1,0 +1,53 @@
+[
+  {
+    "fixture": "checks/usb-c-c165948.circuit.tsx",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "build",
+      "checks/usb-c-c165948.circuit.tsx",
+      "--pcb-png",
+      "--pcb-svgs",
+      "--schematic-svgs",
+      "--schematic-png",
+      "--3d"
+    ],
+    "exit_code": 0,
+    "log": "evidence/update-20261027/usb-c-c165948-build.log"
+  },
+  {
+    "fixture": "checks/basic-passives.circuit.tsx",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "build",
+      "checks/basic-passives.circuit.tsx",
+      "--pcb-png",
+      "--pcb-svgs",
+      "--schematic-svgs",
+      "--schematic-png",
+      "--3d"
+    ],
+    "exit_code": 0,
+    "log": "evidence/update-20261027/basic-passives-build.log"
+  },
+  {
+    "fixture": "checks/tps55340-import-defect.circuit.tsx",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "build",
+      "checks/tps55340-import-defect.circuit.tsx",
+      "--pcb-png",
+      "--pcb-svgs",
+      "--schematic-svgs",
+      "--schematic-png",
+      "--3d"
+    ],
+    "exit_code": 0,
+    "log": "evidence/update-20261027/tps55340-import-defect-build.log"
+  }
+]

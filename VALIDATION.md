@@ -2,8 +2,8 @@
 
 ## Revision and scope
 
-- Current review date: 2026-10-26. Earlier 2026-10-25 records remain historical evidence.
-- Board revision: **engineering-review-prototype-0.0.3**, untested and electrically incomplete. Continues this directory/repository from `f06a9e1ee29d00ba463604010612a929ad1e11eb`. Main electrical source is unchanged; the new boost import is an isolated defect reproduction, not an integrated converter.
+- Current review date: 2026-10-27. Earlier 2026-10-25/26 records remain historical evidence.
+- Board revision: **toolchain-review-prototype-0.0.4**, untested and electrically incomplete. Continues this directory/repository from `9ed1b4659f8c4da54e902c435cde6beb1dec5e5e`. Main electrical source is unchanged; the new boost import is an isolated defect reproduction, not an integrated converter.
 - Completed work: primary stock/available-order verification, native all-sheet preview with structural checks, correction of the earlier frame report, new pin-checker/search/import reproductions, and tolerance-aware boost screening. Earlier same-MPN flash review and 42 × 42 mm/four-layer/TOP requirements remain applicable. This is not a completed controller implementation.
 - Workspace: `boards/rp2040-bldc-servo-controller--20261025-01a1742f/`. New task; no source board or source-board revision.
 - Entry: `index.circuit.tsx`, an explicitly unconnected import-inspection fixture. No finished controller source exists.
@@ -21,7 +21,7 @@
 | 5. Automated and visual checks | **not started** | Only import-fixture diagnostics/previews were run. The mandatory routed-board checks, shorts analysis and snapshot acceptance cannot start before earlier gates pass. |
 | 6. Prototype fabrication approval | **not started** | No validated Gerber/drill/BOM/PnP package. Not ready to order. |
 | 7. Physical prototype testing | **not started** | No assembled hardware or physical evidence. |
-| 8. Store release | **blocked** | Incomplete design and registry exclusion defect; public package has no board release. No working FOC, hardware-tested or fabrication-ready claim. |
+| 8. Store release | **blocked** | Incomplete hardware; registry upload status is recorded in the current update section below. No working FOC, hardware-tested or fabrication-ready claim. |
 
 ## Requirements and manufacturing constraints
 
@@ -149,3 +149,25 @@ Implementation commit [`c50d7c5`](https://github.com/AnasSarkiz/rp2040-bldc-serv
 GitHub source/artifact publication succeeded. The [public tscircuit destination](https://tscircuit.com/AnasSarkiz/rp2040-bldc-servo-controller) still has no published version or build; a registry Circuit JSON comparison is unavailable. I-002 remains blocking even in source-reviewed CLI 0.1.2409, so a conforming `push --include-dist` cannot yet exclude the requested datasheets/evidence. No excluded files were uploaded. I-011 records the separate integration-access failure. **This is partial publication, not a fully published or validated controller.**
 
 This following verification-record commit changes documentation/evidence only. Circuit sources, imports, BOMs, pinned dependencies and generated inspection artifacts remain identical to the linked implementation commit, so its recorded checks continue to apply. No rebuild or advance of the electrical, placement, routing or fabrication gate is implied.
+
+## Toolchain update 0.0.4 — 2026-10-27
+
+Starting commit: `9ed1b4659f8c4da54e902c435cde6beb1dec5e5e`. Updated exact dependencies to **tscircuit 0.0.3028 / CLI 0.1.2414** from official npm latest metadata; Bun remains 1.3.9, TypeScript 5.9.3, Biome 2.3.0 and circuit-to-svg 0.0.453. Frozen install exits 0. I-020 documents the incompatible upstream peer declarations instead of suppressing them. Sources/imports/BOMs are unchanged; `scripts/check-sourcing.py` now reports the actual package version and writes a current evidence record instead of overwriting the historical 2026-10-26 report. No assertion is weakened.
+
+The installed CLI source confirms I-002's exclusion fix. Configuration uses supported wildcard patterns and excludes datasheets, evidence, mechanical assets, unused candidate imports and isolated fixture builds; main `dist/index/circuit.json` and all main previews remain included. This is a publication-content change, not an electrical/routing change. Excluded material remains on GitHub. Actual remote upload and anonymous file/hash verification follow below.
+
+| Check run with updated dependencies | Result | Meaning |
+| --- | --- | --- |
+| Frozen install, configured formatting, TypeScript | exit 0 | I-020 peer compatibility concern remains recorded. |
+| Netlist | exit 0; 169 NOT_CONNECTED | No functional controller connectivity. |
+| Pin specification | exit 0; 4 warnings | Driver/USB metadata remains blocking. |
+| Source, schematic-placement, placement | each exit 0 | Seven-part unconnected inspection placement only. |
+| Main build with PCB/schematic/3D previews | **exit 1; 13 required-pin errors** | Incomplete RP2040 circuitry, no suppressed checks. |
+| Native rendering / A4 coverage / BOM consistency | each exit 0 | Three framed sheets; seven fixture parts, six unallocated candidates; stock evidence remains dated 2026-10-26. |
+| Three isolated fixture builds | each exit 0 with warnings | C165948, four Basic passives and TPS55340 are import inspections, not qualified circuits. |
+| Four supported exact re-imports | each exit 0 | Metadata/USB geometry defects remain; main definitions were not replaced. |
+| Generated geometry comparison | identical | All PCB, CAD and schematic geometry records match the preceding revision; warnings/metadata differ. |
+
+Commands, exit codes, logs, dependency metadata and comparisons are in `evidence/update-20261027/`. All four Circuit JSON artifacts were freshly generated under the updated dependencies; hashes are in `build-artifact-checksums.json`. Current main JSON SHA-256: `414f0a076b385b3b880e753ed36642822cad919b3a1ca03222a2b10b6f97a795`.
+
+Actually inspected the regenerated native three-sheet schematic preview, PCB PNG and 3D PNG. Native frames remain visible, all seven unconnected parts remain, and the malformed connector fabrication diagonal remains visible. These are renders, not physical test evidence. No routing, routed shorts/snapshot acceptance, fabrication export or hardware test was performed because earlier gates remain blocked. No fabrication readiness, mechanical fit or FOC claim is made.

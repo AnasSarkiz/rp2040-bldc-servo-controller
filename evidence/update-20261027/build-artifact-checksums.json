@@ -1,0 +1,6 @@
+{
+  "dist/checks/basic-passives/circuit.json": "c80d925fdd84b87b2dc41e33040a8cc18a3cb6363a11fa40356600393a8d1dcf",
+  "dist/checks/tps55340-import-defect/circuit.json": "ba42907179a6c7dc03515f5939496511e8c5e153c1dde630b1805c0660570a1f",
+  "dist/checks/usb-c-c165948/circuit.json": "8d3e70b716b655a4a76a2caad911d018ee566fce03ed84542f70187ab52c5323",
+  "dist/index/circuit.json": "414f0a076b385b3b880e753ed36642822cad919b3a1ca03222a2b10b6f97a795"
+}

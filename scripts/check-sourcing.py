@@ -91,7 +91,7 @@ def check_sourcing():
     # These counts expose the still-failing hardware build. They are not waived
     # by a successful consistency audit, and are not prerequisites for its exit.
     summary = {
-        "revision": "engineering-review-prototype-0.0.3",
+        "revision": f'toolchain-review-prototype-{load_json("package.json")["version"]}',
         "audit_bom_matches_generated_fixture": True,
         "bom_component_rows": len(bom_rows),
         "unallocated_candidate_rows": len(candidate_rows),
@@ -105,7 +105,7 @@ def check_sourcing():
         "fabrication_ready": False,
         "circuit_json_sha256": hashlib.sha256(circuit_path.read_bytes()).hexdigest(),
     }
-    Path("evidence/tooling-20261026/bom-consistency.json").write_text(json.dumps(summary, indent=2) + "\n")
+    Path("evidence/bom-consistency.json").write_text(json.dumps(summary, indent=2) + "\n")
     print(json.dumps(summary, indent=2))
 
 

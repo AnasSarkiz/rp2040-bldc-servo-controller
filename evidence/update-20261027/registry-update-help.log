@@ -1,0 +1,12 @@
+Usage: tsci registry packages update [options]
+
+Update a package in the tscircuit registry
+
+Options:
+  --package-name <packageName>       Package name to update
+  --enable-public-dist               Enable public dist
+  --disable-public-dist              Disable public dist
+  --github-repo <owner/repo-or-url>  Link a GitHub repository by owner/repo or
+                                     URL
+  --unlink-github                    Remove the linked GitHub repository
+  -h, --help                         display help for command

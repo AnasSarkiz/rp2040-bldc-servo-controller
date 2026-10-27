@@ -1,0 +1,66 @@
+[
+  {
+    "part": "C169167",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "import",
+      "--jlcpcb",
+      "C169167",
+      "--download",
+      "--use-exact-footprint"
+    ],
+    "exit_code": 0,
+    "cwd": "evidence/update-20261027/reimports",
+    "log": "evidence/update-20261027/reimport-C169167.log"
+  },
+  {
+    "part": "C5218861",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "import",
+      "--jlcpcb",
+      "C5218861",
+      "--download",
+      "--use-exact-footprint"
+    ],
+    "exit_code": 0,
+    "cwd": "evidence/update-20261027/reimports",
+    "log": "evidence/update-20261027/reimport-C5218861.log"
+  },
+  {
+    "part": "C37616412",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "import",
+      "--jlcpcb",
+      "C37616412",
+      "--download",
+      "--use-exact-footprint"
+    ],
+    "exit_code": 0,
+    "cwd": "evidence/update-20261027/reimports",
+    "log": "evidence/update-20261027/reimport-C37616412.log"
+  },
+  {
+    "part": "C165948",
+    "command": [
+      "bunx",
+      "--no-install",
+      "tscircuit-cli",
+      "import",
+      "--jlcpcb",
+      "C165948",
+      "--download",
+      "--use-exact-footprint"
+    ],
+    "exit_code": 0,
+    "cwd": "evidence/update-20261027/reimports",
+    "log": "evidence/update-20261027/reimport-C165948.log"
+  }
+]

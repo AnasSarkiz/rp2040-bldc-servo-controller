@@ -1,0 +1,607 @@
+{
+  "previous_commit": "9ed1b4659f8c4da54e902c435cde6beb1dec5e5e",
+  "geometry_record_types": [
+    "cad_component",
+    "pcb_board",
+    "pcb_component",
+    "pcb_courtyard_outline",
+    "pcb_fabrication_note_path",
+    "pcb_plated_hole",
+    "pcb_port",
+    "pcb_silkscreen_circle",
+    "pcb_silkscreen_path",
+    "pcb_silkscreen_text",
+    "pcb_smtpad",
+    "pcb_solder_paste",
+    "schematic_component",
+    "schematic_group",
+    "schematic_port",
+    "schematic_sheet",
+    "schematic_text"
+  ],
+  "geometry_records_identical": true,
+  "geometry_record_count": 793,
+  "current_record_counts": {
+    "schematic_sheet": 3,
+    "source_group": 1,
+    "source_port": 169,
+    "source_component": 7,
+    "source_board": 1,
+    "source_refdes_convention_warning": 1,
+    "source_pin_missing_trace_warning": 28,
+    "source_no_power_pin_defined_warning": 2,
+    "source_no_ground_pin_defined_warning": 1,
+    "source_component_pins_underspecified_warning": 1,
+    "schematic_component": 7,
+    "schematic_text": 14,
+    "schematic_group": 1,
+    "schematic_port": 169,
+    "pcb_component": 7,
+    "pcb_board": 1,
+    "pcb_smtpad": 165,
+    "pcb_solder_paste": 173,
+    "pcb_silkscreen_path": 52,
+    "pcb_silkscreen_circle": 7,
+    "pcb_silkscreen_text": 6,
+    "pcb_courtyard_outline": 7,
+    "pcb_plated_hole": 4,
+    "pcb_fabrication_note_path": 1,
+    "pcb_port": 169,
+    "cad_component": 7,
+    "source_pin_must_be_connected_error": 13,
+    "source_component_availability_warning": 3,
+    "source_project_metadata": 1
+  },
+  "current_errors": [
+    {
+      "type": "source_pin_must_be_connected_error",
+      "source_pin_must_be_connected_error_id": "source_pin_must_be_connected_error_0",
+      "error_type": "source_pin_must_be_connected_error",
+      "message": "Port IOVDD6 on U1 must be connected but is floating",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_0",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_pin_must_be_connected_error",
+      "source_pin_must_be_connected_error_id": "source_pin_must_be_connected_error_1",
+      "error_type": "source_pin_must_be_connected_error",
+      "message": "Port IOVDD5 on U1 must be connected but is floating",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_9",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_pin_must_be_connected_error",
+      "source_pin_must_be_connected_error_id": "source_pin_must_be_connected_error_2",
+      "error_type": "source_pin_must_be_connected_error",
+      "message": "Port TESTEN on U1 must be connected but is floating",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_18",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_pin_must_be_connected_error",
+      "source_pin_must_be_connected_error_id": "source_pin_must_be_connected_error_3",
+      "error_type": "source_pin_must_be_connected_error",
+      "message": "Port IOVDD4 on U1 must be connected but is floating",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_21",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_pin_must_be_connected_error",
+      "source_pin_must_be_connected_error_id": "source_pin_must_be_connected_error_4",
+      "error_type": "source_pin_must_be_connected_error",
+      "message": "Port DVDD2 on U1 must be connected but is floating",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_22",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_pin_must_be_connected_error",
+      "source_pin_must_be_connected_error_id": "source_pin_must_be_connected_error_5",
+      "error_type": "source_pin_must_be_connected_error",
+      "message": "Port IOVDD3 on U1 must be connected but is floating",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_32",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_pin_must_be_connected_error",
+      "source_pin_must_be_connected_error_id": "source_pin_must_be_connected_error_6",
+      "error_type": "source_pin_must_be_connected_error",
+      "message": "Port IOVDD2 on U1 must be connected but is floating",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_41",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_pin_must_be_connected_error",
+      "source_pin_must_be_connected_error_id": "source_pin_must_be_connected_error_7",
+      "error_type": "source_pin_must_be_connected_error",
+      "message": "Port ADC_AVDD on U1 must be connected but is floating",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_42",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_pin_must_be_connected_error",
+      "source_pin_must_be_connected_error_id": "source_pin_must_be_connected_error_8",
+      "error_type": "source_pin_must_be_connected_error",
+      "message": "Port VREG_IN on U1 must be connected but is floating",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_43",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_pin_must_be_connected_error",
+      "source_pin_must_be_connected_error_id": "source_pin_must_be_connected_error_9",
+      "error_type": "source_pin_must_be_connected_error",
+      "message": "Port USB_VDD on U1 must be connected but is floating",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_47",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_pin_must_be_connected_error",
+      "source_pin_must_be_connected_error_id": "source_pin_must_be_connected_error_10",
+      "error_type": "source_pin_must_be_connected_error",
+      "message": "Port IOVDD1 on U1 must be connected but is floating",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_48",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_pin_must_be_connected_error",
+      "source_pin_must_be_connected_error_id": "source_pin_must_be_connected_error_11",
+      "error_type": "source_pin_must_be_connected_error",
+      "message": "Port DVDD1 on U1 must be connected but is floating",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_49",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_pin_must_be_connected_error",
+      "source_pin_must_be_connected_error_id": "source_pin_must_be_connected_error_12",
+      "error_type": "source_pin_must_be_connected_error",
+      "message": "Port GND on U1 must be connected but is floating",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_56",
+      "subcircuit_id": "subcircuit_source_group_0"
+    }
+  ],
+  "current_warnings": [
+    {
+      "type": "source_refdes_convention_warning",
+      "source_refdes_convention_warning_id": "source_refdes_convention_warning_0",
+      "warning_type": "source_refdes_convention_warning",
+      "message": "The \"J\" prefix is being used with a <chip />, try using it with a <connector /> or <jumper />",
+      "source_component_id": "source_component_6",
+      "refdes": "J1",
+      "source_component_ftype": "simple_chip",
+      "expected_prefixes": [
+        "U",
+        "IC"
+      ],
+      "actual_prefix": "J"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_0",
+      "message": "Port IOVDD6 on U1 is missing a trace",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_0",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_1",
+      "message": "Port IOVDD5 on U1 is missing a trace",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_9",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_2",
+      "message": "Port TESTEN on U1 is missing a trace",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_18",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_3",
+      "message": "Port IOVDD4 on U1 is missing a trace",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_21",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_4",
+      "message": "Port DVDD2 on U1 is missing a trace",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_22",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_5",
+      "message": "Port IOVDD3 on U1 is missing a trace",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_32",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_6",
+      "message": "Port IOVDD2 on U1 is missing a trace",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_41",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_7",
+      "message": "Port ADC_AVDD on U1 is missing a trace",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_42",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_8",
+      "message": "Port VREG_IN on U1 is missing a trace",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_43",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_9",
+      "message": "Port USB_VDD on U1 is missing a trace",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_47",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_10",
+      "message": "Port IOVDD1 on U1 is missing a trace",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_48",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_11",
+      "message": "Port DVDD1 on U1 is missing a trace",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_49",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_12",
+      "message": "Port GND on U1 is missing a trace",
+      "source_component_id": "source_component_0",
+      "source_port_id": "source_port_56",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_13",
+      "message": "Port AGND1 on U2 is missing a trace",
+      "source_component_id": "source_component_1",
+      "source_port_id": "source_port_58",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_14",
+      "message": "Port PGND1 on U2 is missing a trace",
+      "source_component_id": "source_component_1",
+      "source_port_id": "source_port_68",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_15",
+      "message": "Port PGND2 on U2 is missing a trace",
+      "source_component_id": "source_component_1",
+      "source_port_id": "source_port_71",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_16",
+      "message": "Port PGND3 on U2 is missing a trace",
+      "source_component_id": "source_component_1",
+      "source_port_id": "source_port_74",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_17",
+      "message": "Port AGND2 on U2 is missing a trace",
+      "source_component_id": "source_component_1",
+      "source_port_id": "source_port_82",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_no_power_pin_defined_warning",
+      "source_no_power_pin_defined_warning_id": "source_no_power_pin_defined_warning_0",
+      "warning_type": "source_no_power_pin_defined_warning",
+      "message": "U2 has no pin with requires_power=true",
+      "source_component_id": "source_component_1",
+      "source_port_ids": [
+        "source_port_57",
+        "source_port_58",
+        "source_port_59",
+        "source_port_60",
+        "source_port_61",
+        "source_port_62",
+        "source_port_63",
+        "source_port_64",
+        "source_port_65",
+        "source_port_66",
+        "source_port_67",
+        "source_port_68",
+        "source_port_69",
+        "source_port_70",
+        "source_port_71",
+        "source_port_72",
+        "source_port_73",
+        "source_port_74",
+        "source_port_75",
+        "source_port_76",
+        "source_port_77",
+        "source_port_78",
+        "source_port_79",
+        "source_port_80",
+        "source_port_81",
+        "source_port_82",
+        "source_port_83",
+        "source_port_84",
+        "source_port_85",
+        "source_port_86",
+        "source_port_87",
+        "source_port_88",
+        "source_port_89",
+        "source_port_90",
+        "source_port_91",
+        "source_port_92",
+        "source_port_93",
+        "source_port_94",
+        "source_port_95",
+        "source_port_96",
+        "source_port_97"
+      ],
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_18",
+      "message": "Port GND on U3 is missing a trace",
+      "source_component_id": "source_component_2",
+      "source_port_id": "source_port_107",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_19",
+      "message": "Port VSYS on U3 is missing a trace",
+      "source_component_id": "source_component_2",
+      "source_port_id": "source_port_119",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_20",
+      "message": "Port VDD on U3 is missing a trace",
+      "source_component_id": "source_component_2",
+      "source_port_id": "source_port_121",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_21",
+      "message": "Port EP on U3 is missing a trace",
+      "source_component_id": "source_component_2",
+      "source_port_id": "source_port_122",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_22",
+      "message": "Port GND on U4 is missing a trace",
+      "source_component_id": "source_component_3",
+      "source_port_id": "source_port_126",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_23",
+      "message": "Port VCC on U4 is missing a trace",
+      "source_component_id": "source_component_3",
+      "source_port_id": "source_port_130",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_24",
+      "message": "Port GND on U5 is missing a trace",
+      "source_component_id": "source_component_4",
+      "source_port_id": "source_port_135",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_25",
+      "message": "Port VCC on U5 is missing a trace",
+      "source_component_id": "source_component_4",
+      "source_port_id": "source_port_138",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_26",
+      "message": "Port VDD on U6 is missing a trace",
+      "source_component_id": "source_component_5",
+      "source_port_id": "source_port_149",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_pin_missing_trace_warning",
+      "source_pin_missing_trace_warning_id": "source_pin_missing_trace_warning_27",
+      "message": "Port GND on U6 is missing a trace",
+      "source_component_id": "source_component_5",
+      "source_port_id": "source_port_151",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_pin_missing_trace_warning"
+    },
+    {
+      "type": "source_no_power_pin_defined_warning",
+      "source_no_power_pin_defined_warning_id": "source_no_power_pin_defined_warning_1",
+      "warning_type": "source_no_power_pin_defined_warning",
+      "message": "J1 has no pin with requires_power=true",
+      "source_component_id": "source_component_6",
+      "source_port_ids": [
+        "source_port_153",
+        "source_port_154",
+        "source_port_155",
+        "source_port_156",
+        "source_port_157",
+        "source_port_158",
+        "source_port_159",
+        "source_port_160",
+        "source_port_161",
+        "source_port_162",
+        "source_port_163",
+        "source_port_164",
+        "source_port_165",
+        "source_port_166",
+        "source_port_167",
+        "source_port_168"
+      ],
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_no_ground_pin_defined_warning",
+      "source_no_ground_pin_defined_warning_id": "source_no_ground_pin_defined_warning_0",
+      "warning_type": "source_no_ground_pin_defined_warning",
+      "message": "J1 has no pin with requires_ground=true",
+      "source_component_id": "source_component_6",
+      "source_port_ids": [
+        "source_port_153",
+        "source_port_154",
+        "source_port_155",
+        "source_port_156",
+        "source_port_157",
+        "source_port_158",
+        "source_port_159",
+        "source_port_160",
+        "source_port_161",
+        "source_port_162",
+        "source_port_163",
+        "source_port_164",
+        "source_port_165",
+        "source_port_166",
+        "source_port_167",
+        "source_port_168"
+      ],
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_component_pins_underspecified_warning",
+      "source_component_pins_underspecified_warning_id": "source_component_pins_underspecified_warning_0",
+      "source_component_id": "source_component_6",
+      "source_port_ids": [
+        "source_port_153",
+        "source_port_154",
+        "source_port_155",
+        "source_port_156",
+        "source_port_157",
+        "source_port_158",
+        "source_port_159",
+        "source_port_160",
+        "source_port_161",
+        "source_port_162",
+        "source_port_163",
+        "source_port_164",
+        "source_port_165",
+        "source_port_166",
+        "source_port_167",
+        "source_port_168"
+      ],
+      "subcircuit_id": "subcircuit_source_group_0",
+      "warning_type": "source_component_pins_underspecified_warning",
+      "message": "All pins on J1 are underspecified (no pinAttributes set)"
+    },
+    {
+      "type": "source_component_availability_warning",
+      "source_component_availability_warning_id": "source_component_availability_warning_emTqx3pzZn",
+      "warning_type": "source_component_availability_warning",
+      "message": "U3 may not have availability from jlcpcb (C2678061).",
+      "source_component_id": "source_component_2",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "supplier_name": "jlcpcb",
+      "supplier_part_numbers": [
+        "C2678061"
+      ]
+    },
+    {
+      "type": "source_component_availability_warning",
+      "source_component_availability_warning_id": "source_component_availability_warning_XP5RVfu3LM",
+      "warning_type": "source_component_availability_warning",
+      "message": "U5 may not have availability from jlcpcb (C2671361).",
+      "source_component_id": "source_component_4",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "supplier_name": "jlcpcb",
+      "supplier_part_numbers": [
+        "C2671361"
+      ]
+    },
+    {
+      "type": "source_component_availability_warning",
+      "source_component_availability_warning_id": "source_component_availability_warning_i9jx1vox6H",
+      "warning_type": "source_component_availability_warning",
+      "message": "J1 may not have availability from jlcpcb (C37616412).",
+      "source_component_id": "source_component_6",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "supplier_name": "jlcpcb",
+      "supplier_part_numbers": [
+        "C37616412"
+      ]
+    }
+  ]
+}

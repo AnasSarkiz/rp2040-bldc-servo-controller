@@ -1,0 +1,22 @@
+$ python3 scripts/check-schematic-sheets.py
+{
+  "sheets": [
+    {
+      "sheet": "mcu",
+      "a4_frame_in_viewport": true,
+      "component_count": 2
+    },
+    {
+      "sheet": "power",
+      "a4_frame_in_viewport": true,
+      "component_count": 3
+    },
+    {
+      "sheet": "interfaces",
+      "a4_frame_in_viewport": true,
+      "component_count": 2
+    }
+  ],
+  "native_stacked_sheet_count": 3,
+  "electrical_review_passed": false
+}

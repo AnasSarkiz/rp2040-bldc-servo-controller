@@ -5,9 +5,17 @@
     "datasheets/**",
     "evidence/**",
     "mechanical/**",
-    "issue.md",
-    "VALIDATION.md",
-    "bun.lock"
+    "**/issue.md",
+    "**/VALIDATION.md",
+    "**/bun.lock",
+    "checks/**",
+    "dist/checks/**",
+    "imports/TPS55340RTER/**",
+    "imports/TYPE_C_31_M_12/**",
+    "imports/CL05B104KO5NNNC/**",
+    "imports/CL05A105KA5NQNC/**",
+    "imports/A_0402WGF1002TCE/**",
+    "imports/A_0402WGF1000TCE/**"
   ],
   "build": {
     "circuitJson": true,

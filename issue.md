@@ -1,6 +1,6 @@
 # Engineering and tooling issues
 
-Updated 2026-10-26. Current revision: engineering-review-prototype-0.0.3. The main board remains an unconnected imported-part inspection. Dependent work remains gated; unrelated investigation continues. No generated component definition is manually patched.
+Updated 2026-10-27. Current revision: toolchain-review-prototype-0.0.4. The main board remains an unconnected imported-part inspection. Dependent work remains gated; unrelated investigation continues. No generated component definition is manually patched.
 
 Triage distinction: I-002, I-007, I-009, I-013–I-018 concern tscircuit tooling/import/service behavior. I-003/I-010 are mechanical-document access blockers; I-005 is document acquisition; I-006/I-008 are unfinished engineering; I-011 is integration access. **I-012's earlier missing-frame claim is retracted**, and I-019 is a separate non-tscircuit preview issue with verified raw CSV data. An unconnected required pin in the unfinished main schematic is not, by itself, a tscircuit bug.
 
@@ -193,3 +193,27 @@ Category: BOM table presentation, bundled artifact-tool runtime 26.1017.22136. D
 Attempted fix: explicitly format the package column as text, including after writing values/styles, and retain the exact identifier from the primary record. Computed styles confirm numberFormat `@`, but the fresh `candidate-stock-v003.png` still displays `402`. Thus the **preview rendering defect remains open**; formatting did not resolve it. The raw exported CSV is checked literally for `0402` for all four Basic candidates, and `scripts/check-sourcing.py` compares those strings to primary records. No apostrophe or invented package code was inserted to mask the renderer behavior.
 
 Evidence: `evidence/tooling-20261026/refresh-sourcing.mjs`, `candidate-identifier-style.ndjson`, `csv-identifier-probe.mjs/.json`, `candidate-stock-v003.png`, and the raw candidate CSV. No electronic definition changed. Raw CSV/source correctness is verified; a claim that the preview itself is corrected would be false. The defect blocks approval of that preview's identifier display, not identification of the actual imported 0402 parts.
+
+## 2026-10-27 update recheck — CLI 0.1.2414 / tscircuit 0.0.3028
+
+- **I-002 source-level fix confirmed:** `pushSnippet` now loads project configuration and passes `...projectConfig?.ignoredFiles ?? []` into `getPackageFilePaths`. See `evidence/update-20261027/publish-source-review-expanded.json` and `push-help.log`. The supported `--include-dist` flag remains available. Explicit wildcard filename patterns are used in the configuration, with excluded candidate fixtures/imports; no hidden-folder staging or dependency patch is used. End-to-end publication/file exclusion is verified separately below when upload completes.
+- **I-007/I-009/I-014/I-018 remain blocking for dependent hardware work:** four supported exact re-imports succeed under `evidence/update-20261027/reimports/` but retain the malformed USB fabrication path, missing driver VM/USB power-ground roles, and C169167 pins 10/14 marked do-not-connect. No main import was overwritten or patched. Commands/results are in `reimport-results.json` and `reimport-C*.log`.
+- **I-015 index coverage persists and now affects main-fixture warnings:** exact searches for C1525, C2678061, C2671361 and C37616412 return empty results. Main JSON contains availability warnings for the latter three. This does not establish zero supplier stock: primary inventory remains the explicitly dated 2026-10-26 snapshot; it was not refreshed in this toolchain-only step. Do not reinterpret a search-index gap as a proven shortage. Search JSON and build logs are in `evidence/update-20261027/`.
+- **I-016 persists:** C165948 pin check still claims no attributes are set despite eight passive declarations. The new bundled checker still omits `is_passive` from its coverage-key list. Three warnings remain; genuine power/ground omissions are not waived.
+- **I-017 persists:** TPS55340 and LM5122 family searches still return unrelated parts. No unrelated result was adopted.
+- **I-006 remains unfinished engineering:** all 169 main ports are unconnected; 13 mandatory RP2040 pins cause build exit 1. All five check commands exit 0, so their exit codes must not be represented as completed connectivity validation. Geometry equality against 9ed1b4659f8c4da54e902c435cde6beb1dec5e5e is recorded in `build-comparison.json`.
+
+## I-020 - Upstream dependency peer-version incompatibilities (OPEN)
+
+Affected stage: reproducible toolchain installation/compatibility review. On Bun 1.3.9:
+
+```sh
+bun add --dev --exact tscircuit@0.0.3028 @tscircuit/cli@0.1.2414
+bun install --frozen-lockfile
+bun run typecheck
+bunx --no-install tscircuit-cli build index.circuit.tsx --pcb-png --pcb-svgs --schematic-svgs --schematic-png --3d
+```
+
+The update succeeds but emits incorrect-peer warnings for `circuit-to-svg@0.0.453`, `react-dom@19.3.1` and `react@19.3.1`. Verified installed manifests show CLI 0.1.2414 declaring peer `circuit-to-svg: ^0.0.447`, while tscircuit 0.0.3028 requires `^0.0.453`. Under semver's 0.0.x rules those ranges do not overlap. `jscad-fiber` 0.0.92 and `jscad-electronics` 0.0.210 declare exact React/React DOM 19.1.0 peers, while the library's broad dependencies resolve 19.3.1.
+
+Evidence: official npm metadata and `installed-versions-and-peers.json` in `evidence/update-20261027/`, refreshed `bun.lock`, frozen-install/typecheck/build logs. The frozen install exits 0; TypeScript, rendering and isolated fixture builds work in the exercised paths. The main build fails on the same 13 hardware connectivity errors, not a proven peer-mismatch crash. No blanket runtime compatibility is claimed. Attempted diagnosis: inspect actual manifests, identify the conflicting ranges and rerun software/render checks. Proper resolution is compatible upstream package declarations/releases. No override, warning suppression, forced downgrade or dependency patch is used. Status: unresolved packaging warning, distinct from the hardware blockers.

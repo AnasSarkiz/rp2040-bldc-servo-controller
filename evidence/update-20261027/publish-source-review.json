@@ -1,0 +1,22 @@
+{
+  "getPackageFilePaths(projectDir, includeDist": {
+    "offset": -1,
+    "excerpt": null
+  },
+  "async function getPackageFilePaths": {
+    "offset": -1,
+    "excerpt": null
+  },
+  "async function pushSnippet": {
+    "offset": -1,
+    "excerpt": null
+  },
+  "ignoredFiles": {
+    "offset": 6891442,
+    "excerpt": "entPath: z.string().optional(),\n  siteDefaultComponentPath: z.string().optional(),\n  extraRunFrameTabs: z.array(extraRunFrameTabSchema).optional(),\n  ignoredFiles: z.array(z.string()).optional(),\n  includeBoardFiles: z.array(z.string()).optional(),\n  snapshotsDir: z.string().optional(),\n  pcbSnapshotSettings: pcbSnapshotSettingsSchema.optional(),\n  prebuildCommand: z.string().optional(),\n  buildCommand: z.string().optional(),\n  kicadProjectEntrypointPath: z.string().optional(),\n  kicadLibraryEntrypointPath: z.string().optional(),\n  kicadLibraryName: z.string().optional(),\n  kicadPcm: kicadPcmSettingsSchema.optional(),\n  alwaysUseLatestTscircuitOnCloud: z.boolean().optional(),\n  useCloudAutorouting: z.boolean().optional(),\n  build: z.object({\n    circuitJson: z.boolean().optional(),\n    kicadProject: z.boolean().optional(),\n    kicadLibrary: z.boolean().optional(),\n    kicadPcm: z.boolean().optional(),\n    previewImages: z.boolean().optional(),\n    drawings: z.boolean().optional(),\n    drawing: z.string().optional(),\n    glbs: z.boolean().optional(),\n    step: z.boolean().optional(),\n    workerTimeoutMs: z.number().int().positive().optional(),\n    routingDisabled: z.boolean().optional(),\n    typescriptLibrary: z.boolean().optional("
+  },
+  "PIN_ATTRIBUTE_KEYS": {
+    "offset": 42248093,
+    "excerpt": "? \"\",\n          source_port_id: port.source_port_id,\n          subcircuit_id: port.subcircuit_id\n        });\n      }\n    }\n  }\n  return errors;\n}\nvar PIN_ATTRIBUTE_KEYS = [\n  \"must_be_connected\",\n  \"provides_power\",\n  \"requires_power\",\n  \"provides_ground\",\n  \"requires_ground\",\n  \"provides_voltage\",\n  \"requires_voltage\",\n  \"do_not_connect\",\n  \"include_in_board_pinout\",\n  \"can_use_internal_pullup\",\n  \"is_using_internal_pullup\",\n  \"needs_external_pullup\",\n  \"can_use_internal_pulldown\",\n  \"is_using_internal_pulldown\",\n  \"needs_external_pulldown\",\n  \"can_use_open_drain\",\n  \"is_using_open_drain\",\n  \"can_use_push_pull\",\n  \"is_using_push_pull\",\n  \"should_have_decoupling_capacitor\",\n  \"recommended_decoupling_capacitor_capacitance\",\n  \"is_configured_for_i2c_sda\",\n  \"is_configured_for_i2c_scl\",\n  \"is_configured_for_spi_mosi\",\n  \"is_configured_for_spi_miso\",\n  \"is_configured_for_spi_sck\",\n  \"is_configured_for_spi_cs\",\n  \"is_configured_for_uart_tx\",\n  \"is_configured_for_uart_rx\",\n  \"supports_i2c_sda\",\n  \"supports_i2c_scl\",\n  \"supports_spi_mosi\",\n  \"supports_spi_miso\",\n  \"supports_spi_sck\",\n  \"supports_spi_cs\",\n  \"supports_uart_tx\",\n  \"supports_uart_rx\"\n];\nfunction hasAnyPinAttribute(port) {\n  return PIN_ATTRIBUTE_KEYS.some((key) => port[key] !"
+  }
+}
