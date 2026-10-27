@@ -1,0 +1,56 @@
+⬆︎ BOM.csv
+⬆︎ PIN-REVIEW.md
+⬆︎ POWER-REVIEW.md
+⬆︎ README.md
+⬆︎ SOURCING-CANDIDATES.csv
+⬆︎ SOURCING.md
+⬆︎ biome.json
+📦 dist/index/3d.png
+⬆︎ dist/index/circuit.json
+📦 dist/index/pcb.png
+⬆︎ dist/index/pcb.svg
+📦 dist/index/schematic-all-sheets.png
+⬆︎ dist/index/schematic-all-sheets.svg
+📦 dist/index/schematic-interfaces.png
+⬆︎ dist/index/schematic-interfaces.svg
+📦 dist/index/schematic-mcu.png
+⬆︎ dist/index/schematic-mcu.svg
+📦 dist/index/schematic-power.png
+⬆︎ dist/index/schematic-power.svg
+📦 dist/index/schematic.png
+⬆︎ dist/index/schematic.svg
+⬆︎ imports/AS5047P_ATSM.tsx
+📦 imports/DRV8316RRGFR/DRV8316RRGFR.obj
+⬆︎ imports/DRV8316RRGFR/DRV8316RRGFR.step
+⬆︎ imports/DRV8316RRGFR/DRV8316RRGFR.tsx
+📦 imports/RP2040/RP2040.obj
+⬆︎ imports/RP2040/RP2040.step
+⬆︎ imports/RP2040/RP2040.tsx
+📦 imports/STUSB4500QTR/STUSB4500QTR.obj
+📦 imports/STUSB4500QTR/STUSB4500QTR.step
+⬆︎ imports/STUSB4500QTR/STUSB4500QTR.tsx
+📦 imports/THVD1450DR/THVD1450DR.obj
+⬆︎ imports/THVD1450DR/THVD1450DR.step
+⬆︎ imports/THVD1450DR/THVD1450DR.tsx
+📦 imports/USB4215_03_A/USB4215_03_A.obj
+⬆︎ imports/USB4215_03_A/USB4215_03_A.step
+⬆︎ imports/USB4215_03_A/USB4215_03_A.tsx
+📦 imports/W25Q16JVSSIQ/W25Q16JVSSIQ.obj
+⬆︎ imports/W25Q16JVSSIQ/W25Q16JVSSIQ.step
+⬆︎ imports/W25Q16JVSSIQ/W25Q16JVSSIQ.tsx
+⬆︎ index.circuit.tsx
+⬆︎ package.json
+⬆︎ scripts/check-schematic-sheets.py
+⬆︎ scripts/check-sourcing.py
+⬆︎ scripts/power-envelope.py
+⬆︎ scripts/render-import-sheets.mjs
+⬆︎ tscircuit.config.json
+⬆︎ tsconfig.json
+
+
+Upload Summary
+  Succeeded: 48 files
+
+
+"@tsci/AnasSarkiz.rp2040-bldc-servo-controller@0.0.5" published!
+https://tscircuit.com/AnasSarkiz/rp2040-bldc-servo-controller
